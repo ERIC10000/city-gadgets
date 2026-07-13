@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "consoles",
+    "name": "Gaming Consoles & Handhelds",
+    "icon": "sports_esports",
+    "heroTagline": "Next-gen power, zero compromise.",
+    "heroImage": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "gaming-accessories",
+    "name": "Gaming Accessories",
+    "icon": "sports_esports",
+    "heroTagline": "Level up your setup.",
+    "heroImage": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "audio",
+    "name": "Audio & Mics",
+    "icon": "headphones",
+    "heroTagline": "Studio-grade sound, anywhere.",
+    "heroImage": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "cameras",
+    "name": "Action Cameras & Gimbals",
+    "icon": "photo_camera",
+    "heroTagline": "Capture every angle in motion.",
+    "heroImage": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "wearables",
+    "name": "Smartwatches & Rings",
+    "icon": "watch",
+    "heroTagline": "Precision on your wrist.",
+    "heroImage": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "macbooks",
+    "name": "MacBooks & Computers",
+    "icon": "laptop_mac",
+    "heroTagline": "Pro-grade performance, all-day battery.",
+    "heroImage": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "tablets",
+    "name": "Tablets",
+    "icon": "tablet_mac",
+    "heroTagline": "A pro studio that fits in one hand.",
+    "heroImage": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "streaming",
+    "name": "Streaming Devices",
+    "icon": "tv",
+    "heroTagline": "Every app, every screen, instantly.",
+    "heroImage": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "accessories",
+    "name": "Tech Accessories",
+    "icon": "cable",
+    "heroTagline": "The small parts that make it perfect.",
+    "heroImage": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "slug": "phones",
+    "name": "Latest Mobile Phones",
+    "icon": "smartphone",
+    "heroTagline": "The newest flagships, landing in Nairobi first.",
+    "heroImage": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=1600&q=80&auto=format&fit=crop"
+  }
+]
