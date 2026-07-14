@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
-import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
-import { CartHydrator } from "@/components/cart/CartHydrator";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -45,12 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col bg-surface font-sans text-on-surface antialiased">
-        <CartHydrator />
-        <Header />
-        <main className="flex-1 pb-20 md:pb-0">{children}</main>
-        <Footer />
-        <MobileBottomNav />
-        <WhatsAppFAB />
+        {children}
       </body>
     </html>
   );

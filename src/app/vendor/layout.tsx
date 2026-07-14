@@ -40,9 +40,9 @@ export default async function VendorLayout({ children }: { children: React.React
   }
 
   return (
-    <div className="flex min-h-[70vh]">
+    <div className="flex min-h-screen bg-surface-off-white">
       <VendorSidebar />
-      <div className="min-w-0 flex-1 bg-surface-off-white p-6 md:p-10">{children}</div>
+      <div className="min-w-0 flex-1 p-6 md:p-10">{children}</div>
     </div>
   );
 }
