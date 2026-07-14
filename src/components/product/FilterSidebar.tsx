@@ -20,6 +20,11 @@ export function FilterSidebar({
   const selectedBrands = searchParams.getAll("brand");
   const [minPrice, setMinPrice] = useState(searchParams.get("min") ?? "");
   const [maxPrice, setMaxPrice] = useState(searchParams.get("max") ?? "");
+  const [brandQuery, setBrandQuery] = useState("");
+
+  const visibleBrands = brandQuery
+    ? brands.filter((b) => b.toLowerCase().includes(brandQuery.toLowerCase()))
+    : brands;
 
   function pushParams(mutate: (params: URLSearchParams) => void) {
     const params = new URLSearchParams(searchParams.toString());
@@ -70,19 +75,34 @@ export function FilterSidebar({
 
       {brands.length > 0 && (
         <div className="space-y-3">
-          <h4 className="text-label-caps font-bold text-on-surface-variant">Brand</h4>
-          <div className="space-y-2">
-            {brands.map((brand) => (
+          <div className="flex items-baseline justify-between">
+            <h4 className="text-label-caps font-bold text-on-surface-variant">Brand</h4>
+            <span className="text-badge-text text-on-surface-variant">{brands.length}</span>
+          </div>
+          {brands.length > 8 && (
+            <input
+              type="search"
+              value={brandQuery}
+              onChange={(e) => setBrandQuery(e.target.value)}
+              placeholder="Search brand…"
+              className="w-full rounded-lg border border-outline-variant px-3 py-2 text-body-sm focus:border-on-surface focus:outline-none"
+            />
+          )}
+          <div className="scrollbar-thin max-h-64 space-y-2 overflow-y-auto pr-1">
+            {visibleBrands.map((brand) => (
               <label key={brand} className="flex cursor-pointer items-center gap-3 text-body-sm text-on-surface">
                 <input
                   type="checkbox"
                   checked={selectedBrands.includes(brand)}
                   onChange={() => toggleBrand(brand)}
-                  className="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary"
+                  className="h-4 w-4 rounded border-outline-variant text-on-surface accent-on-surface focus:ring-0"
                 />
                 {brand}
               </label>
             ))}
+            {visibleBrands.length === 0 && (
+              <p className="text-body-sm text-on-surface-variant">No brands match “{brandQuery}”.</p>
+            )}
           </div>
         </div>
       )}
