@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { formatKES, slugifyPhone } from "@/lib/format";
+import { WHATSAPP_PRIMARY } from "@/lib/contact";
 import { useCartStore } from "@/store/cart";
 import { createOrder } from "@/lib/actions/orders";
 import { cn } from "@/lib/utils";
@@ -51,7 +52,7 @@ export function CheckoutView() {
     if (method === "whatsapp") {
       const itemList = lines.map((l) => `• ${l.name} x${l.quantity}`).join("%0A");
       const text = `Hi! I'd like to complete my order (Ref: ${result.orderId.slice(0, 8).toUpperCase()}):%0A${itemList}%0A%0ATotal: ${formatKES(total)}`;
-      window.open(`https://wa.me/254700000000?text=${text}`, "_blank");
+      window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${text}`, "_blank");
     }
 
     clear();

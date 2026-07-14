@@ -27,6 +27,7 @@ export type ProductQuery = {
   limit?: number;
   offset?: number;
   featuredOnly?: boolean;
+  onSaleOnly?: boolean;
 };
 
 export type ProductPage = { items: Product[]; total: number };
@@ -53,6 +54,7 @@ function queryFromSeed(query: ProductQuery): ProductPage {
 
   if (query.categorySlug) items = items.filter((p) => p.category_slug === query.categorySlug);
   if (query.featuredOnly) items = items.filter((p) => p.is_featured);
+  if (query.onSaleOnly) items = items.filter((p) => p.compare_at_price != null && p.compare_at_price > p.price);
   if (query.brands?.length) items = items.filter((p) => p.brand && query.brands!.includes(p.brand));
   if (query.minPrice != null) items = items.filter((p) => p.price >= query.minPrice!);
   if (query.maxPrice != null) items = items.filter((p) => p.price <= query.maxPrice!);
@@ -79,6 +81,7 @@ export async function getProducts(query: ProductQuery = {}): Promise<ProductPage
 
   if (query.categorySlug) request = request.eq("categories.slug", query.categorySlug);
   if (query.featuredOnly) request = request.eq("is_featured", true);
+  if (query.onSaleOnly) request = request.not("compare_at_price", "is", null);
   if (query.brands?.length) request = request.in("brand", query.brands);
   if (query.minPrice != null) request = request.gte("price", query.minPrice);
   if (query.maxPrice != null) request = request.lte("price", query.maxPrice);

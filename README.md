@@ -1,6 +1,6 @@
 # City Gadgets
 
-A premium e-commerce platform for **City Gadgets** — a Nairobi-based electronics, gaming & lifestyle-tech retailer. Built from a Google Stitch design system ("Urban Tech Aesthetic") into a production-grade Next.js storefront with a vendor CMS, cart & checkout, a video-inspiration feed, and full SEO.
+A premium e-commerce platform for **City Gadgets** — a Nairobi-based electronics, gaming & lifestyle-tech retailer. A production-grade Next.js storefront with a **Reebelo-style refurb-marketplace interface**, a vendor CMS, cart & checkout, a Hot Deals experience, a video-inspiration feed, and full SEO. Prices in **Kenyan Shillings (KES)**.
 
 ![Stack](https://img.shields.io/badge/Next.js-16-black) ![Stack](https://img.shields.io/badge/React-19-blue) ![Stack](https://img.shields.io/badge/TypeScript-5-blue) ![Stack](https://img.shields.io/badge/Tailwind-v4-06B6D4) ![Stack](https://img.shields.io/badge/Supabase-Postgres-3FCF8E)
 
@@ -10,45 +10,66 @@ A premium e-commerce platform for **City Gadgets** — a Nairobi-based electroni
 | --- | --- |
 | Framework | Next.js 16 (App Router, Server Components, Server Actions) |
 | Language | TypeScript |
-| Styling | Tailwind CSS v4 (design tokens ported from `DESIGN.md`) |
-| Animation | Framer Motion (hero slider, add-to-cart state machine, video modal, page micro-interactions) |
+| Styling | Tailwind CSS v4 — semantic tokens in `globals.css` (`@theme`) |
+| Design | "Refurb marketplace" system inspired by Reebelo — white canvas, cyan→mint hero gradient, solid-black CTAs, red discount badges, Trustpilot green |
+| Animation | Framer Motion (hero carousel, add-to-cart state machine, video modal, hover micro-interactions) |
 | Backend / DB | Supabase (Postgres + Auth + Storage) |
 | Cart state | Zustand (with `localStorage` persistence) |
-| Fonts | Manrope (Google Fonts) + Material Symbols |
+| Fonts | Poppins (Google Fonts) + Material Symbols |
 | Images | `next/image` with Unsplash + Supabase Storage remote patterns |
 
 ### Runs with zero backend
 
-The storefront is **fully browsable without any backend**. Until you add Supabase credentials, the data layer (`src/lib/data/*`) transparently serves a **bundled seed catalog of 165 products across 10 categories** (147 from the client's price list + 18 mobile phones added for the "Latest Mobile Phones" category, spanning the brands that actually move in the Nairobi market — Apple/Samsung/Google at the top end, Tecno/Infinix/Xiaomi for mid and budget tiers). Auth, order persistence, and the vendor CMS show a friendly "Connect Supabase" notice until configured.
+The storefront is **fully browsable without any backend**. Until Supabase credentials are present, the data layer (`src/lib/data/*`) transparently serves a **bundled seed catalog of 288 products across 10 categories, spanning 75 real brands** — generated from the client's price list plus a broad brand catalog (Apple, Samsung, Google, OnePlus, Oppo, Vivo, Dell, HP, Lenovo, Asus, Bose, Sony, JBL, Garmin, Canon, Razer, and many more). Auth, order persistence, and the vendor CMS show a friendly "Connect Supabase" notice until configured.
 
 ## Quick start
 
 ```bash
 npm install
 npm run dev
-# open http://localhost:3000
+# open http://localhost:3010
 ```
 
-That's it for browsing the storefront, product pages, cart, and checkout (checkout completes with a simulated M-Pesa STK push and a generated order reference).
+That's it for browsing the storefront, product pages, Hot Deals (`/deals`), cart, and checkout (checkout completes with a simulated M-Pesa STK push and a generated order reference).
 
 ## Connecting Supabase (auth, orders, vendor CMS)
 
-1. **Create a project** at [supabase.com](https://supabase.com).
+The app reads from Supabase the moment `NEXT_PUBLIC_SUPABASE_URL` **and** `NEXT_PUBLIC_SUPABASE_ANON_KEY` are set; otherwise it uses the bundled seed catalog.
+
+1. **Create a project** at [supabase.com](https://supabase.com) (or use your existing one).
 2. **Copy env vars** — duplicate `.env.local.example` to `.env.local` and fill in:
    - `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Project Settings → API)
-   - `SUPABASE_SERVICE_ROLE_KEY` (only used by the seeding script)
+   - `DB_URL` — the direct-DB connection string used by `npm run db:push` (see below)
    - `NEXT_PUBLIC_SITE_URL` (your deployed URL, for SEO/OG tags)
-3. **Run the schema migration** — open the Supabase SQL editor and paste the contents of
-   [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql). This creates all tables,
-   the `handle_new_user` trigger, Row-Level-Security policies, and a public `media` storage bucket.
-4. **Seed the catalog** — either:
-   - paste [`supabase/seed.sql`](supabase/seed.sql) into the SQL editor, **or**
-   - run `npm run seed:push` (uses the service-role key to upsert products + images).
-5. **Restart** `npm run dev`. Sign-up, login, order history, and the vendor CMS now work.
+3. **Push the schema + catalog** in one command (creates all tables, RLS policies, the
+   `handle_new_user` trigger, and seeds the 288-product catalog):
+
+   ```bash
+   npm run db:push
+   ```
+
+   It's idempotent — it skips the schema if it already exists and just re-seeds, so re-run it
+   any time after `npm run seed:generate`. (You can also paste
+   [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql) then
+   [`supabase/seed.sql`](supabase/seed.sql) into the Supabase SQL editor by hand.)
+4. **Restart** `npm run dev`. Sign-up, login, order history, and the vendor CMS now work.
+
+### IPv4 note (connection pooler)
+
+Supabase's direct database host `db.<ref>.supabase.co` is **IPv6-only**. On an IPv4-only network
+(and from most CI/hosts) it's unreachable, and so is the MCP server that relies on it. Use the
+**Supavisor connection pooler** instead — an IPv4 endpoint:
+
+```
+postgresql://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres
+```
+
+Find it in the dashboard under **Connect → Session pooler**. The username is `postgres.<project-ref>`.
+This is the `DB_URL` that `npm run db:push` uses.
 
 ### Promoting a vendor account
 
-New sign-ups are `customer` by default. To grant CMS access, set a user's role to `vendor` (or `admin`) in the `profiles` table:
+New sign-ups are `customer` by default. To grant CMS access, set a user's role to `vendor` (or `admin`):
 
 ```sql
 update public.profiles set role = 'vendor' where id = (
@@ -60,57 +81,69 @@ Then visit `/vendor` to manage products and video inspiration.
 
 ## Product catalog & seeding
 
-The raw price list lives in [`scripts/generate-seed.ts`](scripts/generate-seed.ts). It parses the
-list, categorizes each item, infers brand + specs, assigns validated Unsplash placeholder images, and
-emits deterministic stock/rating data. Regenerate any time with:
+The catalog + brand logic lives in [`scripts/generate-seed.ts`](scripts/generate-seed.ts). It parses the
+product list, categorizes each item, infers the brand (~75 rules) and specs, assigns visually-verified
+Unsplash placeholder images, and emits deterministic stock/rating/discount data. Regenerate any time:
 
 ```bash
 npm run seed:generate   # → src/data/seed/*.json  +  supabase/seed.sql
+npm run db:push         # → sync the regenerated catalog to Supabase
 ```
 
 | Category | Slug | Items |
 | --- | --- | --- |
-| Gaming Consoles & Handhelds | `consoles` | 28 |
-| Gaming Accessories | `gaming-accessories` | 21 |
-| Audio & Mics | `audio` | 19 |
-| Action Cameras & Gimbals | `cameras` | 15 |
-| Smartwatches & Rings | `wearables` | 13 |
-| MacBooks & Computers | `macbooks` | 10 |
-| Tablets (iPad) | `tablets` | 12 |
-| Streaming Devices | `streaming` | 10 |
-| Tech Accessories | `accessories` | 19 |
-| Latest Mobile Phones | `phones` | 18 (added on request; not in the original price list) |
+| Latest Mobile Phones | `phones` | 41 |
+| Audio & Mics | `audio` | 37 |
+| Gaming Accessories | `gaming-accessories` | 34 |
+| Gaming Consoles & Handhelds | `consoles` | 32 |
+| Laptops & Computers | `macbooks` | 29 |
+| Tech Accessories | `accessories` | 29 |
+| Smartwatches & Rings | `wearables` | 25 |
+| Action Cameras & Gimbals | `cameras` | 25 |
+| Tablets | `tablets` | 20 |
+| Streaming Devices | `streaming` | 16 |
 
 ## Payments
 
 The checkout M-Pesa flow is a **UI-complete simulation** of a Safaricom Daraja STK push (see
 `src/components/checkout/CheckoutView.tsx` and `src/lib/actions/orders.ts`). To go live, wire the
-`createOrder` server action to the Daraja `/stkpush` endpoint using your merchant credentials
-(paybill/till, consumer key/secret, passkey). WhatsApp checkout is fully functional — it deep-links a
-pre-filled order message to the store's WhatsApp number.
+`createOrder` server action to the Daraja `/stkpush` endpoint using your merchant credentials. WhatsApp
+checkout is fully functional — it deep-links a pre-filled order message to the store's WhatsApp lines
+(**0745 575 931** / **0794 488 806**, configured in `src/lib/contact.ts`).
+
+## Key routes
+
+| Route | What |
+| --- | --- |
+| `/` | Home — hero carousel, category circles, Customer Favorites, Today's Top Deals (live countdown), section rails, Circular Economy videos |
+| `/deals` | Hot Deals — dark banner, featured deals, category chips, price slider + brand/category filters, promo tiles |
+| `/shop`, `/category/[slug]` | Listing pages with filter sidebar, sort, pagination |
+| `/product/[slug]` | Product detail + dynamic OG image + Product/Offer/Breadcrumb JSON-LD |
+| `/cart`, `/checkout` | Cart + checkout (M-Pesa sim / WhatsApp) + order success |
+| `/account/*` | Customer dashboard, orders, addresses, settings |
+| `/vendor/*` | Role-gated CMS — product CRUD + video uploads |
+| `/inspiration` | Video showcase feed |
 
 ## Project structure
 
 ```
 src/
-├─ app/                      # App Router routes
-│  ├─ page.tsx               # Home (hero slider, categories, best-sellers)
-│  ├─ shop/ category/[slug]/ # Listing pages (filters, sort, pagination)
-│  ├─ product/[slug]/        # Product detail (+ dynamic OG image, JSON-LD)
-│  ├─ cart/ checkout/        # Cart + checkout + order success
-│  ├─ account/               # Customer dashboard, orders, addresses, settings
-│  ├─ vendor/                # Role-gated CMS (products CRUD, video uploads)
-│  ├─ inspiration/           # Dark-themed video showcase feed
-│  ├─ login/ signup/         # Supabase auth
-│  ├─ sitemap.ts robots.ts manifest.ts
-├─ components/               # ui/ layout/ product/ cart/ checkout/ account/ vendor/ home/ inspiration/
+├─ app/                      # App Router routes (see table above)
+├─ components/
+│  ├─ layout/                # Header (2-row Reebelo nav), Footer, SearchBar, AllItemsMenu, WhatsAppFAB
+│  ├─ home/                  # HeroCarousel, PopularCategories, TabbedProductRail, TopDeals, RefurbishedBanner, SectionRail, CircularEconomy, TrustStrip, Trustpilot
+│  ├─ deals/                 # HotDealsBanner, FeaturedDeals, DealsExplorer, PriceRangeSlider
+│  ├─ product/ cart/ checkout/ account/ vendor/ ui/
 ├─ lib/
 │  ├─ data/                  # Data-access layer (Supabase → seed fallback)
 │  ├─ actions/               # Server actions (auth, orders, products, videos, addresses)
-│  ├─ supabase/              # Browser + server clients
-│  └─ seo.ts format.ts types.ts
+│  ├─ contact.ts             # WhatsApp numbers + deep-link helper
+│  ├─ supabase/ seo.ts format.ts types.ts env.ts
 ├─ store/cart.ts             # Zustand cart (localStorage-persisted)
 └─ proxy.ts                  # Session-refresh middleware (Next 16 "proxy")
+scripts/
+├─ generate-seed.ts          # Catalog + brand generator
+└─ db-push.mjs               # Idempotent schema + seed push via the IPv4 pooler
 supabase/
 ├─ migrations/0001_init.sql  # Schema + RLS + storage
 └─ seed.sql                  # Generated catalog inserts
@@ -120,21 +153,30 @@ supabase/
 
 - Per-page `generateMetadata` with Open Graph + Twitter cards
 - **JSON-LD**: `Organization` + `WebSite` (home), `Product` + `Offer` + `AggregateRating` + `BreadcrumbList` (product pages)
-- Dynamic per-product **OG images** via `next/og` (`product/[slug]/opengraph-image.tsx`)
-- `sitemap.xml` (all products + categories), `robots.txt`, and a PWA `manifest.webmanifest`
+- Dynamic per-product **OG images** via `next/og`
+- `sitemap.xml` (all products + categories + `/deals`), `robots.txt`, PWA `manifest.webmanifest`
 - Semantic HTML, `next/image` with alt text everywhere
 
 ## Scripts
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Start the dev server |
+| `npm run dev` | Start the dev server (port 3010) |
 | `npm run build` | Production build |
 | `npm run start` | Serve the production build |
 | `npm run lint` | ESLint |
-| `npm run seed:generate` | Regenerate seed JSON + `supabase/seed.sql` from the price list |
-| `npm run seed:push` | Push the seed catalog into Supabase (needs service-role key) |
+| `npm run seed:generate` | Regenerate seed JSON + `supabase/seed.sql` |
+| `npm run db:push` | Apply schema (first run) + seed the catalog to Supabase via `DB_URL` |
+
+## Deployment (Vercel)
+
+Deployed from GitHub (`ERIC10000/city-gadgets`, `master` branch). Set these in **Vercel → Project →
+Settings → Environment Variables** (they are not read from `.env.local` in production):
+
+- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` — to serve the live catalog (otherwise the
+  bundled seed catalog is used, which still renders the full store)
+- `NEXT_PUBLIC_SITE_URL` — your production URL, for canonical links / OG / sitemap
 
 ## License
 
-Private project for City Gadgets. Design system derived from the provided Google Stitch export.
+Private project for City Gadgets.

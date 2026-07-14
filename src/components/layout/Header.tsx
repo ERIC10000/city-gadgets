@@ -1,70 +1,86 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { CartBadge } from "@/components/cart/CartBadge";
-import { NavLink } from "@/components/layout/NavLink";
 import { LogoMark } from "@/components/layout/LogoMark";
+import { SearchBar } from "@/components/layout/SearchBar";
+import { AllItemsMenu } from "@/components/layout/AllItemsMenu";
+import { getCategories } from "@/lib/data/categories";
 
+// Reebelo-style category nav. Labels mirror the reference; each points at a real
+// City Gadgets route (Home/Fashion swapped for Audio/Cameras which we stock).
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/shop", label: "Shop" },
+  { href: "/deals", label: "Deals", flame: true },
+  { href: "/category/phones?brand=Apple", label: "iPhones" },
+  { href: "/category/phones?brand=Samsung", label: "Samsung Phones" },
+  { href: "/category/macbooks", label: "Laptops" },
+  { href: "/category/tablets", label: "Tablets" },
+  { href: "/category/wearables", label: "Smartwatches" },
+  { href: "/category/audio", label: "Audio" },
   { href: "/category/consoles", label: "Gaming" },
-  { href: "/category/phones", label: "Phones" },
-  { href: "/category/macbooks", label: "Apple" },
-  { href: "/category/wearables", label: "Wearables" },
-  { href: "/inspiration", label: "Inspiration" },
+  { href: "/category/cameras", label: "Cameras" },
 ];
 
-export function Header() {
+export async function Header() {
+  const categories = await getCategories();
+
   return (
-    <header className="sticky top-0 z-50 border-b border-outline-variant/60 bg-surface/95 backdrop-blur transition-all">
-      <div className="mx-auto flex w-full max-w-container-max flex-col gap-2 px-margin-mobile py-4 md:px-gutter">
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3">
-            <LogoMark />
-            <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-primary md:text-headline-lg-mobile">
-              City Gadgets
-            </span>
+    <header className="sticky top-0 z-50 bg-white">
+      {/* Row 1 — logo, search, utilities */}
+      <div className="border-b border-outline-variant/70">
+        <div className="mx-auto flex w-full max-w-container-max items-center gap-4 px-margin-mobile py-3 md:px-gutter">
+          <Link href="/" className="flex shrink-0 items-center gap-2 text-on-surface">
+            <LogoMark className="h-7 w-7" />
+            <span className="text-xl font-extrabold tracking-tight">City Gadgets</span>
           </Link>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <SearchBar className="mx-auto hidden w-full max-w-xl md:flex" />
+
+          <div className="flex shrink-0 items-center gap-4 text-on-surface">
+            <span className="hidden items-center gap-1.5 text-body-sm font-medium lg:flex">
+              <span className="text-base">🇰🇪</span> EN
+            </span>
+            <Link href="/account" className="hidden text-body-sm font-medium hover:text-secondary lg:block">
+              Need help?
+            </Link>
+            <Link href="/account" aria-label="Account" className="hover:text-secondary">
+              <Icon name="account_circle" className="text-[26px]" />
+            </Link>
+            <Link href="/cart" aria-label="Cart" className="relative hover:text-secondary">
+              <Icon name="shopping_cart" className="text-[26px]" />
+              <CartBadge />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile search */}
+      <div className="border-b border-outline-variant/70 px-margin-mobile py-2.5 md:hidden">
+        <SearchBar />
+      </div>
+
+      {/* Row 2 — category nav */}
+      <div className="hidden border-b border-outline-variant/70 md:block">
+        <div className="mx-auto flex w-full max-w-container-max items-center justify-between px-margin-mobile md:px-gutter">
+          <nav className="no-scrollbar flex items-center gap-6 overflow-x-auto">
+            <AllItemsMenu categories={categories} />
             {NAV_LINKS.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <Link
+                key={link.label}
+                href={link.href}
+                className="flex shrink-0 items-center gap-1 whitespace-nowrap py-3 text-body-sm font-semibold text-on-surface transition-colors hover:text-secondary"
+              >
+                {link.label}
+                {link.flame && <span aria-hidden>🔥</span>}
+              </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <form action="/shop" className="hidden items-center rounded-full bg-surface-container-low px-4 py-2 lg:flex">
-              <Icon name="search" className="text-on-surface-variant" />
-              <input
-                type="search"
-                name="search"
-                placeholder="Search gadgets…"
-                className="ml-2 w-40 bg-transparent text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none xl:w-56"
-              />
-            </form>
-            <Link
-              href="/shop"
-              className="rounded-full p-2 text-on-surface-variant transition-colors hover:bg-surface-container-high lg:hidden"
-              aria-label="Search"
-            >
-              <Icon name="search" />
-            </Link>
-            <Link
-              href="/cart"
-              className="relative rounded-full p-2 text-on-surface-variant transition-colors hover:bg-surface-container-high"
-              aria-label="Cart"
-            >
-              <Icon name="shopping_cart" />
-              <CartBadge />
-            </Link>
-            <Link
-              href="/account"
-              className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-label-caps font-bold text-on-primary transition-all hover:opacity-90 md:flex"
-            >
-              <Icon name="person" className="text-[18px]" />
-              Account
-            </Link>
-          </div>
+          <Link
+            href="/account"
+            className="shrink-0 whitespace-nowrap rounded-full border border-on-surface px-5 py-2 text-body-sm font-semibold text-on-surface transition-colors hover:bg-on-surface hover:text-white"
+          >
+            Sell Your Device
+          </Link>
         </div>
       </div>
     </header>

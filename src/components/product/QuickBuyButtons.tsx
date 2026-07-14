@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { formatKES } from "@/lib/format";
+import { whatsappLink } from "@/lib/contact";
 import { useCartStore } from "@/store/cart";
 
 export function QuickBuyButtons({
@@ -29,9 +30,7 @@ export function QuickBuyButtons({
     router.push("/checkout");
   }
 
-  const whatsappHref = `https://wa.me/254700000000?text=${encodeURIComponent(
-    `Hi! I'm interested in the ${name} (${formatKES(price)}). Is it in stock?`,
-  )}`;
+  const whatsappHref = whatsappLink(`Hi! I'm interested in the ${name} (${formatKES(price)}). Is it in stock?`);
 
   return (
     <div className="grid grid-cols-2 gap-3">

@@ -1,16 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Icon } from "@/components/ui/Icon";
 
-export function LogoMark() {
+// Reebelo-style 8-petal asterisk/flower mark, rendered in near-black.
+export function LogoMark({ className = "h-7 w-7" }: { className?: string }) {
   return (
-    <motion.span
-      whileHover={{ rotate: -8, scale: 1.08 }}
-      transition={{ type: "spring", stiffness: 300, damping: 15 }}
-      className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white"
+    <motion.svg
+      viewBox="0 0 32 32"
+      className={className}
+      whileHover={{ rotate: 90 }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      aria-hidden
     >
-      <Icon name="bolt" filled />
-    </motion.span>
+      {Array.from({ length: 8 }).map((_, i) => (
+        <ellipse
+          key={i}
+          cx="16"
+          cy="6.2"
+          rx="3.1"
+          ry="6"
+          fill="currentColor"
+          transform={`rotate(${i * 45} 16 16)`}
+        />
+      ))}
+      <circle cx="16" cy="16" r="3.4" fill="#fff" />
+    </motion.svg>
   );
 }

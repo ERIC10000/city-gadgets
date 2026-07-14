@@ -5,7 +5,7 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 143000,
-    "compare_at_price": 164450,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -65,10 +65,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 95000,
-    "compare_at_price": 109250,
+    "compare_at_price": 256800,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 17,
     "rating": 4.1,
     "review_count": 251,
@@ -155,10 +155,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 37000,
-    "compare_at_price": 42550,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 6,
     "rating": 3.9,
     "review_count": 305,
@@ -185,10 +185,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 38000,
-    "compare_at_price": null,
+    "compare_at_price": 71700,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 18,
     "rating": 4,
     "review_count": 318,
@@ -215,10 +215,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 39000,
-    "compare_at_price": 44850,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 15,
     "rating": 4.9,
     "review_count": 246,
@@ -245,10 +245,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 41000,
-    "compare_at_price": null,
+    "compare_at_price": 59400,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 4,
     "rating": 4.3,
     "review_count": 154,
@@ -305,10 +305,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "consoles",
     "price": 62000,
-    "compare_at_price": null,
+    "compare_at_price": 73800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 18,
     "rating": 4.8,
     "review_count": 102,
@@ -335,10 +335,10 @@
     "brand": "Lenovo",
     "category_slug": "consoles",
     "price": 104000,
-    "compare_at_price": null,
+    "compare_at_price": 135100,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 18,
     "rating": 4.1,
     "review_count": 276,
@@ -365,10 +365,10 @@
     "brand": "Lenovo",
     "category_slug": "consoles",
     "price": 95000,
-    "compare_at_price": null,
+    "compare_at_price": 190000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 13,
     "rating": 4.5,
     "review_count": 216,
@@ -395,10 +395,10 @@
     "brand": "Lenovo",
     "category_slug": "consoles",
     "price": 250000,
-    "compare_at_price": 287500,
+    "compare_at_price": 431000,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 9,
     "rating": 4.6,
     "review_count": 299,
@@ -425,7 +425,7 @@
     "brand": "Valve",
     "category_slug": "consoles",
     "price": 145000,
-    "compare_at_price": 166750,
+    "compare_at_price": 170600,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -482,17 +482,17 @@
   {
     "slug": "rog-xbo-ally-x-1tb",
     "name": "ROG XBO ALLY X 1TB",
-    "brand": "ASUS ROG",
+    "brand": "Asus",
     "category_slug": "consoles",
     "price": 150000,
-    "compare_at_price": 172500,
+    "compare_at_price": 170500,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
     "stock_quantity": 9,
     "rating": 4,
     "review_count": 135,
-    "description": "The ROG XBO ALLY X 1TB from ASUS ROG, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
+    "description": "The ROG XBO ALLY X 1TB from Asus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
     "specs": {
       "Storage": "1TB",
       "Connectivity": "Wi-Fi 6, Bluetooth 5.0",
@@ -545,7 +545,7 @@
     "brand": "Microsoft Xbox",
     "category_slug": "consoles",
     "price": 93000,
-    "compare_at_price": null,
+    "compare_at_price": 147600,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -575,10 +575,10 @@
     "brand": "Microsoft Xbox",
     "category_slug": "consoles",
     "price": 86000,
-    "compare_at_price": null,
+    "compare_at_price": 268800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 19,
     "rating": 4.3,
     "review_count": 114,
@@ -635,10 +635,10 @@
     "brand": "Nintendo",
     "category_slug": "consoles",
     "price": 28000,
-    "compare_at_price": 32200,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 18,
     "rating": 5,
     "review_count": 30,
@@ -695,10 +695,10 @@
     "brand": "Nintendo",
     "category_slug": "consoles",
     "price": 39000,
-    "compare_at_price": null,
+    "compare_at_price": 72200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 9,
     "rating": 4.1,
     "review_count": 102,
@@ -725,7 +725,7 @@
     "brand": "Meta",
     "category_slug": "consoles",
     "price": 78000,
-    "compare_at_price": null,
+    "compare_at_price": 136800,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -785,10 +785,10 @@
     "brand": "Meta",
     "category_slug": "consoles",
     "price": 55000,
-    "compare_at_price": 63250,
+    "compare_at_price": 161800,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 5,
     "rating": 4.1,
     "review_count": 235,
@@ -815,7 +815,7 @@
     "brand": "Microsoft Xbox",
     "category_slug": "consoles",
     "price": 65000,
-    "compare_at_price": 74750,
+    "compare_at_price": 97000,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -840,15 +840,135 @@
     ]
   },
   {
+    "slug": "anbernic-rg556",
+    "name": "Anbernic RG556",
+    "brand": "Anbernic",
+    "category_slug": "consoles",
+    "price": 32000,
+    "compare_at_price": 68100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 15,
+    "rating": 5,
+    "review_count": 23,
+    "description": "The Anbernic RG556 from Anbernic, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
+    "specs": {
+      "Storage": "Varies",
+      "Connectivity": "Wi-Fi 6, Bluetooth 5.1, USB-C",
+      "Resolution": "Up to 4K HDR"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anbernic RG556 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anbernic RG556 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "ayaneo-pocket-s",
+    "name": "Ayaneo Pocket S",
+    "brand": "Ayaneo",
+    "category_slug": "consoles",
+    "price": 78000,
+    "compare_at_price": 136800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 19,
+    "rating": 4.3,
+    "review_count": 135,
+    "description": "The Ayaneo Pocket S from Ayaneo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
+    "specs": {
+      "Storage": "Varies",
+      "Connectivity": "Wi-Fi 6, Bluetooth 5.1, USB-C",
+      "Resolution": "Up to 4K HDR"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=900&q=80&auto=format&fit=crop",
+        "alt": "Ayaneo Pocket S product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Ayaneo Pocket S lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "analogue-pocket",
+    "name": "Analogue Pocket",
+    "brand": "Analogue",
+    "category_slug": "consoles",
+    "price": 45000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 8,
+    "rating": 4.7,
+    "review_count": 244,
+    "description": "The Analogue Pocket from Analogue, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
+    "specs": {
+      "Storage": "Varies",
+      "Connectivity": "Wi-Fi 6, Bluetooth 5.1, USB-C",
+      "Resolution": "Up to 4K HDR"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=900&q=80&auto=format&fit=crop",
+        "alt": "Analogue Pocket product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Analogue Pocket lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "atari-2600",
+    "name": "Atari 2600+",
+    "brand": "Atari",
+    "category_slug": "consoles",
+    "price": 18000,
+    "compare_at_price": 21700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 21,
+    "rating": 4.8,
+    "review_count": 239,
+    "description": "The Atari 2600+ from Atari, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Next-gen power, zero compromise.",
+    "specs": {
+      "Storage": "Varies",
+      "Connectivity": "Wi-Fi 6, Bluetooth 5.1, USB-C",
+      "Resolution": "Up to 4K HDR"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Atari 2600+ product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=900&q=80&auto=format&fit=crop",
+        "alt": "Atari 2600+ lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "logitech-flight-york",
     "name": "Logitech flight York",
     "brand": "Logitech",
     "category_slug": "gaming-accessories",
     "price": 48000,
-    "compare_at_price": null,
+    "compare_at_price": 55200,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Sale",
     "stock_quantity": 14,
     "rating": 4.2,
     "review_count": 143,
@@ -875,10 +995,10 @@
     "brand": "Logitech",
     "category_slug": "gaming-accessories",
     "price": 49000,
-    "compare_at_price": null,
+    "compare_at_price": 116700,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Hot Deal",
     "stock_quantity": 20,
     "rating": 4.1,
     "review_count": 161,
@@ -905,10 +1025,10 @@
     "brand": "Microsoft Xbox",
     "category_slug": "gaming-accessories",
     "price": 8000,
-    "compare_at_price": null,
+    "compare_at_price": 9200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 5,
     "rating": 4.2,
     "review_count": 36,
@@ -935,7 +1055,7 @@
     "brand": "Microsoft Xbox",
     "category_slug": "gaming-accessories",
     "price": 25000,
-    "compare_at_price": 28750,
+    "compare_at_price": 28400,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -965,10 +1085,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 9400,
-    "compare_at_price": null,
+    "compare_at_price": 10900,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 16,
     "rating": 4.6,
     "review_count": 291,
@@ -995,10 +1115,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 29000,
-    "compare_at_price": null,
+    "compare_at_price": 40800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 2,
     "rating": 4.5,
     "review_count": 134,
@@ -1085,10 +1205,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 5000,
-    "compare_at_price": null,
+    "compare_at_price": 8500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 1,
     "rating": 4.5,
     "review_count": 100,
@@ -1115,10 +1235,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 5000,
-    "compare_at_price": null,
+    "compare_at_price": 10000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 2,
     "rating": 5,
     "review_count": 301,
@@ -1145,10 +1265,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 4500,
-    "compare_at_price": null,
+    "compare_at_price": 9000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 7,
     "rating": 5,
     "review_count": 40,
@@ -1175,10 +1295,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 6000,
-    "compare_at_price": null,
+    "compare_at_price": 7500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 5,
     "rating": 3.8,
     "review_count": 53,
@@ -1235,10 +1355,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "gaming-accessories",
     "price": 8500,
-    "compare_at_price": null,
+    "compare_at_price": 25800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 3,
     "rating": 4.1,
     "review_count": 197,
@@ -1295,7 +1415,7 @@
     "brand": "Nintendo",
     "category_slug": "gaming-accessories",
     "price": 13500,
-    "compare_at_price": 15525,
+    "compare_at_price": 22100,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -1325,10 +1445,10 @@
     "brand": "Nintendo",
     "category_slug": "gaming-accessories",
     "price": 15000,
-    "compare_at_price": 17250,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 1,
     "rating": 4.7,
     "review_count": 265,
@@ -1355,10 +1475,10 @@
     "brand": "Nintendo",
     "category_slug": "gaming-accessories",
     "price": 10500,
-    "compare_at_price": null,
+    "compare_at_price": 15200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 15,
     "rating": 5,
     "review_count": 95,
@@ -1385,10 +1505,10 @@
     "brand": "Nintendo",
     "category_slug": "gaming-accessories",
     "price": 9500,
-    "compare_at_price": 10925,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 5,
     "rating": 4.1,
     "review_count": 288,
@@ -1415,10 +1535,10 @@
     "brand": "Logitech",
     "category_slug": "gaming-accessories",
     "price": 39000,
-    "compare_at_price": null,
+    "compare_at_price": 76500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 17,
     "rating": 3.9,
     "review_count": 73,
@@ -1445,10 +1565,10 @@
     "brand": "Logitech",
     "category_slug": "gaming-accessories",
     "price": 38000,
-    "compare_at_price": null,
+    "compare_at_price": 79200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 19,
     "rating": 4.8,
     "review_count": 253,
@@ -1470,15 +1590,405 @@
     ]
   },
   {
+    "slug": "razer-deathadder-v3-pro",
+    "name": "Razer DeathAdder V3 Pro",
+    "brand": "Razer",
+    "category_slug": "gaming-accessories",
+    "price": 22000,
+    "compare_at_price": 40000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 16,
+    "rating": 4.3,
+    "review_count": 280,
+    "description": "The Razer DeathAdder V3 Pro from Razer, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer DeathAdder V3 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer DeathAdder V3 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "razer-blackwidow-v4-pro",
+    "name": "Razer BlackWidow V4 Pro",
+    "brand": "Razer",
+    "category_slug": "gaming-accessories",
+    "price": 28000,
+    "compare_at_price": 47500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 18,
+    "rating": 4,
+    "review_count": 14,
+    "description": "The Razer BlackWidow V4 Pro from Razer, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer BlackWidow V4 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer BlackWidow V4 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "steelseries-arctis-nova-pro-wireless",
+    "name": "SteelSeries Arctis Nova Pro Wireless",
+    "brand": "SteelSeries",
+    "category_slug": "gaming-accessories",
+    "price": 45000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 16,
+    "rating": 4.2,
+    "review_count": 50,
+    "description": "The SteelSeries Arctis Nova Pro Wireless from SteelSeries, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "SteelSeries Arctis Nova Pro Wireless product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "SteelSeries Arctis Nova Pro Wireless lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "steelseries-apex-pro-tkl",
+    "name": "SteelSeries Apex Pro TKL",
+    "brand": "SteelSeries",
+    "category_slug": "gaming-accessories",
+    "price": 35000,
+    "compare_at_price": 74500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 20,
+    "rating": 4.9,
+    "review_count": 156,
+    "description": "The SteelSeries Apex Pro TKL from SteelSeries, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "SteelSeries Apex Pro TKL product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "SteelSeries Apex Pro TKL lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "hyperx-cloud-iii-wireless",
+    "name": "HyperX Cloud III Wireless",
+    "brand": "HyperX",
+    "category_slug": "gaming-accessories",
+    "price": 18000,
+    "compare_at_price": 45000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.9,
+    "review_count": 218,
+    "description": "The HyperX Cloud III Wireless from HyperX, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "HyperX Cloud III Wireless product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "HyperX Cloud III Wireless lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "hyperx-alloy-origins-65",
+    "name": "HyperX Alloy Origins 65",
+    "brand": "HyperX",
+    "category_slug": "gaming-accessories",
+    "price": 16000,
+    "compare_at_price": 26700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 2,
+    "rating": 4.7,
+    "review_count": 277,
+    "description": "The HyperX Alloy Origins 65 from HyperX, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "HyperX Alloy Origins 65 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "HyperX Alloy Origins 65 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "corsair-k70-rgb-pro",
+    "name": "Corsair K70 RGB Pro",
+    "brand": "Corsair",
+    "category_slug": "gaming-accessories",
+    "price": 24000,
+    "compare_at_price": 33300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.6,
+    "review_count": 161,
+    "description": "The Corsair K70 RGB Pro from Corsair, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Corsair K70 RGB Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "Corsair K70 RGB Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "turtle-beach-stealth-700-gen-3",
+    "name": "Turtle Beach Stealth 700 Gen 3",
+    "brand": "Turtle Beach",
+    "category_slug": "gaming-accessories",
+    "price": 22000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 11,
+    "rating": 3.8,
+    "review_count": 104,
+    "description": "The Turtle Beach Stealth 700 Gen 3 from Turtle Beach, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Turtle Beach Stealth 700 Gen 3 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Turtle Beach Stealth 700 Gen 3 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "8bitdo-ultimate-controller",
+    "name": "8BitDo Ultimate Controller",
+    "brand": "8BitDo",
+    "category_slug": "gaming-accessories",
+    "price": 12000,
+    "compare_at_price": 16900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 7,
+    "rating": 4.4,
+    "review_count": 20,
+    "description": "The 8BitDo Ultimate Controller from 8BitDo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "8BitDo Ultimate Controller product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "8BitDo Ultimate Controller lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "elgato-stream-deck-mk-2",
+    "name": "Elgato Stream Deck MK.2",
+    "brand": "Elgato",
+    "category_slug": "gaming-accessories",
+    "price": 22000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 13,
+    "rating": 3.8,
+    "review_count": 190,
+    "description": "The Elgato Stream Deck MK.2 from Elgato, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Elgato Stream Deck MK.2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "Elgato Stream Deck MK.2 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "thrustmaster-t248-racing-wheel",
+    "name": "Thrustmaster T248 Racing Wheel",
+    "brand": "Thrustmaster",
+    "category_slug": "gaming-accessories",
+    "price": 48000,
+    "compare_at_price": 117100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 8,
+    "rating": 3.8,
+    "review_count": 133,
+    "description": "The Thrustmaster T248 Racing Wheel from Thrustmaster, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "Thrustmaster T248 Racing Wheel product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Thrustmaster T248 Racing Wheel lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-990-pro-ssd-2tb",
+    "name": "Samsung 990 Pro SSD 2tb",
+    "brand": "Samsung",
+    "category_slug": "gaming-accessories",
+    "price": 32000,
+    "compare_at_price": 72700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.6,
+    "review_count": 16,
+    "description": "The Samsung 990 Pro SSD 2tb from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung 990 Pro SSD 2tb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung 990 Pro SSD 2tb lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "seagate-game-drive-2tb",
+    "name": "Seagate Game Drive 2tb",
+    "brand": "Seagate",
+    "category_slug": "gaming-accessories",
+    "price": 14000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 16,
+    "rating": 3.8,
+    "review_count": 64,
+    "description": "The Seagate Game Drive 2tb from Seagate, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Level up your setup.",
+    "specs": {
+      "Compatibility": "PS5 / PS4 / Xbox / Switch (model-specific)",
+      "Connection": "Wireless / USB-C",
+      "Warranty": "1 Year"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Seagate Game Drive 2tb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Seagate Game Drive 2tb lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "playstation-pulse-explore",
     "name": "Playstation pulse explore",
     "brand": "Sony PlayStation",
     "category_slug": "audio",
     "price": 29000,
-    "compare_at_price": null,
+    "compare_at_price": 74400,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Hot Deal",
     "stock_quantity": 7,
     "rating": 4.8,
     "review_count": 195,
@@ -1505,10 +2015,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "audio",
     "price": 14000,
-    "compare_at_price": null,
+    "compare_at_price": 18900,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Sale",
     "stock_quantity": 3,
     "rating": 4,
     "review_count": 71,
@@ -1535,10 +2045,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "audio",
     "price": 19000,
-    "compare_at_price": null,
+    "compare_at_price": 33300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 13,
     "rating": 4.8,
     "review_count": 111,
@@ -1565,10 +2075,10 @@
     "brand": "Sony PlayStation",
     "category_slug": "audio",
     "price": 25000,
-    "compare_at_price": null,
+    "compare_at_price": 56800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 17,
     "rating": 4.5,
     "review_count": 60,
@@ -1595,10 +2105,10 @@
     "brand": "Sony",
     "category_slug": "audio",
     "price": 120000,
-    "compare_at_price": null,
+    "compare_at_price": 333300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 4,
     "rating": 3.8,
     "review_count": 234,
@@ -1625,7 +2135,7 @@
     "brand": "Sony",
     "category_slug": "audio",
     "price": 47000,
-    "compare_at_price": null,
+    "compare_at_price": 68100,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -1655,10 +2165,10 @@
     "brand": "Sony",
     "category_slug": "audio",
     "price": 32000,
-    "compare_at_price": null,
+    "compare_at_price": 84200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 4,
     "rating": 4.9,
     "review_count": 201,
@@ -1715,10 +2225,10 @@
     "brand": "Apple",
     "category_slug": "audio",
     "price": 82000,
-    "compare_at_price": null,
+    "compare_at_price": 97600,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 4,
     "rating": 4.1,
     "review_count": 99,
@@ -1745,10 +2255,10 @@
     "brand": "Apple",
     "category_slug": "audio",
     "price": 25000,
-    "compare_at_price": 28750,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 11,
     "rating": 3.8,
     "review_count": 145,
@@ -1775,10 +2285,10 @@
     "brand": "Apple",
     "category_slug": "audio",
     "price": 17500,
-    "compare_at_price": 20125,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 7,
     "rating": 4.6,
     "review_count": 49,
@@ -1805,10 +2315,10 @@
     "brand": "Apple",
     "category_slug": "audio",
     "price": 16500,
-    "compare_at_price": null,
+    "compare_at_price": 31100,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 22,
     "rating": 3.9,
     "review_count": 232,
@@ -1835,10 +2345,10 @@
     "brand": "Hollyland",
     "category_slug": "audio",
     "price": 18000,
-    "compare_at_price": null,
+    "compare_at_price": 54500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 14,
     "rating": 4.5,
     "review_count": 13,
@@ -1865,7 +2375,7 @@
     "brand": "Hollyland",
     "category_slug": "audio",
     "price": 33500,
-    "compare_at_price": 38525,
+    "compare_at_price": 50000,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -1895,10 +2405,10 @@
     "brand": "DJI",
     "category_slug": "audio",
     "price": 16000,
-    "compare_at_price": 18400,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 21,
     "rating": 4.7,
     "review_count": 248,
@@ -1925,10 +2435,10 @@
     "brand": "DJI",
     "category_slug": "audio",
     "price": 19000,
-    "compare_at_price": null,
+    "compare_at_price": 26800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 8,
     "rating": 4,
     "review_count": 143,
@@ -1955,10 +2465,10 @@
     "brand": "DJI",
     "category_slug": "audio",
     "price": 43000,
-    "compare_at_price": 49450,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 9,
     "rating": 4.3,
     "review_count": 84,
@@ -2040,6 +2550,546 @@
     ]
   },
   {
+    "slug": "bose-quietcomfort-ultra-headphones",
+    "name": "Bose QuietComfort Ultra Headphones",
+    "brand": "Bose",
+    "category_slug": "audio",
+    "price": 62000,
+    "compare_at_price": 112700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.3,
+    "review_count": 102,
+    "description": "The Bose QuietComfort Ultra Headphones from Bose, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bose QuietComfort Ultra Headphones product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bose QuietComfort Ultra Headphones lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "bose-quietcomfort-earbuds-ultra",
+    "name": "Bose QuietComfort Earbuds Ultra",
+    "brand": "Bose",
+    "category_slug": "audio",
+    "price": 45000,
+    "compare_at_price": 67200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 5,
+    "rating": 4.4,
+    "review_count": 173,
+    "description": "The Bose QuietComfort Earbuds Ultra from Bose, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "In-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bose QuietComfort Earbuds Ultra product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bose QuietComfort Earbuds Ultra lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sennheiser-momentum-4-wireless",
+    "name": "Sennheiser Momentum 4 Wireless",
+    "brand": "Sennheiser",
+    "category_slug": "audio",
+    "price": 55000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.2,
+    "review_count": 266,
+    "description": "The Sennheiser Momentum 4 Wireless from Sennheiser, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sennheiser Momentum 4 Wireless product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sennheiser Momentum 4 Wireless lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sennheiser-accentum-plus",
+    "name": "Sennheiser Accentum Plus",
+    "brand": "Sennheiser",
+    "category_slug": "audio",
+    "price": 28000,
+    "compare_at_price": 31800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 17,
+    "rating": 4.6,
+    "review_count": 251,
+    "description": "The Sennheiser Accentum Plus from Sennheiser, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sennheiser Accentum Plus product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sennheiser Accentum Plus lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "jbl-tour-one-m2",
+    "name": "JBL Tour One M2",
+    "brand": "JBL",
+    "category_slug": "audio",
+    "price": 38000,
+    "compare_at_price": 77600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 3,
+    "rating": 4,
+    "review_count": 135,
+    "description": "The JBL Tour One M2 from JBL, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Tour One M2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Tour One M2 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "jbl-charge-6",
+    "name": "JBL Charge 6",
+    "brand": "JBL",
+    "category_slug": "audio",
+    "price": 25000,
+    "compare_at_price": 44600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 20,
+    "rating": 4.7,
+    "review_count": 235,
+    "description": "The JBL Charge 6 from JBL, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Charge 6 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Charge 6 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "jbl-flip-7",
+    "name": "JBL Flip 7",
+    "brand": "JBL",
+    "category_slug": "audio",
+    "price": 16000,
+    "compare_at_price": 19500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 8,
+    "rating": 4.1,
+    "review_count": 53,
+    "description": "The JBL Flip 7 from JBL, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Flip 7 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900&q=80&auto=format&fit=crop",
+        "alt": "JBL Flip 7 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "beats-studio-pro",
+    "name": "Beats Studio Pro",
+    "brand": "Beats",
+    "category_slug": "audio",
+    "price": 48000,
+    "compare_at_price": 117100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 2,
+    "rating": 4.2,
+    "review_count": 171,
+    "description": "The Beats Studio Pro from Beats, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Beats Studio Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Beats Studio Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "beats-fit-pro",
+    "name": "Beats Fit Pro",
+    "brand": "Beats",
+    "category_slug": "audio",
+    "price": 28000,
+    "compare_at_price": 37300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 12,
+    "rating": 4.1,
+    "review_count": 242,
+    "description": "The Beats Fit Pro from Beats, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=900&q=80&auto=format&fit=crop",
+        "alt": "Beats Fit Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Beats Fit Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sonos-ace-headphones",
+    "name": "Sonos Ace Headphones",
+    "brand": "Sonos",
+    "category_slug": "audio",
+    "price": 58000,
+    "compare_at_price": 103600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 12,
+    "rating": 4.6,
+    "review_count": 97,
+    "description": "The Sonos Ace Headphones from Sonos, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sonos Ace Headphones product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sonos Ace Headphones lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sonos-era-300",
+    "name": "Sonos Era 300",
+    "brand": "Sonos",
+    "category_slug": "audio",
+    "price": 62000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 8,
+    "rating": 4.8,
+    "review_count": 46,
+    "description": "The Sonos Era 300 from Sonos, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sonos Era 300 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sonos Era 300 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "anker-soundcore-space-one",
+    "name": "Anker Soundcore Space One",
+    "brand": "Anker",
+    "category_slug": "audio",
+    "price": 15000,
+    "compare_at_price": 23800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.8,
+    "review_count": 321,
+    "description": "The Anker Soundcore Space One from Anker, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker Soundcore Space One product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker Soundcore Space One lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "marshall-major-v",
+    "name": "Marshall Major V",
+    "brand": "Marshall",
+    "category_slug": "audio",
+    "price": 22000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 17,
+    "rating": 4,
+    "review_count": 4,
+    "description": "The Marshall Major V from Marshall, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Marshall Major V product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Marshall Major V lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "marshall-emberton-iii",
+    "name": "Marshall Emberton III",
+    "brand": "Marshall",
+    "category_slug": "audio",
+    "price": 24000,
+    "compare_at_price": 60000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.3,
+    "review_count": 154,
+    "description": "The Marshall Emberton III from Marshall, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900&q=80&auto=format&fit=crop",
+        "alt": "Marshall Emberton III product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=900&q=80&auto=format&fit=crop",
+        "alt": "Marshall Emberton III lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "jabra-elite-10-gen-2",
+    "name": "Jabra Elite 10 Gen 2",
+    "brand": "Jabra",
+    "category_slug": "audio",
+    "price": 32000,
+    "compare_at_price": 37200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 11,
+    "rating": 4.9,
+    "review_count": 111,
+    "description": "The Jabra Elite 10 Gen 2 from Jabra, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=900&q=80&auto=format&fit=crop",
+        "alt": "Jabra Elite 10 Gen 2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=900&q=80&auto=format&fit=crop",
+        "alt": "Jabra Elite 10 Gen 2 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "bang-olufsen-beoplay-ex",
+    "name": "Bang & Olufsen Beoplay EX",
+    "brand": "Bang & Olufsen",
+    "category_slug": "audio",
+    "price": 55000,
+    "compare_at_price": 148600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 12,
+    "rating": 4,
+    "review_count": 59,
+    "description": "The Bang & Olufsen Beoplay EX from Bang & Olufsen, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bang & Olufsen Beoplay EX product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=900&q=80&auto=format&fit=crop",
+        "alt": "Bang & Olufsen Beoplay EX lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "audio-technica-ath-m50xbt2",
+    "name": "Audio-Technica ATH-M50xBT2",
+    "brand": "Audio-Technica",
+    "category_slug": "audio",
+    "price": 28000,
+    "compare_at_price": 53800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 3.9,
+    "review_count": 272,
+    "description": "The Audio-Technica ATH-M50xBT2 from Audio-Technica, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=900&q=80&auto=format&fit=crop",
+        "alt": "Audio-Technica ATH-M50xBT2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900&q=80&auto=format&fit=crop",
+        "alt": "Audio-Technica ATH-M50xBT2 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "skullcandy-crusher-anc-2",
+    "name": "Skullcandy Crusher ANC 2",
+    "brand": "Skullcandy",
+    "category_slug": "audio",
+    "price": 22000,
+    "compare_at_price": 36700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 5,
+    "rating": 5,
+    "review_count": 180,
+    "description": "The Skullcandy Crusher ANC 2 from Skullcandy, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Studio-grade sound, anywhere.",
+    "specs": {
+      "Type": "Over-ear",
+      "Battery Life": "Up to 30 hrs (ANC on)",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&q=80&auto=format&fit=crop",
+        "alt": "Skullcandy Crusher ANC 2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=900&q=80&auto=format&fit=crop",
+        "alt": "Skullcandy Crusher ANC 2 lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "dji-osmo-mobile-7p",
     "name": "DJI Osmo Mobile 7P",
     "brand": "DJI",
@@ -2075,10 +3125,10 @@
     "brand": "DJI",
     "category_slug": "cameras",
     "price": 20000,
-    "compare_at_price": null,
+    "compare_at_price": 23000,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Sale",
     "stock_quantity": 18,
     "rating": 4.3,
     "review_count": 97,
@@ -2105,10 +3155,10 @@
     "brand": "DJI",
     "category_slug": "cameras",
     "price": 23000,
-    "compare_at_price": null,
+    "compare_at_price": 47900,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 10,
     "rating": 4.4,
     "review_count": 219,
@@ -2135,10 +3185,10 @@
     "brand": "DJI",
     "category_slug": "cameras",
     "price": 78000,
-    "compare_at_price": null,
+    "compare_at_price": 130000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 16,
     "rating": 4.5,
     "review_count": 13,
@@ -2165,10 +3215,10 @@
     "brand": "DJI",
     "category_slug": "cameras",
     "price": 85500,
-    "compare_at_price": 98325,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 15,
     "rating": 4.1,
     "review_count": 250,
@@ -2195,10 +3245,10 @@
     "brand": "DJI",
     "category_slug": "cameras",
     "price": 69000,
-    "compare_at_price": null,
+    "compare_at_price": 101500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 7,
     "rating": 4.3,
     "review_count": 59,
@@ -2225,10 +3275,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 48000,
-    "compare_at_price": null,
+    "compare_at_price": 96000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 21,
     "rating": 4,
     "review_count": 112,
@@ -2255,10 +3305,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 48000,
-    "compare_at_price": null,
+    "compare_at_price": 84200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 11,
     "rating": 3.8,
     "review_count": 112,
@@ -2285,10 +3335,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 68000,
-    "compare_at_price": null,
+    "compare_at_price": 109700,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 17,
     "rating": 4.5,
     "review_count": 221,
@@ -2315,10 +3365,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 84000,
-    "compare_at_price": 96600,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 11,
     "rating": 4.8,
     "review_count": 28,
@@ -2345,10 +3395,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 5500,
-    "compare_at_price": null,
+    "compare_at_price": 6400,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 12,
     "rating": 5,
     "review_count": 183,
@@ -2375,10 +3425,10 @@
     "brand": "Insta360",
     "category_slug": "cameras",
     "price": 5500,
-    "compare_at_price": null,
+    "compare_at_price": 9800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 5,
     "rating": 4.9,
     "review_count": 271,
@@ -2405,7 +3455,7 @@
     "brand": "GoPro",
     "category_slug": "cameras",
     "price": 53000,
-    "compare_at_price": 60950,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -2435,10 +3485,10 @@
     "brand": "GoPro",
     "category_slug": "cameras",
     "price": 35000,
-    "compare_at_price": null,
+    "compare_at_price": 70000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 15,
     "rating": 3.9,
     "review_count": 238,
@@ -2465,10 +3515,10 @@
     "brand": "GoPro",
     "category_slug": "cameras",
     "price": 7000,
-    "compare_at_price": 8050,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 2,
     "rating": 4.4,
     "review_count": 228,
@@ -2486,6 +3536,306 @@
       {
         "url": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=900&q=80&auto=format&fit=crop",
         "alt": "GOPRO Hero 13 battery lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sony-zv-1-ii",
+    "name": "Sony ZV-1 II",
+    "brand": "Sony",
+    "category_slug": "cameras",
+    "price": 92000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 22,
+    "rating": 4.4,
+    "review_count": 188,
+    "description": "The Sony ZV-1 II from Sony, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony ZV-1 II product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony ZV-1 II lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sony-alpha-a6700",
+    "name": "Sony Alpha A6700",
+    "brand": "Sony",
+    "category_slug": "cameras",
+    "price": 165000,
+    "compare_at_price": 383700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 2,
+    "rating": 4.9,
+    "review_count": 102,
+    "description": "The Sony Alpha A6700 from Sony, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony Alpha A6700 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony Alpha A6700 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "canon-eos-r50",
+    "name": "Canon EOS R50",
+    "brand": "Canon",
+    "category_slug": "cameras",
+    "price": 105000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 9,
+    "rating": 4.9,
+    "review_count": 290,
+    "description": "The Canon EOS R50 from Canon, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Canon EOS R50 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Canon EOS R50 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "canon-powershot-v10",
+    "name": "Canon PowerShot V10",
+    "brand": "Canon",
+    "category_slug": "cameras",
+    "price": 55000,
+    "compare_at_price": 72400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 2,
+    "rating": 3.9,
+    "review_count": 174,
+    "description": "The Canon PowerShot V10 from Canon, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Canon PowerShot V10 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Canon PowerShot V10 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "nikon-z30",
+    "name": "Nikon Z30",
+    "brand": "Nikon",
+    "category_slug": "cameras",
+    "price": 98000,
+    "compare_at_price": 272200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 15,
+    "rating": 4.7,
+    "review_count": 260,
+    "description": "The Nikon Z30 from Nikon, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nikon Z30 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nikon Z30 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "fujifilm-x-s20",
+    "name": "Fujifilm X-S20",
+    "brand": "Fujifilm",
+    "category_slug": "cameras",
+    "price": 175000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 20,
+    "rating": 5,
+    "review_count": 124,
+    "description": "The Fujifilm X-S20 from Fujifilm, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fujifilm X-S20 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fujifilm X-S20 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "fujifilm-instax-mini-12",
+    "name": "Fujifilm Instax Mini 12",
+    "brand": "Fujifilm",
+    "category_slug": "cameras",
+    "price": 12000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 10,
+    "rating": 4.3,
+    "review_count": 307,
+    "description": "The Fujifilm Instax Mini 12 from Fujifilm, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fujifilm Instax Mini 12 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fujifilm Instax Mini 12 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "panasonic-lumix-g100",
+    "name": "Panasonic Lumix G100",
+    "brand": "Panasonic",
+    "category_slug": "cameras",
+    "price": 88000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 1,
+    "rating": 4,
+    "review_count": 26,
+    "description": "The Panasonic Lumix G100 from Panasonic, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Panasonic Lumix G100 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Panasonic Lumix G100 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "zhiyun-smooth-5s",
+    "name": "Zhiyun Smooth 5S",
+    "brand": "Zhiyun",
+    "category_slug": "cameras",
+    "price": 18000,
+    "compare_at_price": 36000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 17,
+    "rating": 5,
+    "review_count": 18,
+    "description": "The Zhiyun Smooth 5S from Zhiyun, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Zhiyun Smooth 5S product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Zhiyun Smooth 5S lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "zhiyun-crane-m3s",
+    "name": "Zhiyun Crane M3S",
+    "brand": "Zhiyun",
+    "category_slug": "cameras",
+    "price": 42000,
+    "compare_at_price": 53800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 13,
+    "rating": 4.7,
+    "review_count": 94,
+    "description": "The Zhiyun Crane M3S from Zhiyun, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Capture every angle in motion.",
+    "specs": {
+      "Video Resolution": "4K60",
+      "Stabilization": "HyperSmooth / FlowState",
+      "Water Resistance": "Splash resistant"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Zhiyun Crane M3S product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=900&q=80&auto=format&fit=crop",
+        "alt": "Zhiyun Crane M3S lifestyle photo"
       }
     ]
   },
@@ -2525,10 +3875,10 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 50000,
-    "compare_at_price": 57500,
+    "compare_at_price": 135100,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 21,
     "rating": 4.8,
     "review_count": 276,
@@ -2555,10 +3905,10 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 49500,
-    "compare_at_price": 56925,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 8,
     "rating": 3.8,
     "review_count": 307,
@@ -2585,7 +3935,7 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 55000,
-    "compare_at_price": 63250,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -2615,7 +3965,7 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 37000,
-    "compare_at_price": 42550,
+    "compare_at_price": 45100,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -2645,10 +3995,10 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 41000,
-    "compare_at_price": null,
+    "compare_at_price": 48800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 11,
     "rating": 4.5,
     "review_count": 221,
@@ -2675,7 +4025,7 @@
     "brand": "Apple",
     "category_slug": "wearables",
     "price": 104000,
-    "compare_at_price": 119600,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -2705,10 +4055,10 @@
     "brand": "Samsung",
     "category_slug": "wearables",
     "price": 45000,
-    "compare_at_price": null,
+    "compare_at_price": 66200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 5,
     "rating": 3.8,
     "review_count": 322,
@@ -2735,7 +4085,7 @@
     "brand": "Samsung",
     "category_slug": "wearables",
     "price": 23500,
-    "compare_at_price": 27025,
+    "compare_at_price": 69100,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -2765,10 +4115,10 @@
     "brand": "Samsung",
     "category_slug": "wearables",
     "price": 25000,
-    "compare_at_price": 28750,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 10,
     "rating": 4.6,
     "review_count": 126,
@@ -2795,10 +4145,10 @@
     "brand": "Samsung",
     "category_slug": "wearables",
     "price": 29000,
-    "compare_at_price": 33350,
+    "compare_at_price": 55800,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 4,
     "rating": 4.4,
     "review_count": 103,
@@ -2855,7 +4205,7 @@
     "brand": "Samsung",
     "category_slug": "wearables",
     "price": 45000,
-    "compare_at_price": null,
+    "compare_at_price": 100000,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -2880,6 +4230,366 @@
     ]
   },
   {
+    "slug": "garmin-fenix-8",
+    "name": "Garmin Fenix 8",
+    "brand": "Garmin",
+    "category_slug": "wearables",
+    "price": 95000,
+    "compare_at_price": 155700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 15,
+    "rating": 3.9,
+    "review_count": 253,
+    "description": "The Garmin Fenix 8 from Garmin, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Fenix 8 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Fenix 8 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "garmin-venu-3",
+    "name": "Garmin Venu 3",
+    "brand": "Garmin",
+    "category_slug": "wearables",
+    "price": 62000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 13,
+    "rating": 4.3,
+    "review_count": 86,
+    "description": "The Garmin Venu 3 from Garmin, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Venu 3 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Venu 3 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "garmin-forerunner-265",
+    "name": "Garmin Forerunner 265",
+    "brand": "Garmin",
+    "category_slug": "wearables",
+    "price": 58000,
+    "compare_at_price": 170600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 12,
+    "rating": 5,
+    "review_count": 40,
+    "description": "The Garmin Forerunner 265 from Garmin, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Forerunner 265 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Garmin Forerunner 265 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "fitbit-charge-6",
+    "name": "Fitbit Charge 6",
+    "brand": "Fitbit",
+    "category_slug": "wearables",
+    "price": 22000,
+    "compare_at_price": 31000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 18,
+    "rating": 4.2,
+    "review_count": 199,
+    "description": "The Fitbit Charge 6 from Fitbit, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fitbit Charge 6 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fitbit Charge 6 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "fitbit-versa-4",
+    "name": "Fitbit Versa 4",
+    "brand": "Fitbit",
+    "category_slug": "wearables",
+    "price": 32000,
+    "compare_at_price": 45100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 11,
+    "rating": 4.7,
+    "review_count": 62,
+    "description": "The Fitbit Versa 4 from Fitbit, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fitbit Versa 4 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Fitbit Versa 4 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-watch-gt-5-pro",
+    "name": "Huawei Watch GT 5 Pro",
+    "brand": "Huawei",
+    "category_slug": "wearables",
+    "price": 45000,
+    "compare_at_price": 84900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 5,
+    "rating": 4.2,
+    "review_count": 198,
+    "description": "The Huawei Watch GT 5 Pro from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Watch GT 5 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Watch GT 5 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-band-9",
+    "name": "Huawei Band 9",
+    "brand": "Huawei",
+    "category_slug": "wearables",
+    "price": 8000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 8,
+    "rating": 4.1,
+    "review_count": 70,
+    "description": "The Huawei Band 9 from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Band 9 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Band 9 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "amazfit-gtr-4",
+    "name": "Amazfit GTR 4",
+    "brand": "Amazfit",
+    "category_slug": "wearables",
+    "price": 25000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 21,
+    "rating": 4.7,
+    "review_count": 124,
+    "description": "The Amazfit GTR 4 from Amazfit, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazfit GTR 4 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazfit GTR 4 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "amazfit-active-2",
+    "name": "Amazfit Active 2",
+    "brand": "Amazfit",
+    "category_slug": "wearables",
+    "price": 15000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 11,
+    "rating": 4.3,
+    "review_count": 185,
+    "description": "The Amazfit Active 2 from Amazfit, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazfit Active 2 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazfit Active 2 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "google-pixel-watch-3",
+    "name": "Google Pixel Watch 3",
+    "brand": "Google",
+    "category_slug": "wearables",
+    "price": 52000,
+    "compare_at_price": 72200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 1,
+    "rating": 3.8,
+    "review_count": 39,
+    "description": "The Google Pixel Watch 3 from Google, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Pixel Watch 3 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Pixel Watch 3 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "xiaomi-smart-band-9",
+    "name": "Xiaomi Smart Band 9",
+    "brand": "Xiaomi",
+    "category_slug": "wearables",
+    "price": 6000,
+    "compare_at_price": 7800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 19,
+    "rating": 4.8,
+    "review_count": 38,
+    "description": "The Xiaomi Smart Band 9 from Xiaomi, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "Always-On Retina / AMOLED",
+      "Battery Life": "Up to 18 hrs",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Smart Band 9 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Smart Band 9 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oura-ring-gen-4",
+    "name": "Oura Ring Gen 4",
+    "brand": "Oura",
+    "category_slug": "wearables",
+    "price": 48000,
+    "compare_at_price": 58500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 18,
+    "rating": 3.9,
+    "review_count": 13,
+    "description": "The Oura Ring Gen 4 from Oura, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Precision on your wrist.",
+    "specs": {
+      "Display": "N/A (LED indicator)",
+      "Battery Life": "Up to 7 days",
+      "Water Resistance": "5 ATM / IP68"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oura Ring Gen 4 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oura Ring Gen 4 lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "macbook-air-neo-256gb",
     "name": "Macbook air Neo 256gb",
     "brand": "Apple",
@@ -2892,11 +4602,11 @@
     "stock_quantity": 17,
     "rating": 4.3,
     "review_count": 106,
-    "description": "The Macbook air Neo 256gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook air Neo 256gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple Silicon",
-      "Memory": "8GB Unified Memory",
-      "Display": "13-15\" Liquid Retina"
+      "Memory": "16GB Unified Memory",
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -2915,18 +4625,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 105000,
-    "compare_at_price": 120750,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
     "stock_quantity": 0,
     "rating": 5,
     "review_count": 125,
-    "description": "The Macbook air Neo 512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook air Neo 512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple Silicon",
-      "Memory": "8GB Unified Memory",
-      "Display": "13-15\" Liquid Retina"
+      "Memory": "16GB Unified Memory",
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -2945,18 +4655,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 174000,
-    "compare_at_price": null,
+    "compare_at_price": 235100,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 16,
     "rating": 4.4,
     "review_count": 17,
-    "description": "The Macbook air M5 16/512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook air M5 16/512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "16GB RAM / 512GB",
-      "Display": "13-15\" Liquid Retina"
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -2982,11 +4692,11 @@
     "stock_quantity": 10,
     "rating": 5,
     "review_count": 25,
-    "description": "The Macbook air M5 16/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook air M5 16/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "16GB RAM / 1TB",
-      "Display": "13-15\" Liquid Retina"
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -3005,18 +4715,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 220000,
-    "compare_at_price": null,
+    "compare_at_price": 338500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 21,
     "rating": 3.9,
     "review_count": 134,
-    "description": "The Macbook air M5 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook air M5 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "24GB RAM / 1TB",
-      "Display": "13-15\" Liquid Retina"
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -3042,11 +4752,11 @@
     "stock_quantity": 6,
     "rating": 4.1,
     "review_count": 28,
-    "description": "The Macbook pro M5 16/512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook pro M5 16/512gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "16GB RAM / 512GB",
-      "Display": "14-16\" Liquid Retina XDR"
+      "Display": "14–16\" Liquid Retina XDR"
     },
     "images": [
       {
@@ -3065,18 +4775,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 275000,
-    "compare_at_price": null,
+    "compare_at_price": 491100,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 3,
     "rating": 4.9,
     "review_count": 40,
-    "description": "The Macbook pro M5 16/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook pro M5 16/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "16GB RAM / 1TB",
-      "Display": "14-16\" Liquid Retina XDR"
+      "Display": "14–16\" Liquid Retina XDR"
     },
     "images": [
       {
@@ -3095,18 +4805,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 280000,
-    "compare_at_price": 322000,
+    "compare_at_price": 400000,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
     "stock_quantity": 13,
     "rating": 4,
     "review_count": 117,
-    "description": "The Macbook pro M5 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook pro M5 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5",
       "Memory": "24GB RAM / 1TB",
-      "Display": "14-16\" Liquid Retina XDR"
+      "Display": "14–16\" Liquid Retina XDR"
     },
     "images": [
       {
@@ -3125,18 +4835,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 335000,
-    "compare_at_price": null,
+    "compare_at_price": 398800,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
     "stock_quantity": 2,
     "rating": 3.8,
     "review_count": 136,
-    "description": "The Macbook pro M5 pro chip 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Macbook pro M5 pro chip 24/1tb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M5 Pro",
       "Memory": "24GB RAM / 1TB",
-      "Display": "14-16\" Liquid Retina XDR"
+      "Display": "14–16\" Liquid Retina XDR"
     },
     "images": [
       {
@@ -3155,18 +4865,18 @@
     "brand": "Apple",
     "category_slug": "macbooks",
     "price": 135000,
-    "compare_at_price": null,
+    "compare_at_price": 306800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 18,
     "rating": 4.1,
     "review_count": 123,
-    "description": "The Mac mini m4 16/256gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance, all-day battery.",
+    "description": "The Mac mini m4 16/256gb from Apple, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
     "specs": {
       "Chip": "Apple M4",
       "Memory": "16GB RAM / 256GB",
-      "Display": "13-15\" Liquid Retina"
+      "Display": "13–15\" Liquid Retina"
     },
     "images": [
       {
@@ -3180,15 +4890,604 @@
     ]
   },
   {
+    "slug": "dell-xps-15-2025",
+    "name": "Dell XPS 15 (2025)",
+    "brand": "Dell",
+    "category_slug": "macbooks",
+    "price": 265000,
+    "compare_at_price": 407700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 11,
+    "rating": 4.1,
+    "review_count": 253,
+    "description": "The Dell XPS 15 (2025) from Dell, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell XPS 15 (2025) product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell XPS 15 (2025) lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "dell-inspiron-15",
+    "name": "Dell Inspiron 15",
+    "brand": "Dell",
+    "category_slug": "macbooks",
+    "price": 78000,
+    "compare_at_price": 101300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 12,
+    "rating": 4.3,
+    "review_count": 176,
+    "description": "The Dell Inspiron 15 from Dell, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell Inspiron 15 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell Inspiron 15 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "dell-alienware-m16",
+    "name": "Dell Alienware m16",
+    "brand": "Dell",
+    "category_slug": "macbooks",
+    "price": 330000,
+    "compare_at_price": 1000000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 6,
+    "rating": 5,
+    "review_count": 140,
+    "description": "The Dell Alienware m16 from Dell, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell Alienware m16 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Dell Alienware m16 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "hp-spectre-x360-14",
+    "name": "HP Spectre x360 14",
+    "brand": "HP",
+    "category_slug": "macbooks",
+    "price": 210000,
+    "compare_at_price": 488400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 2,
+    "rating": 4.7,
+    "review_count": 42,
+    "description": "The HP Spectre x360 14 from HP, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP Spectre x360 14 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP Spectre x360 14 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "hp-pavilion-15",
+    "name": "HP Pavilion 15",
+    "brand": "HP",
+    "category_slug": "macbooks",
+    "price": 72000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 6,
+    "rating": 4.7,
+    "review_count": 189,
+    "description": "The HP Pavilion 15 from HP, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP Pavilion 15 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP Pavilion 15 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "hp-elitebook-840-g11",
+    "name": "HP EliteBook 840 G11",
+    "brand": "HP",
+    "category_slug": "macbooks",
+    "price": 165000,
+    "compare_at_price": 294600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 21,
+    "rating": 4.6,
+    "review_count": 233,
+    "description": "The HP EliteBook 840 G11 from HP, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP EliteBook 840 G11 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "HP EliteBook 840 G11 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "lenovo-thinkpad-x1-carbon-gen-13",
+    "name": "Lenovo ThinkPad X1 Carbon Gen 13",
+    "brand": "Lenovo",
+    "category_slug": "macbooks",
+    "price": 255000,
+    "compare_at_price": 386400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 2,
+    "rating": 4.7,
+    "review_count": 32,
+    "description": "The Lenovo ThinkPad X1 Carbon Gen 13 from Lenovo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo ThinkPad X1 Carbon Gen 13 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo ThinkPad X1 Carbon Gen 13 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "lenovo-ideapad-slim-5",
+    "name": "Lenovo IdeaPad Slim 5",
+    "brand": "Lenovo",
+    "category_slug": "macbooks",
+    "price": 68000,
+    "compare_at_price": 119300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 6,
+    "rating": 4.6,
+    "review_count": 237,
+    "description": "The Lenovo IdeaPad Slim 5 from Lenovo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo IdeaPad Slim 5 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo IdeaPad Slim 5 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "lenovo-legion-pro-7",
+    "name": "Lenovo Legion Pro 7",
+    "brand": "Lenovo",
+    "category_slug": "macbooks",
+    "price": 320000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 7,
+    "rating": 4.3,
+    "review_count": 87,
+    "description": "The Lenovo Legion Pro 7 from Lenovo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo Legion Pro 7 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo Legion Pro 7 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "asus-rog-zephyrus-g16",
+    "name": "Asus ROG Zephyrus G16",
+    "brand": "Asus",
+    "category_slug": "macbooks",
+    "price": 340000,
+    "compare_at_price": 453300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 16,
+    "rating": 4.1,
+    "review_count": 38,
+    "description": "The Asus ROG Zephyrus G16 from Asus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus ROG Zephyrus G16 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus ROG Zephyrus G16 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "asus-zenbook-14-oled",
+    "name": "Asus Zenbook 14 OLED",
+    "brand": "Asus",
+    "category_slug": "macbooks",
+    "price": 155000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 18,
+    "rating": 4,
+    "review_count": 209,
+    "description": "The Asus Zenbook 14 OLED from Asus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus Zenbook 14 OLED product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus Zenbook 14 OLED lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "acer-swift-go-14",
+    "name": "Acer Swift Go 14",
+    "brand": "Acer",
+    "category_slug": "macbooks",
+    "price": 95000,
+    "compare_at_price": 190000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.2,
+    "review_count": 43,
+    "description": "The Acer Swift Go 14 from Acer, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Acer Swift Go 14 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Acer Swift Go 14 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "acer-predator-helios-16",
+    "name": "Acer Predator Helios 16",
+    "brand": "Acer",
+    "category_slug": "macbooks",
+    "price": 310000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 11,
+    "rating": 4.8,
+    "review_count": 209,
+    "description": "The Acer Predator Helios 16 from Acer, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Acer Predator Helios 16 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Acer Predator Helios 16 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "msi-stealth-16-ai-studio",
+    "name": "MSI Stealth 16 AI Studio",
+    "brand": "MSI",
+    "category_slug": "macbooks",
+    "price": 335000,
+    "compare_at_price": 598200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 9,
+    "rating": 4.2,
+    "review_count": 160,
+    "description": "The MSI Stealth 16 AI Studio from MSI, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "MSI Stealth 16 AI Studio product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "MSI Stealth 16 AI Studio lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "razer-blade-15",
+    "name": "Razer Blade 15",
+    "brand": "Razer",
+    "category_slug": "macbooks",
+    "price": 380000,
+    "compare_at_price": 567200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 6,
+    "rating": 4.1,
+    "review_count": 71,
+    "description": "The Razer Blade 15 from Razer, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core i9 + RTX 40-series",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "16\" QHD+ 240Hz",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer Blade 15 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Razer Blade 15 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "microsoft-surface-laptop-7",
+    "name": "Microsoft Surface Laptop 7",
+    "brand": "Microsoft",
+    "category_slug": "macbooks",
+    "price": 185000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 17,
+    "rating": 4.1,
+    "review_count": 64,
+    "description": "The Microsoft Surface Laptop 7 from Microsoft, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Microsoft Surface Laptop 7 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Microsoft Surface Laptop 7 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-galaxy-book4-pro",
+    "name": "Samsung Galaxy Book4 Pro",
+    "brand": "Samsung",
+    "category_slug": "macbooks",
+    "price": 195000,
+    "compare_at_price": 527000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 3,
+    "rating": 5,
+    "review_count": 154,
+    "description": "The Samsung Galaxy Book4 Pro from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Book4 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Book4 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-matebook-x-pro",
+    "name": "Huawei MateBook X Pro",
+    "brand": "Huawei",
+    "category_slug": "macbooks",
+    "price": 210000,
+    "compare_at_price": 437500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 2,
+    "rating": 4.5,
+    "review_count": 300,
+    "description": "The Huawei MateBook X Pro from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei MateBook X Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei MateBook X Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "lg-gram-16",
+    "name": "LG Gram 16",
+    "brand": "LG",
+    "category_slug": "macbooks",
+    "price": 205000,
+    "compare_at_price": 418400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 5,
+    "rating": 5,
+    "review_count": 36,
+    "description": "The LG Gram 16 from LG, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Pro-grade performance for work and play.",
+    "specs": {
+      "Processor": "Intel Core Ultra 7 / AMD Ryzen",
+      "Memory": "16GB RAM · 512GB–1TB SSD",
+      "Display": "14–16\" FHD+ / OLED",
+      "Warranty": "12 Months"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80&auto=format&fit=crop",
+        "alt": "LG Gram 16 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop",
+        "alt": "LG Gram 16 lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "ipad-11th-a16-wifi-128gb",
     "name": "iPad 11th A16 wifi 128gb",
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 66000,
-    "compare_at_price": 75900,
+    "compare_at_price": 126900,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 1,
     "rating": 4.5,
     "review_count": 262,
@@ -3215,7 +5514,7 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 77000,
-    "compare_at_price": null,
+    "compare_at_price": 187800,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -3275,10 +5574,10 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 135000,
-    "compare_at_price": null,
+    "compare_at_price": 204500,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 2,
     "rating": 4.6,
     "review_count": 231,
@@ -3395,10 +5694,10 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 132000,
-    "compare_at_price": 151800,
+    "compare_at_price": 307000,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 18,
     "rating": 4.6,
     "review_count": 93,
@@ -3455,10 +5754,10 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 100000,
-    "compare_at_price": null,
+    "compare_at_price": 256400,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 15,
     "rating": 5,
     "review_count": 151,
@@ -3485,10 +5784,10 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 162000,
-    "compare_at_price": 186300,
+    "compare_at_price": 330600,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 22,
     "rating": 4.3,
     "review_count": 35,
@@ -3515,7 +5814,7 @@
     "brand": "Apple",
     "category_slug": "tablets",
     "price": 175000,
-    "compare_at_price": null,
+    "compare_at_price": 227300,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -3540,15 +5839,255 @@
     ]
   },
   {
+    "slug": "samsung-galaxy-tab-s10-ultra",
+    "name": "Samsung Galaxy Tab S10 Ultra",
+    "brand": "Samsung",
+    "category_slug": "tablets",
+    "price": 165000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 19,
+    "rating": 4.6,
+    "review_count": 150,
+    "description": "The Samsung Galaxy Tab S10 Ultra from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab S10 Ultra product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab S10 Ultra lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-galaxy-tab-s10",
+    "name": "Samsung Galaxy Tab S10+",
+    "brand": "Samsung",
+    "category_slug": "tablets",
+    "price": 130000,
+    "compare_at_price": 254900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 12,
+    "rating": 4.5,
+    "review_count": 261,
+    "description": "The Samsung Galaxy Tab S10+ from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab S10+ product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab S10+ lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-galaxy-tab-a9",
+    "name": "Samsung Galaxy Tab A9+",
+    "brand": "Samsung",
+    "category_slug": "tablets",
+    "price": 38000,
+    "compare_at_price": 52100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 9,
+    "rating": 4.6,
+    "review_count": 217,
+    "description": "The Samsung Galaxy Tab A9+ from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab A9+ product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy Tab A9+ lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "lenovo-tab-p12",
+    "name": "Lenovo Tab P12",
+    "brand": "Lenovo",
+    "category_slug": "tablets",
+    "price": 55000,
+    "compare_at_price": 76400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 14,
+    "rating": 4.6,
+    "review_count": 54,
+    "description": "The Lenovo Tab P12 from Lenovo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo Tab P12 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Lenovo Tab P12 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "xiaomi-pad-7-pro",
+    "name": "Xiaomi Pad 7 Pro",
+    "brand": "Xiaomi",
+    "category_slug": "tablets",
+    "price": 62000,
+    "compare_at_price": 114800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 19,
+    "rating": 5,
+    "review_count": 238,
+    "description": "The Xiaomi Pad 7 Pro from Xiaomi, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Pad 7 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Pad 7 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-matepad-12-x",
+    "name": "Huawei MatePad 12 X",
+    "brand": "Huawei",
+    "category_slug": "tablets",
+    "price": 78000,
+    "compare_at_price": 90700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 6,
+    "rating": 4.3,
+    "review_count": 312,
+    "description": "The Huawei MatePad 12 X from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei MatePad 12 X product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei MatePad 12 X lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "microsoft-surface-pro-11",
+    "name": "Microsoft Surface Pro 11",
+    "brand": "Microsoft",
+    "category_slug": "tablets",
+    "price": 185000,
+    "compare_at_price": 500000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.7,
+    "review_count": 300,
+    "description": "The Microsoft Surface Pro 11 from Microsoft, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon X Plus"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Microsoft Surface Pro 11 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Microsoft Surface Pro 11 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "honor-pad-9",
+    "name": "Honor Pad 9",
+    "brand": "Honor",
+    "category_slug": "tablets",
+    "price": 42000,
+    "compare_at_price": 64600,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 17,
+    "rating": 3.9,
+    "review_count": 159,
+    "description": "The Honor Pad 9 from Honor, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. A pro studio that fits in one hand.",
+    "specs": {
+      "Storage": "128GB",
+      "Connectivity": "Wi-Fi",
+      "Chip": "Snapdragon 8 / Octa-core"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor Pad 9 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor Pad 9 lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "mi-stick-4k-1st-gen",
     "name": "Mi stick 4k 1st gen",
     "brand": "Xiaomi",
     "category_slug": "streaming",
     "price": 6600,
-    "compare_at_price": 7590,
+    "compare_at_price": 12700,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 10,
     "rating": 3.9,
     "review_count": 242,
@@ -3575,10 +6114,10 @@
     "brand": "Xiaomi",
     "category_slug": "streaming",
     "price": 8000,
-    "compare_at_price": 9200,
+    "compare_at_price": 23500,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 20,
     "rating": 4.2,
     "review_count": 118,
@@ -3605,10 +6144,10 @@
     "brand": "Xiaomi",
     "category_slug": "streaming",
     "price": 6500,
-    "compare_at_price": null,
+    "compare_at_price": 9200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 14,
     "rating": 3.9,
     "review_count": 99,
@@ -3635,10 +6174,10 @@
     "brand": "Xiaomi",
     "category_slug": "streaming",
     "price": 8500,
-    "compare_at_price": 9775,
+    "compare_at_price": 21300,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 7,
     "rating": 4.7,
     "review_count": 114,
@@ -3695,10 +6234,10 @@
     "brand": "Amazon",
     "category_slug": "streaming",
     "price": 6500,
-    "compare_at_price": null,
+    "compare_at_price": 7600,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 15,
     "rating": 3.9,
     "review_count": 159,
@@ -3725,10 +6264,10 @@
     "brand": "Amazon",
     "category_slug": "streaming",
     "price": 6200,
-    "compare_at_price": null,
+    "compare_at_price": 16300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 7,
     "rating": 4.1,
     "review_count": 63,
@@ -3755,10 +6294,10 @@
     "brand": "Amazon",
     "category_slug": "streaming",
     "price": 9000,
-    "compare_at_price": 10350,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 22,
     "rating": 4.5,
     "review_count": 24,
@@ -3785,10 +6324,10 @@
     "brand": "Apple",
     "category_slug": "streaming",
     "price": 30000,
-    "compare_at_price": null,
+    "compare_at_price": 85700,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 7,
     "rating": 4.1,
     "review_count": 243,
@@ -3815,10 +6354,10 @@
     "brand": "Apple",
     "category_slug": "streaming",
     "price": 23000,
-    "compare_at_price": null,
+    "compare_at_price": 33300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 21,
     "rating": 3.8,
     "review_count": 238,
@@ -3840,15 +6379,195 @@
     ]
   },
   {
+    "slug": "google-tv-streamer-4k",
+    "name": "Google TV Streamer 4k",
+    "brand": "Google",
+    "category_slug": "streaming",
+    "price": 14000,
+    "compare_at_price": 16100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 5,
+    "rating": 4.1,
+    "review_count": 63,
+    "description": "The Google TV Streamer 4k from Google, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "4K Ultra HD, HDR10+",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google TV Streamer 4k product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google TV Streamer 4k lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "google-chromecast-hd",
+    "name": "Google Chromecast HD",
+    "brand": "Google",
+    "category_slug": "streaming",
+    "price": 7000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 2,
+    "rating": 4.4,
+    "review_count": 87,
+    "description": "The Google Chromecast HD from Google, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "Full HD",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Chromecast HD product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Chromecast HD lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "roku-streaming-stick-4k",
+    "name": "Roku Streaming Stick 4k",
+    "brand": "Roku",
+    "category_slug": "streaming",
+    "price": 9000,
+    "compare_at_price": 23100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 19,
+    "rating": 4.5,
+    "review_count": 72,
+    "description": "The Roku Streaming Stick 4k from Roku, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "4K Ultra HD, HDR10+",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Roku Streaming Stick 4k product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Roku Streaming Stick 4k lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "roku-ultra",
+    "name": "Roku Ultra",
+    "brand": "Roku",
+    "category_slug": "streaming",
+    "price": 13000,
+    "compare_at_price": 17300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 13,
+    "rating": 4.5,
+    "review_count": 123,
+    "description": "The Roku Ultra from Roku, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "Full HD",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Roku Ultra product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Roku Ultra lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "nvidia-shield-tv-pro",
+    "name": "Nvidia Shield TV Pro",
+    "brand": "Nvidia",
+    "category_slug": "streaming",
+    "price": 32000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 11,
+    "rating": 4.6,
+    "review_count": 29,
+    "description": "The Nvidia Shield TV Pro from Nvidia, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "Full HD",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nvidia Shield TV Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nvidia Shield TV Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "amazon-fire-tv-cube",
+    "name": "Amazon Fire TV Cube",
+    "brand": "Amazon",
+    "category_slug": "streaming",
+    "price": 18000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 2,
+    "rating": 4.8,
+    "review_count": 27,
+    "description": "The Amazon Fire TV Cube from Amazon, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. Every app, every screen, instantly.",
+    "specs": {
+      "Resolution": "Full HD",
+      "Storage": "8GB",
+      "Remote": "Voice remote included"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazon Fire TV Cube product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Amazon Fire TV Cube lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "apple-magic-keyboard-type-c",
     "name": "Apple Magic Keyboard type c",
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 17000,
-    "compare_at_price": 19550,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "New Arrival",
     "stock_quantity": 11,
     "rating": 5,
     "review_count": 48,
@@ -3874,10 +6593,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 15000,
-    "compare_at_price": null,
+    "compare_at_price": 22100,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Sale",
     "stock_quantity": 2,
     "rating": 4.4,
     "review_count": 159,
@@ -3932,10 +6651,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 19000,
-    "compare_at_price": null,
+    "compare_at_price": 28800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 22,
     "rating": 4.6,
     "review_count": 195,
@@ -3990,10 +6709,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 16000,
-    "compare_at_price": 18400,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 15,
     "rating": 4.3,
     "review_count": 50,
@@ -4077,7 +6796,7 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 35000,
-    "compare_at_price": 40250,
+    "compare_at_price": 46100,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -4135,10 +6854,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 45000,
-    "compare_at_price": null,
+    "compare_at_price": 76300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 8,
     "rating": 4.2,
     "review_count": 31,
@@ -4164,10 +6883,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 50000,
-    "compare_at_price": null,
+    "compare_at_price": 87700,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 15,
     "rating": 4.5,
     "review_count": 233,
@@ -4193,10 +6912,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 55000,
-    "compare_at_price": 63250,
+    "compare_at_price": 94800,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 5,
     "rating": 4,
     "review_count": 179,
@@ -4251,10 +6970,10 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 16500,
-    "compare_at_price": null,
+    "compare_at_price": 39300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 9,
     "rating": 3.8,
     "review_count": 175,
@@ -4280,7 +6999,7 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 12500,
-    "compare_at_price": null,
+    "compare_at_price": 14400,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -4338,7 +7057,7 @@
     "brand": "Apple",
     "category_slug": "accessories",
     "price": 15000,
-    "compare_at_price": 17250,
+    "compare_at_price": 19700,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -4391,12 +7110,302 @@
     ]
   },
   {
+    "slug": "logitech-mx-master-3s",
+    "name": "Logitech MX Master 3S",
+    "brand": "Logitech",
+    "category_slug": "accessories",
+    "price": 14000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 22,
+    "rating": 5,
+    "review_count": 28,
+    "description": "The Logitech MX Master 3S from Logitech, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Logitech MX Master 3S product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Logitech MX Master 3S lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "logitech-mx-keys-s",
+    "name": "Logitech MX Keys S",
+    "brand": "Logitech",
+    "category_slug": "accessories",
+    "price": 15000,
+    "compare_at_price": 27800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 5,
+    "rating": 3.8,
+    "review_count": 235,
+    "description": "The Logitech MX Keys S from Logitech, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Logitech MX Keys S product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Logitech MX Keys S lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "anker-737-power-bank",
+    "name": "Anker 737 Power Bank",
+    "brand": "Anker",
+    "category_slug": "accessories",
+    "price": 15000,
+    "compare_at_price": 31300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 4,
+    "rating": 4.5,
+    "review_count": 75,
+    "description": "The Anker 737 Power Bank from Anker, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker 737 Power Bank product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker 737 Power Bank lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "anker-prime-100w-charger",
+    "name": "Anker Prime 100W Charger",
+    "brand": "Anker",
+    "category_slug": "accessories",
+    "price": 12000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 11,
+    "rating": 4.1,
+    "review_count": 186,
+    "description": "The Anker Prime 100W Charger from Anker, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker Prime 100W Charger product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Anker Prime 100W Charger lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "belkin-boostcharge-pro-3-in-1",
+    "name": "Belkin BoostCharge Pro 3-in-1",
+    "brand": "Belkin",
+    "category_slug": "accessories",
+    "price": 18000,
+    "compare_at_price": 36000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 5,
+    "rating": 4,
+    "review_count": 220,
+    "description": "The Belkin BoostCharge Pro 3-in-1 from Belkin, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Belkin BoostCharge Pro 3-in-1 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Belkin BoostCharge Pro 3-in-1 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "ugreen-nexode-100w-charger",
+    "name": "UGREEN Nexode 100W Charger",
+    "brand": "UGREEN",
+    "category_slug": "accessories",
+    "price": 9000,
+    "compare_at_price": 13000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 7,
+    "rating": 5,
+    "review_count": 177,
+    "description": "The UGREEN Nexode 100W Charger from UGREEN, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "UGREEN Nexode 100W Charger product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "UGREEN Nexode 100W Charger lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "baseus-65w-gan-charger",
+    "name": "Baseus 65W GaN Charger",
+    "brand": "Baseus",
+    "category_slug": "accessories",
+    "price": 6000,
+    "compare_at_price": 7000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 21,
+    "rating": 4.8,
+    "review_count": 257,
+    "description": "The Baseus 65W GaN Charger from Baseus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Baseus 65W GaN Charger product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Baseus 65W GaN Charger lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-45w-travel-adapter",
+    "name": "Samsung 45W Travel Adapter",
+    "brand": "Samsung",
+    "category_slug": "accessories",
+    "price": 5000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 10,
+    "rating": 4.8,
+    "review_count": 87,
+    "description": "The Samsung 45W Travel Adapter from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung 45W Travel Adapter product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung 45W Travel Adapter lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "spigen-tough-armor-case",
+    "name": "Spigen Tough Armor Case",
+    "brand": "Spigen",
+    "category_slug": "accessories",
+    "price": 4000,
+    "compare_at_price": 6900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 4,
+    "rating": 4.5,
+    "review_count": 60,
+    "description": "The Spigen Tough Armor Case from Spigen, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Spigen Tough Armor Case product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Spigen Tough Armor Case lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "belkin-screen-protector-pack",
+    "name": "Belkin Screen Protector Pack",
+    "brand": "Belkin",
+    "category_slug": "accessories",
+    "price": 3000,
+    "compare_at_price": 9100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.4,
+    "review_count": 96,
+    "description": "The Belkin Screen Protector Pack from Belkin, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The small parts that make it perfect.",
+    "specs": {
+      "Compatibility": "Universal",
+      "Connection": "Bluetooth"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80&auto=format&fit=crop",
+        "alt": "Belkin Screen Protector Pack product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=900&q=80&auto=format&fit=crop",
+        "alt": "Belkin Screen Protector Pack lifestyle photo"
+      }
+    ]
+  },
+  {
     "slug": "iphone-17-pro-max-256gb",
     "name": "iPhone 17 Pro Max 256gb",
     "brand": "Apple",
     "category_slug": "phones",
     "price": 185000,
-    "compare_at_price": null,
+    "compare_at_price": 298400,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -4427,10 +7436,10 @@
     "brand": "Apple",
     "category_slug": "phones",
     "price": 210000,
-    "compare_at_price": null,
+    "compare_at_price": 269200,
     "condition": "new",
     "is_featured": false,
-    "badge": "New Arrival",
+    "badge": "Sale",
     "stock_quantity": 5,
     "rating": 4.4,
     "review_count": 14,
@@ -4489,10 +7498,10 @@
     "brand": "Apple",
     "category_slug": "phones",
     "price": 130000,
-    "compare_at_price": 149500,
+    "compare_at_price": null,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": null,
     "stock_quantity": 9,
     "rating": 5,
     "review_count": 110,
@@ -4520,7 +7529,7 @@
     "brand": "Apple",
     "category_slug": "phones",
     "price": 145000,
-    "compare_at_price": 166750,
+    "compare_at_price": 237700,
     "condition": "new",
     "is_featured": false,
     "badge": "Out of Stock",
@@ -4551,10 +7560,10 @@
     "brand": "Apple",
     "category_slug": "phones",
     "price": 95000,
-    "compare_at_price": null,
+    "compare_at_price": 121800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 19,
     "rating": 3.9,
     "review_count": 214,
@@ -4582,7 +7591,7 @@
     "brand": "Samsung",
     "category_slug": "phones",
     "price": 175000,
-    "compare_at_price": 201250,
+    "compare_at_price": 473000,
     "condition": "new",
     "is_featured": true,
     "badge": "Best Seller",
@@ -4613,10 +7622,10 @@
     "brand": "Samsung",
     "category_slug": "phones",
     "price": 195000,
-    "compare_at_price": null,
+    "compare_at_price": 243800,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 18,
     "rating": 4.2,
     "review_count": 191,
@@ -4675,10 +7684,10 @@
     "brand": "Samsung",
     "category_slug": "phones",
     "price": 250000,
-    "compare_at_price": null,
+    "compare_at_price": 657900,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 5,
     "rating": 5,
     "review_count": 111,
@@ -4706,10 +7715,10 @@
     "brand": "Samsung",
     "category_slug": "phones",
     "price": 155000,
-    "compare_at_price": null,
+    "compare_at_price": 369000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 4,
     "rating": 4.6,
     "review_count": 283,
@@ -4737,10 +7746,10 @@
     "brand": "Samsung",
     "category_slug": "phones",
     "price": 45000,
-    "compare_at_price": null,
+    "compare_at_price": 76300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 3,
     "rating": 5,
     "review_count": 314,
@@ -4768,10 +7777,10 @@
     "brand": "Google",
     "category_slug": "phones",
     "price": 150000,
-    "compare_at_price": null,
+    "compare_at_price": 267900,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 9,
     "rating": 4.8,
     "review_count": 100,
@@ -4799,10 +7808,10 @@
     "brand": "Google",
     "category_slug": "phones",
     "price": 110000,
-    "compare_at_price": null,
+    "compare_at_price": 169200,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 17,
     "rating": 3.8,
     "review_count": 242,
@@ -4830,10 +7839,10 @@
     "brand": "Tecno",
     "category_slug": "phones",
     "price": 32000,
-    "compare_at_price": 36800,
+    "compare_at_price": 61500,
     "condition": "new",
     "is_featured": false,
-    "badge": "Sale",
+    "badge": "Hot Deal",
     "stock_quantity": 22,
     "rating": 4.6,
     "review_count": 116,
@@ -4861,10 +7870,10 @@
     "brand": "Tecno",
     "category_slug": "phones",
     "price": 55000,
-    "compare_at_price": null,
+    "compare_at_price": 141000,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Hot Deal",
     "stock_quantity": 18,
     "rating": 4.5,
     "review_count": 114,
@@ -4892,10 +7901,10 @@
     "brand": "Infinix",
     "category_slug": "phones",
     "price": 28000,
-    "compare_at_price": null,
+    "compare_at_price": 33300,
     "condition": "new",
     "is_featured": false,
-    "badge": null,
+    "badge": "Sale",
     "stock_quantity": 22,
     "rating": 4.6,
     "review_count": 99,
@@ -4923,7 +7932,7 @@
     "brand": "Xiaomi",
     "category_slug": "phones",
     "price": 35000,
-    "compare_at_price": 40250,
+    "compare_at_price": 54700,
     "condition": "new",
     "is_featured": false,
     "badge": "Sale",
@@ -4945,6 +7954,719 @@
       {
         "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
         "alt": "Xiaomi Redmi Note 14 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "xiaomi-15-ultra-512gb",
+    "name": "Xiaomi 15 Ultra 512gb",
+    "brand": "Xiaomi",
+    "category_slug": "phones",
+    "price": 155000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 5,
+    "rating": 4.1,
+    "review_count": 110,
+    "description": "The Xiaomi 15 Ultra 512gb from Xiaomi, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "512GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi 15 Ultra 512gb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi 15 Ultra 512gb lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "xiaomi-poco-x7-pro",
+    "name": "Xiaomi Poco X7 Pro",
+    "brand": "Xiaomi",
+    "category_slug": "phones",
+    "price": 42000,
+    "compare_at_price": 59200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 4,
+    "rating": 4.9,
+    "review_count": 20,
+    "description": "The Xiaomi Poco X7 Pro from Xiaomi, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Poco X7 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Xiaomi Poco X7 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oneplus-13-256gb",
+    "name": "OnePlus 13 256gb",
+    "brand": "OnePlus",
+    "category_slug": "phones",
+    "price": 120000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.2,
+    "review_count": 247,
+    "description": "The OnePlus 13 256gb from OnePlus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "256GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus 13 256gb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus 13 256gb lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oneplus-13r-256gb",
+    "name": "OnePlus 13R 256gb",
+    "brand": "OnePlus",
+    "category_slug": "phones",
+    "price": 78000,
+    "compare_at_price": 150000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 7,
+    "rating": 3.8,
+    "review_count": 221,
+    "description": "The OnePlus 13R 256gb from OnePlus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "256GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus 13R 256gb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus 13R 256gb lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oneplus-nord-4",
+    "name": "OnePlus Nord 4",
+    "brand": "OnePlus",
+    "category_slug": "phones",
+    "price": 52000,
+    "compare_at_price": 64200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 13,
+    "rating": 3.8,
+    "review_count": 94,
+    "description": "The OnePlus Nord 4 from OnePlus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus Nord 4 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=900&q=80&auto=format&fit=crop",
+        "alt": "OnePlus Nord 4 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oppo-find-x8-pro",
+    "name": "Oppo Find X8 Pro",
+    "brand": "Oppo",
+    "category_slug": "phones",
+    "price": 135000,
+    "compare_at_price": 192900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 22,
+    "rating": 4.9,
+    "review_count": 214,
+    "description": "The Oppo Find X8 Pro from Oppo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oppo Find X8 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oppo Find X8 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "oppo-reno-12",
+    "name": "Oppo Reno 12",
+    "brand": "Oppo",
+    "category_slug": "phones",
+    "price": 52000,
+    "compare_at_price": 61200,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 14,
+    "rating": 4.1,
+    "review_count": 192,
+    "description": "The Oppo Reno 12 from Oppo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oppo Reno 12 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Oppo Reno 12 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "vivo-x200-pro",
+    "name": "Vivo X200 Pro",
+    "brand": "Vivo",
+    "category_slug": "phones",
+    "price": 128000,
+    "compare_at_price": 336800,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 22,
+    "rating": 4,
+    "review_count": 194,
+    "description": "The Vivo X200 Pro from Vivo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Vivo X200 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Vivo X200 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "vivo-v40-5g",
+    "name": "Vivo V40 5g",
+    "brand": "Vivo",
+    "category_slug": "phones",
+    "price": 48000,
+    "compare_at_price": 109100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 10,
+    "rating": 4.9,
+    "review_count": 275,
+    "description": "The Vivo V40 5g from Vivo, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Vivo V40 5g product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900&q=80&auto=format&fit=crop",
+        "alt": "Vivo V40 5g lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "realme-13-pro-plus",
+    "name": "Realme 13 Pro Plus",
+    "brand": "Realme",
+    "category_slug": "phones",
+    "price": 55000,
+    "compare_at_price": 87300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 10,
+    "rating": 4,
+    "review_count": 217,
+    "description": "The Realme 13 Pro Plus from Realme, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Realme 13 Pro Plus product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Realme 13 Pro Plus lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "realme-gt-7-pro",
+    "name": "Realme GT 7 Pro",
+    "brand": "Realme",
+    "category_slug": "phones",
+    "price": 72000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 16,
+    "rating": 5,
+    "review_count": 105,
+    "description": "The Realme GT 7 Pro from Realme, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Realme GT 7 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "Realme GT 7 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "honor-magic-7-pro",
+    "name": "Honor Magic 7 Pro",
+    "brand": "Honor",
+    "category_slug": "phones",
+    "price": 130000,
+    "compare_at_price": 240700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 3,
+    "rating": 4.8,
+    "review_count": 281,
+    "description": "The Honor Magic 7 Pro from Honor, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor Magic 7 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor Magic 7 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "honor-200-5g",
+    "name": "Honor 200 5g",
+    "brand": "Honor",
+    "category_slug": "phones",
+    "price": 60000,
+    "compare_at_price": 136400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 15,
+    "rating": 4.5,
+    "review_count": 101,
+    "description": "The Honor 200 5g from Honor, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor 200 5g product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900&q=80&auto=format&fit=crop",
+        "alt": "Honor 200 5g lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-pura-70-pro",
+    "name": "Huawei Pura 70 Pro",
+    "brand": "Huawei",
+    "category_slug": "phones",
+    "price": 140000,
+    "compare_at_price": 229500,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 6,
+    "rating": 4.9,
+    "review_count": 303,
+    "description": "The Huawei Pura 70 Pro from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Pura 70 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Pura 70 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-nova-13",
+    "name": "Huawei Nova 13",
+    "brand": "Huawei",
+    "category_slug": "phones",
+    "price": 65000,
+    "compare_at_price": 77400,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 6,
+    "rating": 4.8,
+    "review_count": 276,
+    "description": "The Huawei Nova 13 from Huawei, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Nova 13 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=900&q=80&auto=format&fit=crop",
+        "alt": "Huawei Nova 13 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "nothing-phone-3",
+    "name": "Nothing Phone 3",
+    "brand": "Nothing",
+    "category_slug": "phones",
+    "price": 82000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 19,
+    "rating": 4.2,
+    "review_count": 307,
+    "description": "The Nothing Phone 3 from Nothing, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nothing Phone 3 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nothing Phone 3 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "motorola-edge-50-pro",
+    "name": "Motorola Edge 50 Pro",
+    "brand": "Motorola",
+    "category_slug": "phones",
+    "price": 58000,
+    "compare_at_price": 116000,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 13,
+    "rating": 4.3,
+    "review_count": 234,
+    "description": "The Motorola Edge 50 Pro from Motorola, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Motorola Edge 50 Pro product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Motorola Edge 50 Pro lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "motorola-razr-50-ultra",
+    "name": "Motorola Razr 50 Ultra",
+    "brand": "Motorola",
+    "category_slug": "phones",
+    "price": 115000,
+    "compare_at_price": 151300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 13,
+    "rating": 4.3,
+    "review_count": 273,
+    "description": "The Motorola Razr 50 Ultra from Motorola, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Motorola Razr 50 Ultra product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "Motorola Razr 50 Ultra lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "nokia-xr21",
+    "name": "Nokia XR21",
+    "brand": "Nokia",
+    "category_slug": "phones",
+    "price": 45000,
+    "compare_at_price": 54900,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 14,
+    "rating": 4.2,
+    "review_count": 323,
+    "description": "The Nokia XR21 from Nokia, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nokia XR21 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop",
+        "alt": "Nokia XR21 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "asus-rog-phone-9",
+    "name": "Asus ROG Phone 9",
+    "brand": "Asus",
+    "category_slug": "phones",
+    "price": 145000,
+    "compare_at_price": null,
+    "condition": "new",
+    "is_featured": false,
+    "badge": null,
+    "stock_quantity": 8,
+    "rating": 4.6,
+    "review_count": 87,
+    "description": "The Asus ROG Phone 9 from Asus, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus ROG Phone 9 product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Asus ROG Phone 9 lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "sony-xperia-1-vi",
+    "name": "Sony Xperia 1 VI",
+    "brand": "Sony",
+    "category_slug": "phones",
+    "price": 155000,
+    "compare_at_price": 352300,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Hot Deal",
+    "stock_quantity": 11,
+    "rating": 4.1,
+    "review_count": 52,
+    "description": "The Sony Xperia 1 VI from Sony, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Octa-core",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony Xperia 1 VI product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop",
+        "alt": "Sony Xperia 1 VI lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "google-pixel-9-pro-fold",
+    "name": "Google Pixel 9 Pro Fold",
+    "brand": "Google",
+    "category_slug": "phones",
+    "price": 235000,
+    "compare_at_price": 290100,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Sale",
+    "stock_quantity": 4,
+    "rating": 4.6,
+    "review_count": 41,
+    "description": "The Google Pixel 9 Pro Fold from Google, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "Foldable AMOLED",
+      "Chip": "Google Tensor G5",
+      "Camera": "Triple 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Pixel 9 Pro Fold product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Google Pixel 9 Pro Fold lifestyle photo"
+      }
+    ]
+  },
+  {
+    "slug": "samsung-galaxy-s26-128gb",
+    "name": "Samsung Galaxy S26 128gb",
+    "brand": "Samsung",
+    "category_slug": "phones",
+    "price": 120000,
+    "compare_at_price": 307700,
+    "condition": "new",
+    "is_featured": false,
+    "badge": "Out of Stock",
+    "stock_quantity": 0,
+    "rating": 4.4,
+    "review_count": 39,
+    "description": "The Samsung Galaxy S26 128gb from Samsung, available now at City Gadgets with genuine warranty and same-day Nairobi delivery. The newest flagships, landing in Nairobi first.",
+    "specs": {
+      "Storage": "128GB",
+      "Display": "AMOLED, 120Hz",
+      "Chip": "Snapdragon 8 Elite",
+      "Camera": "Dual 50MP camera system"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy S26 128gb product photo"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80&auto=format&fit=crop",
+        "alt": "Samsung Galaxy S26 128gb lifestyle photo"
       }
     ]
   }

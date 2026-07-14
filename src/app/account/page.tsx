@@ -4,6 +4,7 @@ import { Icon } from "@/components/ui/Icon";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { MenuRow } from "@/components/ui/MenuRow";
 import { formatDate, formatKES } from "@/lib/format";
+import { whatsappLink } from "@/lib/contact";
 import { getCurrentUser } from "@/lib/data/auth";
 import { getOrdersForUser, orderStats } from "@/lib/data/orders";
 
@@ -80,7 +81,7 @@ export default async function AccountPage() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <a
-          href="https://wa.me/254700000000"
+          href={whatsappLink()}
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-4 rounded-2xl border-l-4 border-whatsapp-green bg-surface-container-lowest p-5 shadow-card"

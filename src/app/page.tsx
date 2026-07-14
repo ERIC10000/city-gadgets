@@ -1,51 +1,124 @@
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { ProductCard } from "@/components/product/ProductCard";
-import { HeroSlider } from "@/components/home/HeroSlider";
-import { CategoryNav } from "@/components/home/CategoryNav";
-import { TrustBanner } from "@/components/home/TrustBanner";
-import { NewsletterCTA } from "@/components/home/NewsletterCTA";
+import { HeroCarousel, type HeroSlide } from "@/components/home/HeroCarousel";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { PopularCategories, type CategoryCircle } from "@/components/home/PopularCategories";
+import { TabbedProductRail, type RailGroup } from "@/components/home/TabbedProductRail";
+import { TopDeals } from "@/components/home/TopDeals";
+import { RefurbishedBanner } from "@/components/home/RefurbishedBanner";
+import { SectionRail } from "@/components/home/SectionRail";
+import { CircularEconomy } from "@/components/home/CircularEconomy";
 import { getCategories } from "@/lib/data/categories";
-import { getFeaturedProducts, getProducts } from "@/lib/data/products";
+import { getProducts } from "@/lib/data/products";
+import { getVideos } from "@/lib/data/videos";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import type { Product } from "@/lib/types";
+
+const CIRCLE_LABEL: Record<string, string> = {
+  consoles: "Gaming",
+  phones: "Smartphones",
+  macbooks: "Laptops",
+  tablets: "Tablets",
+  wearables: "Smartwatches",
+  audio: "Audio",
+  cameras: "Cameras",
+  "gaming-accessories": "Accessories",
+  streaming: "Streaming",
+  accessories: "Tech Bits",
+};
+
+const FAVORITE_TABS: { label: string; slug: string }[] = [
+  { label: "Smartphones", slug: "phones" },
+  { label: "Laptops", slug: "macbooks" },
+  { label: "Tablets", slug: "tablets" },
+  { label: "Smartwatches", slug: "wearables" },
+  { label: "Audio", slug: "audio" },
+  { label: "Gaming", slug: "consoles" },
+];
+
+function pickImages(products: Product[], slug: string, n: number): string[] {
+  return products
+    .filter((p) => p.category_slug === slug && p.images[0]?.url)
+    .slice(0, n)
+    .map((p) => p.images[0].url);
+}
 
 export default async function HomePage() {
-  const [categories, featured, bestSellers] = await Promise.all([
+  const [categories, { items: all }, videos] = await Promise.all([
     getCategories(),
-    getFeaturedProducts(4),
-    getProducts({ sort: "rating", limit: 8 }),
+    getProducts({ limit: 1000, sort: "rating" }),
+    getVideos(),
   ]);
+
+  const byCategory = (slug: string) => all.filter((p) => p.category_slug === slug);
+
+  // Hero slides built from real product imagery per department.
+  const heroSlides: HeroSlide[] = [
+    {
+      eyebrow: "Up to 70% off retail",
+      title: "Premium Smartphones. Better Prices.",
+      subtitle: "Expertly sourced, quality guaranteed — flagship phones for less.",
+      href: "/category/phones",
+      cta: "Shop Now",
+      images: pickImages(all, "phones", 3),
+    },
+    {
+      eyebrow: "Pro power, less spend",
+      title: "MacBooks & Laptops",
+      subtitle: "M5 performance and all-day battery, with a 12-month warranty.",
+      href: "/category/macbooks",
+      cta: "Shop Laptops",
+      images: pickImages(all, "macbooks", 3),
+    },
+    {
+      eyebrow: "Play more, pay less",
+      title: "Next-Gen Gaming",
+      subtitle: "Consoles, handhelds and VR — genuine gear, unbeatable prices.",
+      href: "/category/consoles",
+      cta: "Shop Gaming",
+      images: pickImages(all, "consoles", 3),
+    },
+  ];
+
+  // Category circles — one representative product image per department.
+  const circles: CategoryCircle[] = categories
+    .map((c) => {
+      const img = byCategory(c.slug)[0]?.images[0]?.url;
+      return img ? { slug: c.slug, label: CIRCLE_LABEL[c.slug] ?? c.name, image: img } : null;
+    })
+    .filter((c): c is CategoryCircle => c !== null);
+
+  // Customer favourites — top-rated per tab.
+  const favoriteGroups: RailGroup[] = FAVORITE_TABS.map((tab) => ({
+    label: tab.label,
+    href: `/category/${tab.slug}`,
+    products: byCategory(tab.slug).slice(0, 8),
+  })).filter((g) => g.products.length > 0);
+
+  // Today's top deals — biggest discounts first.
+  const topDeals = all
+    .filter((p) => p.compare_at_price && p.compare_at_price > p.price)
+    .sort(
+      (a, b) =>
+        (b.compare_at_price! - b.price) / b.compare_at_price! - (a.compare_at_price! - a.price) / a.compare_at_price!,
+    )
+    .slice(0, 8);
+
+  const streaming = byCategory("streaming").slice(0, 8);
+  const gaming = [...byCategory("consoles"), ...byCategory("gaming-accessories")].slice(0, 8);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }} />
 
-      <HeroSlider products={featured.length ? featured : bestSellers.items} />
-      <CategoryNav categories={categories} />
-      <TrustBanner />
-
-      <section className="bg-surface-off-white py-16">
-        <div className="mx-auto w-full max-w-container-max px-margin-mobile md:px-gutter">
-          <div className="mb-12 flex items-end justify-between">
-            <div>
-              <h2 className="text-headline-lg font-bold text-on-surface">Best Sellers</h2>
-              <p className="mt-2 text-on-surface-variant">The most popular gadgets in the city right now.</p>
-            </div>
-            <Link href="/shop" className="flex items-center gap-2 font-bold text-primary hover:underline">
-              View All
-              <Icon name="chevron_right" className="text-[20px]" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {bestSellers.items.map((product, i) => (
-              <ProductCard key={product.id} product={product} priority={i < 2} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <NewsletterCTA />
+      <HeroCarousel slides={heroSlides} />
+      <TrustStrip />
+      <PopularCategories items={circles} />
+      <TabbedProductRail title="Customer Favorites" groups={favoriteGroups} />
+      <TopDeals products={topDeals} />
+      <RefurbishedBanner />
+      <SectionRail title="Smart Home & Streaming" href="/category/streaming" products={streaming} />
+      <SectionRail title="Gaming" href="/category/consoles" products={gaming} tone="gray" />
+      <CircularEconomy videos={videos} />
     </>
   );
 }

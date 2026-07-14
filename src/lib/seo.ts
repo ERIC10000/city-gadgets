@@ -33,8 +33,8 @@ export function organizationJsonLd() {
       addressLocality: "Nairobi",
       addressCountry: "KE",
     },
-    telephone: "+254700000000",
-    sameAs: ["https://wa.me/254700000000"],
+    telephone: "+254745575931",
+    sameAs: ["https://wa.me/254745575931", "https://wa.me/254794488806"],
   };
 }
 

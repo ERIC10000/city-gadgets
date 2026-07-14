@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
 
 export function Footer() {
   return (
@@ -20,7 +21,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="https://wa.me/254700000000"
+                href={whatsappLink()}
                 target="_blank"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all hover:border-whatsapp-green hover:bg-whatsapp-green"
               >
@@ -58,7 +59,7 @@ export function Footer() {
               <li><Link href="#" className="transition-colors hover:text-primary">Returns &amp; Warranty</Link></li>
               <li><Link href="#" className="transition-colors hover:text-primary">Shipping Policy</Link></li>
               <li>
-                <Link href="https://wa.me/254700000000" target="_blank" className="transition-colors hover:text-primary">
+                <Link href={whatsappLink()} target="_blank" className="transition-colors hover:text-primary">
                   Contact Support
                 </Link>
               </li>
@@ -72,9 +73,20 @@ export function Footer() {
                 <Icon name="location_on" className="text-primary" />
                 <span>Gadget Plaza, 2nd Floor<br />Nairobi, CBD</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Icon name="call" className="text-primary" />
-                <span>+254 700 000 000</span>
+              <div className="flex items-start gap-3">
+                <WhatsAppIcon className="mt-0.5 h-5 w-5 text-whatsapp-green" />
+                <div className="flex flex-col gap-1">
+                  {WHATSAPP_NUMBERS.map((n) => (
+                    <Link
+                      key={n.raw}
+                      href={whatsappLink("Hi City Gadgets!", n.raw)}
+                      target="_blank"
+                      className="transition-colors hover:text-primary"
+                    >
+                      {n.display}
+                    </Link>
+                  ))}
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="mail" className="text-primary" />

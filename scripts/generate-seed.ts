@@ -132,20 +132,32 @@ const CATEGORIES: CategoryDef[] = [
   },
   {
     slug: "macbooks",
-    name: "MacBooks & Computers",
+    name: "Laptops & Computers",
     icon: "laptop_mac",
-    heroTagline: "Pro-grade performance, all-day battery.",
+    heroTagline: "Pro-grade performance for work and play.",
     heroImage: HERO("1531297484001-80022131f5a1"),
     imagePool: [
       IMG("1541807084-5c52b6b3adef"), // clean MacBook on desk
       IMG("1531297484001-80022131f5a1"), // dramatic backlit laptop
       IMG("1580927752452-89d86da3fa0a"), // dramatic backlit laptop (alt angle)
     ],
-    specTemplate: (name) => ({
-      Chip: /pro chip/i.test(name) ? "Apple M5 Pro" : /m5/i.test(name) ? "Apple M5" : /m4/i.test(name) ? "Apple M4" : "Apple Silicon",
-      Memory: ramSpec(name) ?? "8GB Unified Memory",
-      Display: /pro/i.test(name) ? "14-16\" Liquid Retina XDR" : "13-15\" Liquid Retina",
-    }),
+    specTemplate: (name): Record<string, string> => {
+      const isApple = /macbook|mac mini|imac/i.test(name);
+      const isGaming = /rog|legion|predator|stealth|blade|zephyrus|alienware|helios/i.test(name);
+      if (isApple) {
+        return {
+          Chip: /pro chip/i.test(name) ? "Apple M5 Pro" : /m5/i.test(name) ? "Apple M5" : /m4/i.test(name) ? "Apple M4" : "Apple Silicon",
+          Memory: ramSpec(name) ?? "16GB Unified Memory",
+          Display: /pro/i.test(name) ? '14–16" Liquid Retina XDR' : '13–15" Liquid Retina',
+        };
+      }
+      return {
+        Processor: isGaming ? "Intel Core i9 + RTX 40-series" : "Intel Core Ultra 7 / AMD Ryzen",
+        Memory: "16GB RAM · 512GB–1TB SSD",
+        Display: isGaming ? '16" QHD+ 240Hz' : '14–16" FHD+ / OLED',
+        Warranty: "12 Months",
+      };
+    },
   },
   {
     slug: "tablets",
@@ -157,11 +169,22 @@ const CATEGORIES: CategoryDef[] = [
       IMG("1561154464-82e9adf32764"), // iPad in hand, lifestyle
       IMG("1585790050230-5dd28404ccb9"), // two iPads side by side
     ],
-    specTemplate: (name) => ({
-      Storage: storageSpec(name) ?? "128GB",
-      Connectivity: /5g/i.test(name) ? "Wi-Fi + 5G" : "Wi-Fi",
-      Chip: /pro/i.test(name) ? "Apple M5" : /air/i.test(name) ? "Apple M4" : "Apple A16",
-    }),
+    specTemplate: (name): Record<string, string> => {
+      const isApple = /ipad/i.test(name);
+      return {
+        Storage: storageSpec(name) ?? "128GB",
+        Connectivity: /5g/i.test(name) ? "Wi-Fi + 5G" : "Wi-Fi",
+        Chip: isApple
+          ? /pro/i.test(name)
+            ? "Apple M5"
+            : /air/i.test(name)
+              ? "Apple M4"
+              : "Apple A16"
+          : /surface/i.test(name)
+            ? "Snapdragon X Plus"
+            : "Snapdragon 8 / Octa-core",
+      };
+    },
   },
   {
     slug: "streaming",
@@ -252,6 +275,10 @@ Quest 3 512gb - 78k
 Quest 3 128gb - 69k
 Quest 3s 128gb - 55k
 Quest 3s Xbox - 65k
+Anbernic RG556 - 32k
+Ayaneo Pocket S - 78k
+Analogue Pocket - 45k
+Atari 2600+ - 18k
 `,
   "gaming-accessories": `
 Logitech flight York - 48k
@@ -275,6 +302,19 @@ Nintendo switch Joycon's - 10500
 Nintendo switch 2 camera - 9500
 Logitech G29 - 39k
 Logitech g920 - 38k
+Razer DeathAdder V3 Pro - 22k
+Razer BlackWidow V4 Pro - 28k
+SteelSeries Arctis Nova Pro Wireless - 45k
+SteelSeries Apex Pro TKL - 35k
+HyperX Cloud III Wireless - 18k
+HyperX Alloy Origins 65 - 16k
+Corsair K70 RGB Pro - 24k
+Turtle Beach Stealth 700 Gen 3 - 22k
+8BitDo Ultimate Controller - 12k
+Elgato Stream Deck MK.2 - 22k
+Thrustmaster T248 Racing Wheel - 48k
+Samsung 990 Pro SSD 2tb - 32k
+Seagate Game Drive 2tb - 14k
 `,
   audio: `
 Playstation pulse explore - 29k
@@ -296,6 +336,24 @@ DJI Mic mini 2 - 19k
 DJI Mic 3 - 43k
 DJI Mic 2 - 32k
 DJI Mic - 23k
+Bose QuietComfort Ultra Headphones - 62k
+Bose QuietComfort Earbuds Ultra - 45k
+Sennheiser Momentum 4 Wireless - 55k
+Sennheiser Accentum Plus - 28k
+JBL Tour One M2 - 38k
+JBL Charge 6 - 25k
+JBL Flip 7 - 16k
+Beats Studio Pro - 48k
+Beats Fit Pro - 28k
+Sonos Ace Headphones - 58k
+Sonos Era 300 - 62k
+Anker Soundcore Space One - 15k
+Marshall Major V - 22k
+Marshall Emberton III - 24k
+Jabra Elite 10 Gen 2 - 32k
+Bang & Olufsen Beoplay EX - 55k
+Audio-Technica ATH-M50xBT2 - 28k
+Skullcandy Crusher ANC 2 - 22k
 `,
   cameras: `
 DJI Osmo Mobile 7P - 19k
@@ -313,6 +371,16 @@ Insta360 Invisible Selfie Stick with tripod - 5500
 GOPRO Hero 13 - 53k
 GOPRO Hero 11 mini - 35k
 GOPRO Hero 13 battery - 7k
+Sony ZV-1 II - 92k
+Sony Alpha A6700 - 165k
+Canon EOS R50 - 105k
+Canon PowerShot V10 - 55k
+Nikon Z30 - 98k
+Fujifilm X-S20 - 175k
+Fujifilm Instax Mini 12 - 12k
+Panasonic Lumix G100 - 88k
+Zhiyun Smooth 5S - 18k
+Zhiyun Crane M3S - 42k
 `,
   wearables: `
 Apple Watch Series 10 42mm - 49k
@@ -328,6 +396,18 @@ SAMSUNG Watch 7 44mm - 25k
 SAMSUNG Watch 8 40mm - 29k
 SAMSUNG Watch 8 44mm - 32k
 Samsung Galaxy ring - 45k
+Garmin Fenix 8 - 95k
+Garmin Venu 3 - 62k
+Garmin Forerunner 265 - 58k
+Fitbit Charge 6 - 22k
+Fitbit Versa 4 - 32k
+Huawei Watch GT 5 Pro - 45k
+Huawei Band 9 - 8k
+Amazfit GTR 4 - 25k
+Amazfit Active 2 - 15k
+Google Pixel Watch 3 - 52k
+Xiaomi Smart Band 9 - 6k
+Oura Ring Gen 4 - 48k
 `,
   macbooks: `
 Macbook air Neo 256gb - 100k
@@ -340,6 +420,25 @@ Macbook pro M5 16/1tb - 275k
 Macbook pro M5 24/1tb - 280k
 Macbook pro M5 pro chip 24/1tb - 335k
 Mac mini m4 16/256gb - 135k
+Dell XPS 15 (2025) - 265k
+Dell Inspiron 15 - 78k
+Dell Alienware m16 - 330k
+HP Spectre x360 14 - 210k
+HP Pavilion 15 - 72k
+HP EliteBook 840 G11 - 165k
+Lenovo ThinkPad X1 Carbon Gen 13 - 255k
+Lenovo IdeaPad Slim 5 - 68k
+Lenovo Legion Pro 7 - 320k
+Asus ROG Zephyrus G16 - 340k
+Asus Zenbook 14 OLED - 155k
+Acer Swift Go 14 - 95k
+Acer Predator Helios 16 - 310k
+MSI Stealth 16 AI Studio - 335k
+Razer Blade 15 - 380k
+Microsoft Surface Laptop 7 - 185k
+Samsung Galaxy Book4 Pro - 195k
+Huawei MateBook X Pro - 210k
+LG Gram 16 - 205k
 `,
   tablets: `
 iPad 11th A16 wifi 128gb - 66k
@@ -354,6 +453,14 @@ iPad Mini A17 Pro 128gb - 90k
 iPad Mini A17 pro 128gb 5g - 100k
 iPad Pro 11" M5 256gb 5g - 162k
 iPad Pro 13" M5 256gb 5g - 175k
+Samsung Galaxy Tab S10 Ultra - 165k
+Samsung Galaxy Tab S10+ - 130k
+Samsung Galaxy Tab A9+ - 38k
+Lenovo Tab P12 - 55k
+Xiaomi Pad 7 Pro - 62k
+Huawei MatePad 12 X - 78k
+Microsoft Surface Pro 11 - 185k
+Honor Pad 9 - 42k
 `,
   streaming: `
 Mi stick 4k 1st gen - 6600
@@ -366,6 +473,12 @@ Firestick 4k - 6200
 Firestick max - 9000
 Apple tv 4k 128gb - 30k
 Apple tv 4k 64gb - 23k
+Google TV Streamer 4k - 14k
+Google Chromecast HD - 7k
+Roku Streaming Stick 4k - 9k
+Roku Ultra - 13k
+Nvidia Shield TV Pro - 32k
+Amazon Fire TV Cube - 18k
 `,
   accessories: `
 Apple Magic Keyboard type c - 17k
@@ -387,6 +500,16 @@ Apple Magic Mouse 2 - 12.5k
 Apple Magic Mouse 4 - 16.5k
 Apple Magic Mouse 3 - 15k
 Apple trackpad black - 25k
+Logitech MX Master 3S - 14k
+Logitech MX Keys S - 15k
+Anker 737 Power Bank - 15k
+Anker Prime 100W Charger - 12k
+Belkin BoostCharge Pro 3-in-1 - 18k
+UGREEN Nexode 100W Charger - 9k
+Baseus 65W GaN Charger - 6k
+Samsung 45W Travel Adapter - 5k
+Spigen Tough Armor Case - 4k
+Belkin Screen Protector Pack - 3k
 `,
   // Not in the client's original price list — added on request to fill out
   // the "Latest Mobile Phones" route with the brands that actually move in
@@ -411,6 +534,29 @@ Tecno Camon 40 Pro - 32k
 Tecno Phantom X3 - 55k
 Infinix Note 50 Pro - 28k
 Xiaomi Redmi Note 14 Pro - 35k
+Xiaomi 15 Ultra 512gb - 155k
+Xiaomi Poco X7 Pro - 42k
+OnePlus 13 256gb - 120k
+OnePlus 13R 256gb - 78k
+OnePlus Nord 4 - 52k
+Oppo Find X8 Pro - 135k
+Oppo Reno 12 - 52k
+Vivo X200 Pro - 128k
+Vivo V40 5g - 48k
+Realme 13 Pro Plus - 55k
+Realme GT 7 Pro - 72k
+Honor Magic 7 Pro - 130k
+Honor 200 5g - 60k
+Huawei Pura 70 Pro - 140k
+Huawei Nova 13 - 65k
+Nothing Phone 3 - 82k
+Motorola Edge 50 Pro - 58k
+Motorola Razr 50 Ultra - 115k
+Nokia XR21 - 45k
+Asus ROG Phone 9 - 145k
+Sony Xperia 1 VI - 155k
+Google Pixel 9 Pro Fold - 235k
+Samsung Galaxy S26 128gb - 120k
 `,
 };
 
@@ -436,28 +582,93 @@ function slugify(input: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+// Keyword → brand. Order matters: compound/specific patterns come before
+// generic ones, and anything that could be a false-positive substring (e.g.
+// "nova") is matched via the parent brand keyword instead.
 function inferBrand(name: string): string {
   const n = name.toLowerCase();
-  if (/wd ssd/.test(n)) return "Western Digital";
+  // Storage / components
+  if (/wd ssd|western digital/.test(n)) return "Western Digital";
+  if (/seagate/.test(n)) return "Seagate";
+  // Gaming platforms & peripherals
   if (/playstation|^ps5|^ps4|pulse/.test(n)) return "Sony PlayStation";
-  if (/sony/.test(n)) return "Sony";
-  if (/rog xbo|rog ally/.test(n)) return "ASUS ROG";
   if (/xbox/.test(n)) return "Microsoft Xbox";
   if (/nintendo/.test(n)) return "Nintendo";
-  if (/logitech/.test(n)) return "Logitech";
-  if (/lenovo|legion/.test(n)) return "Lenovo";
   if (/steam deck/.test(n)) return "Valve";
   if (/quest/.test(n)) return "Meta";
+  if (/anbernic/.test(n)) return "Anbernic";
+  if (/ayaneo/.test(n)) return "Ayaneo";
+  if (/analogue/.test(n)) return "Analogue";
+  if (/atari/.test(n)) return "Atari";
+  if (/steelseries/.test(n)) return "SteelSeries";
+  if (/hyperx/.test(n)) return "HyperX";
+  if (/corsair/.test(n)) return "Corsair";
+  if (/turtle beach/.test(n)) return "Turtle Beach";
+  if (/8bitdo/.test(n)) return "8BitDo";
+  if (/elgato/.test(n)) return "Elgato";
+  if (/thrustmaster/.test(n)) return "Thrustmaster";
+  if (/razer/.test(n)) return "Razer";
+  if (/logitech/.test(n)) return "Logitech";
+  // Laptops & computers
+  if (/asus|\brog\b|zenbook/.test(n)) return "Asus";
+  if (/lenovo|legion|thinkpad|ideapad/.test(n)) return "Lenovo";
+  if (/\bdell\b|xps|inspiron/.test(n)) return "Dell";
+  if (/\bhp\b|spectre|pavilion|elitebook/.test(n)) return "HP";
+  if (/acer|predator|swift/.test(n)) return "Acer";
+  if (/\bmsi\b|stealth/.test(n)) return "MSI";
+  if (/\blg\b|gram/.test(n)) return "LG";
+  if (/surface|microsoft/.test(n)) return "Microsoft";
+  // Cameras & gimbals
   if (/dji/.test(n)) return "DJI";
   if (/insta360/.test(n)) return "Insta360";
   if (/gopro/.test(n)) return "GoPro";
+  if (/canon/.test(n)) return "Canon";
+  if (/nikon/.test(n)) return "Nikon";
+  if (/fujifilm|instax/.test(n)) return "Fujifilm";
+  if (/panasonic|lumix/.test(n)) return "Panasonic";
+  if (/zhiyun/.test(n)) return "Zhiyun";
   if (/hollyland/.test(n)) return "Hollyland";
+  // Audio
+  if (/bose/.test(n)) return "Bose";
+  if (/sennheiser/.test(n)) return "Sennheiser";
+  if (/\bjbl\b/.test(n)) return "JBL";
+  if (/beats/.test(n)) return "Beats";
+  if (/sonos/.test(n)) return "Sonos";
+  if (/anker|soundcore/.test(n)) return "Anker";
+  if (/marshall/.test(n)) return "Marshall";
+  if (/jabra/.test(n)) return "Jabra";
+  if (/bang & olufsen|beoplay/.test(n)) return "Bang & Olufsen";
+  if (/audio-technica|ath-/.test(n)) return "Audio-Technica";
+  if (/skullcandy/.test(n)) return "Skullcandy";
+  // Wearables
+  if (/garmin|fenix|forerunner/.test(n)) return "Garmin";
+  if (/fitbit/.test(n)) return "Fitbit";
+  if (/amazfit/.test(n)) return "Amazfit";
+  if (/oura/.test(n)) return "Oura";
+  // Streaming
+  if (/roku/.test(n)) return "Roku";
+  if (/nvidia|shield tv/.test(n)) return "Nvidia";
+  if (/firestick|fire tv|amazon/.test(n)) return "Amazon";
+  // Phone / tablet / accessory brands
+  if (/oneplus/.test(n)) return "OnePlus";
+  if (/oppo/.test(n)) return "Oppo";
+  if (/vivo/.test(n)) return "Vivo";
+  if (/realme/.test(n)) return "Realme";
+  if (/honor/.test(n)) return "Honor";
+  if (/huawei|matebook|matepad/.test(n)) return "Huawei";
+  if (/nothing/.test(n)) return "Nothing";
+  if (/motorola|moto edge/.test(n)) return "Motorola";
+  if (/nokia/.test(n)) return "Nokia";
+  if (/belkin/.test(n)) return "Belkin";
+  if (/ugreen/.test(n)) return "UGREEN";
+  if (/baseus/.test(n)) return "Baseus";
+  if (/spigen/.test(n)) return "Spigen";
   if (/tecno/.test(n)) return "Tecno";
   if (/infinix/.test(n)) return "Infinix";
-  if (/xiaomi|redmi|mi stick|mi box/.test(n)) return "Xiaomi";
-  if (/pixel/.test(n)) return "Google";
-  if (/firestick/.test(n)) return "Amazon";
+  if (/xiaomi|redmi|mi stick|mi box|\bmi pad\b|poco/.test(n)) return "Xiaomi";
+  if (/pixel|chromecast|google/.test(n)) return "Google";
   if (/samsung|galaxy/.test(n)) return "Samsung";
+  if (/sony/.test(n)) return "Sony";
   if (/airpods|apple|macbook|mac mini|ipad|imac|iphone/.test(n)) return "Apple";
   return "City Gadgets";
 }
@@ -523,7 +734,13 @@ for (const category of CATEGORIES) {
 
     const seed = hashSeed(slug);
     const isFeatured = FEATURED_NAMES.has(name.toLowerCase());
-    const onSale = seed % 3 === 0;
+    // ~65% of items carry an RRP "was" price. The discount depth is drawn
+    // deterministically across a wide band (12%–68%) so the deals grids show
+    // the varied, punchy markdowns of a real refurb marketplace rather than a
+    // single flat number.
+    const onSale = seed % 20 >= 7;
+    const discountPct = onSale ? 12 + (seed % 57) : 0; // 12–68
+    const compareAtPrice = onSale ? Math.round(price / (1 - discountPct / 100) / 100) * 100 : null;
     const stock = seed % 23; // 0-22, occasional "out of stock" for realism
     const rating = Math.round((3.8 + (seed % 13) / 10) * 10) / 10; // 3.8 - 5.0
     const reviewCount = 4 + (seed % 320);
@@ -531,6 +748,7 @@ for (const category of CATEGORIES) {
     let badge: string | null = null;
     if (stock === 0) badge = "Out of Stock";
     else if (isFeatured) badge = "Best Seller";
+    else if (onSale && discountPct >= 40) badge = "Hot Deal";
     else if (onSale) badge = "Sale";
     else if (idx < 2) badge = "New Arrival";
 
@@ -542,7 +760,7 @@ for (const category of CATEGORIES) {
       brand: inferBrand(name),
       category_slug: category.slug,
       price,
-      compare_at_price: onSale ? Math.round(price * 1.15) : null,
+      compare_at_price: compareAtPrice,
       condition: "new",
       is_featured: isFeatured,
       badge,
