@@ -39,10 +39,39 @@ export default async function VendorLayout({ children }: { children: React.React
     );
   }
 
+  const initial = (current.profile.full_name ?? current.email ?? "V").slice(0, 1).toUpperCase();
+
   return (
-    <div className="flex min-h-screen bg-surface-off-white">
+    <div className="flex min-h-screen flex-col bg-surface-off-white md:flex-row">
       <VendorSidebar />
-      <div className="min-w-0 flex-1 p-6 md:p-10">{children}</div>
+      <div className="flex min-w-0 flex-1 flex-col">
+        {/* Top bar */}
+        <header className="hidden items-center justify-between gap-4 border-b border-outline-variant bg-white px-6 py-3 md:flex">
+          <p className="text-body-sm text-on-surface-variant">
+            <span className="font-bold text-on-surface">Vendor Studio</span> · Manage your City Gadgets store
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 rounded-full border border-outline-variant px-4 py-1.5 text-body-sm font-semibold text-on-surface transition-colors hover:border-on-surface"
+            >
+              <Icon name="storefront" className="text-[16px]" />
+              View store
+            </Link>
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-container font-extrabold text-on-primary-container">
+                {initial}
+              </span>
+              <div className="leading-tight">
+                <p className="text-body-sm font-bold text-on-surface">{current.profile.full_name ?? "Vendor"}</p>
+                <p className="text-badge-text text-on-surface-variant">{current.email}</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main className="min-w-0 flex-1 p-4 md:p-8">{children}</main>
+      </div>
     </div>
   );
 }
