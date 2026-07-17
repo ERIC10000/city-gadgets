@@ -24,62 +24,65 @@ export function ImageGallery({ images, badge }: { images: ProductImage[]; badge?
   }
 
   if (images.length === 0) {
-    return <div className="aspect-square w-full rounded-2xl bg-surface-container-high" />;
+    return <div className="aspect-square w-full rounded-2xl border border-outline-variant bg-surface-container-low" />;
   }
 
   return (
-    <div>
-      <div className="relative">
+    <div className="flex flex-col gap-4 md:flex-row">
+      {/* Vertical thumbnail rail (desktop) */}
+      {images.length > 1 && (
+        <div className="no-scrollbar order-2 flex gap-3 overflow-x-auto md:order-1 md:max-h-[520px] md:flex-col md:overflow-y-auto">
+          {images.map((img, i) => (
+            <button
+              key={img.url + i}
+              onClick={() => goTo(i)}
+              aria-label={`Show image ${i + 1}`}
+              className={cn(
+                "relative h-16 w-16 flex-none overflow-hidden rounded-xl border-2 bg-white transition-colors md:h-20 md:w-20",
+                i === active ? "border-on-surface" : "border-outline-variant hover:border-on-surface/40",
+              )}
+            >
+              <Image src={img.url} alt={img.alt} fill sizes="80px" className="object-contain p-1.5" />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Main image — fixed, framed viewport so any photo (portrait or landscape) fits */}
+      <div className="relative order-1 min-w-0 flex-1 md:order-2">
         {badge ? <ProductBadge label={badge} className="absolute left-4 top-4 z-10" /> : null}
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="no-scrollbar flex aspect-square w-full snap-x snap-mandatory overflow-x-auto rounded-2xl bg-white md:rounded-3xl"
+          className="no-scrollbar flex aspect-square max-h-[420px] w-full snap-x snap-mandatory overflow-x-auto rounded-2xl border border-outline-variant bg-white md:max-h-[520px] md:rounded-3xl"
         >
           {images.map((img, i) => (
-            <div key={img.url + i} className="relative w-full flex-none snap-center">
+            <div key={img.url + i} className="relative h-full w-full flex-none snap-center">
               <Image
                 src={img.url}
                 alt={img.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-contain p-8"
+                className="object-contain p-6 md:p-10"
                 priority={i === 0}
               />
             </div>
           ))}
         </div>
-      </div>
 
-      {images.length > 1 && (
-        <>
-          <div className="mt-4 flex justify-center gap-2 md:hidden">
+        {images.length > 1 && (
+          <div className="mt-3 flex justify-center gap-2 md:hidden">
             {images.map((img, i) => (
               <button
                 key={img.url + i}
                 onClick={() => goTo(i)}
                 aria-label={`Show image ${i + 1}`}
-                className={cn("h-2 rounded-full transition-all", i === active ? "w-6 bg-primary" : "w-2 bg-outline-variant")}
+                className={cn("h-2 rounded-full transition-all", i === active ? "w-6 bg-on-surface" : "w-2 bg-outline-variant")}
               />
             ))}
           </div>
-
-          <div className="no-scrollbar mt-4 hidden gap-3 overflow-x-auto md:flex">
-            {images.map((img, i) => (
-              <button
-                key={img.url + i}
-                onClick={() => goTo(i)}
-                className={cn(
-                  "relative h-20 w-20 flex-none overflow-hidden rounded-xl border-2 bg-white",
-                  i === active ? "border-primary" : "border-outline-variant",
-                )}
-              >
-                <Image src={img.url} alt={img.alt} fill sizes="80px" className="object-contain p-2" />
-              </button>
-            ))}
-          </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   );
 }

@@ -31,10 +31,19 @@ export function CartView() {
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
       <div className="space-y-4 lg:col-span-2">
         {lines.map((line) => (
-          <div key={line.productId} className="flex items-center gap-4 rounded-2xl bg-surface-container-lowest p-4 shadow-card">
-            <div className="relative h-20 w-20 flex-none overflow-hidden rounded-xl bg-white">
-              {line.image ? <Image src={line.image} alt={line.name} fill sizes="80px" className="object-contain p-2" /> : null}
-            </div>
+          <div key={line.productId} className="flex items-center gap-4 rounded-2xl border border-outline-variant bg-white p-4 transition-shadow hover:shadow-card">
+            <Link
+              href={`/product/${line.slug}`}
+              className="relative h-24 w-24 flex-none overflow-hidden rounded-xl border border-outline-variant bg-white sm:h-28 sm:w-28"
+            >
+              {line.image ? (
+                <Image src={line.image} alt={line.name} fill sizes="112px" className="object-contain p-2" />
+              ) : (
+                <span className="flex h-full w-full items-center justify-center text-on-surface-variant">
+                  <Icon name="image" />
+                </span>
+              )}
+            </Link>
             <div className="min-w-0 flex-1">
               <Link href={`/product/${line.slug}`} className="line-clamp-1 font-bold text-on-surface hover:text-primary">
                 {line.name}

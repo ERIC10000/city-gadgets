@@ -1,7 +1,9 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/env";
 import type { Product, ProductVideo } from "@/lib/types";
 
 export async function getVendorProducts(vendorId: string): Promise<Product[]> {
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("products")
@@ -25,6 +27,7 @@ export async function getVendorProduct(vendorId: string, id: string): Promise<Pr
 }
 
 export async function getVendorVideos(vendorId: string): Promise<ProductVideo[]> {
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("product_videos")

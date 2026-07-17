@@ -76,7 +76,7 @@ export async function Header() {
           </nav>
 
           <Link
-            href="/account"
+            href="/sell"
             className="shrink-0 whitespace-nowrap rounded-full border border-on-surface px-5 py-2 text-body-sm font-semibold text-on-surface transition-colors hover:bg-on-surface hover:text-white"
           >
             Sell Your Device
