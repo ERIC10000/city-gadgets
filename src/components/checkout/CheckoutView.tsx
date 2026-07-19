@@ -25,8 +25,22 @@ export function CheckoutView() {
   const [method, setMethod] = useState<PaymentMethod>("mpesa");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const [promoDraft, setPromoDraft] = useState("");
+  const [promoApplied, setPromoApplied] = useState(false);
+  const [promoError, setPromoError] = useState(false);
+  const [instructions, setInstructions] = useState("");
 
-  const total = subtotal + (lines.length ? SHIPPING_FEE : 0);
+  // Demo welcome code — replace with a codes table once real promos launch.
+  const PROMO_CODE = "KARIBU10";
+  const discount = promoApplied ? Math.round(subtotal * 0.1) : 0;
+  const total = subtotal - discount + (lines.length ? SHIPPING_FEE : 0);
+
+  function applyPromo() {
+    const ok = promoDraft.trim().toUpperCase() === PROMO_CODE;
+    setPromoApplied(ok);
+    setPromoError(!ok);
+    if (ok) setPromoDraft("");
+  }
 
   async function handleSubmit() {
     if (lines.length === 0 || status === "processing") return;
@@ -51,7 +65,14 @@ export function CheckoutView() {
 
     if (method === "whatsapp") {
       const itemList = lines.map((l) => `• ${l.name} x${l.quantity}`).join("%0A");
-      const text = `Hi! I'd like to complete my order (Ref: ${result.orderId.slice(0, 8).toUpperCase()}):%0A${itemList}%0A%0ATotal: ${formatKES(total)}`;
+      const extras = [
+        promoApplied ? `Promo: ${PROMO_CODE} (−${formatKES(discount)})` : "",
+        instructions.trim() ? `Delivery notes: ${instructions.trim()}` : "",
+      ]
+        .filter(Boolean)
+        .map((s) => `%0A${encodeURIComponent(s)}`)
+        .join("");
+      const text = `Hi! I'd like to complete my order (Ref: ${result.orderId.slice(0, 8).toUpperCase()}):%0A${itemList}%0A%0ATotal: ${formatKES(total)}${extras}`;
       window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${text}`, "_blank");
     }
 
@@ -68,7 +89,41 @@ export function CheckoutView() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+    <div>
+      {/* Progress stepper */}
+      <div className="mb-8 flex items-center justify-center gap-3">
+        {[
+          { label: "Cart", state: "done" },
+          { label: "Payment", state: "active" },
+          { label: "Confirmation", state: "todo" },
+        ].map((s, i) => (
+          <div key={s.label} className="flex items-center gap-3">
+            {i > 0 && <span className={cn("h-px w-8 md:w-16", s.state === "todo" ? "bg-outline-variant" : "bg-on-surface")} />}
+            <span className="flex items-center gap-2">
+              <span
+                className={cn(
+                  "flex h-7 w-7 items-center justify-center rounded-full text-badge-text font-bold",
+                  s.state === "done" && "bg-secondary text-white",
+                  s.state === "active" && "bg-on-surface text-white",
+                  s.state === "todo" && "border border-outline-variant text-on-surface-variant",
+                )}
+              >
+                {s.state === "done" ? <Icon name="check" className="text-[14px]" /> : i + 1}
+              </span>
+              <span
+                className={cn(
+                  "text-body-sm",
+                  s.state === "active" ? "font-bold text-on-surface" : "font-medium text-on-surface-variant",
+                )}
+              >
+                {s.label}
+              </span>
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
       <div className="space-y-6 rounded-2xl bg-surface-off-white p-6 md:justify-self-end md:p-8">
         <h2 className="font-bold text-on-surface">Order Summary</h2>
         <div className="space-y-4">
@@ -85,11 +140,60 @@ export function CheckoutView() {
             </div>
           ))}
         </div>
+        {/* Promo code */}
+        <div className="border-t border-outline-variant/60 pt-4">
+          <p className="mb-2 text-body-sm font-semibold text-on-surface">Have a promo code?</p>
+          {promoApplied ? (
+            <div className="flex items-center justify-between rounded-full border border-secondary bg-secondary-container/40 px-4 py-2">
+              <span className="flex items-center gap-1.5 text-body-sm font-bold text-on-secondary-container">
+                <Icon name="check_circle" className="text-[16px]" />
+                {PROMO_CODE} applied
+              </span>
+              <button
+                type="button"
+                onClick={() => setPromoApplied(false)}
+                className="text-body-sm font-semibold text-on-surface-variant hover:text-error"
+              >
+                Remove
+              </button>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                value={promoDraft}
+                onChange={(e) => {
+                  setPromoDraft(e.target.value);
+                  setPromoError(false);
+                }}
+                placeholder="Enter coupon code"
+                className={cn(
+                  "min-w-0 flex-1 rounded-full border px-4 py-2 text-body-sm focus:outline-none",
+                  promoError ? "border-error" : "border-outline-variant focus:border-on-surface",
+                )}
+              />
+              <button
+                type="button"
+                onClick={applyPromo}
+                className="shrink-0 rounded-full bg-on-surface px-5 py-2 text-body-sm font-bold text-white hover:opacity-90"
+              >
+                Apply
+              </button>
+            </div>
+          )}
+          {promoError && <p className="mt-1.5 text-badge-text font-semibold text-error">That code isn&apos;t valid.</p>}
+        </div>
+
         <div className="space-y-2 border-t border-outline-variant/60 pt-4 text-body-sm text-on-surface-variant">
           <div className="flex justify-between">
             <span>Subtotal</span>
             <span>{formatKES(subtotal)}</span>
           </div>
+          {promoApplied && (
+            <div className="flex justify-between font-semibold text-secondary">
+              <span>Discount ({PROMO_CODE})</span>
+              <span>−{formatKES(discount)}</span>
+            </div>
+          )}
           <div className="flex justify-between">
             <span>Shipping</span>
             <span>{formatKES(SHIPPING_FEE)}</span>
@@ -201,6 +305,31 @@ export function CheckoutView() {
           </button>
         </div>
 
+        {/* Delivery instructions */}
+        <div>
+          <h2 className="font-bold text-on-surface">Delivery Instructions</h2>
+          <p className="mb-3 text-body-sm text-on-surface-variant">Help our rider find you — optional.</p>
+          <textarea
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            rows={3}
+            placeholder="e.g. Gate code is 4471, call when 15 minutes out — 3rd floor, no lift."
+            className="w-full rounded-xl border border-outline-variant px-4 py-3 text-body-sm focus:border-on-surface focus:outline-none"
+          />
+          <div className="mt-2 flex flex-wrap gap-2">
+            {["Leave at reception", "Call on arrival", "Gated community", "Deliver after 5pm"].map((chip) => (
+              <button
+                key={chip}
+                type="button"
+                onClick={() => setInstructions((v) => (v.includes(chip) ? v : v ? `${v} · ${chip}` : chip))}
+                className="rounded-full border border-outline-variant px-3 py-1.5 text-badge-text font-semibold text-on-surface-variant transition-colors hover:border-on-surface hover:text-on-surface"
+              >
+                {chip}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {status === "error" && (
           <p className="text-body-sm font-semibold text-error">Enter a valid M-Pesa phone number to continue.</p>
         )}
@@ -226,6 +355,7 @@ export function CheckoutView() {
         <p className="text-center text-body-sm text-on-surface-variant">
           By completing your order you agree to our Terms of Service and Return Policy.
         </p>
+      </div>
       </div>
     </div>
   );

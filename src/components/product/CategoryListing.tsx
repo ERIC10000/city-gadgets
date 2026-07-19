@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Breadcrumbs } from "@/components/product/Breadcrumbs";
+import { CategoryBanner } from "@/components/product/CategoryBanner";
 import { FilterSidebar } from "@/components/product/FilterSidebar";
 import { SortDropdown } from "@/components/product/SortDropdown";
 import { ProductGrid } from "@/components/product/ProductGrid";
@@ -50,6 +50,9 @@ export async function CategoryListing({
   // Brand list scoped to this category's full catalog (unfiltered by price/brand)
   // so checking one brand doesn't make the others disappear from the sidebar.
   const { items: allInScope } = await getProducts({ categorySlug: category?.slug, limit: 1000 });
+
+  // Two distinct product cut-outs for the department banner.
+  const bannerImages = Array.from(new Set(allInScope.map((p) => p.images[0]?.url).filter(Boolean))).slice(0, 2) as string[];
   const brandOptions = Array.from(new Set(allInScope.map((p) => p.brand).filter((b): b is string => Boolean(b)))).sort();
   const prices = allInScope.map((p) => p.price);
   const priceBounds = { min: prices.length ? Math.min(...prices) : 0, max: prices.length ? Math.max(...prices) : 0 };
@@ -78,28 +81,13 @@ export async function CategoryListing({
         ]}
       />
 
-      {category && (
-        <div className="relative my-8 flex min-h-[320px] items-end overflow-hidden rounded-3xl bg-inverse-surface px-8 py-12 text-white md:min-h-[420px] md:px-16 md:py-16">
-          {category.hero_image && (
-            <Image
-              src={category.hero_image}
-              alt={category.name}
-              fill
-              sizes="100vw"
-              priority
-              className="hero-kenburns object-cover"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/60 to-inverse-surface/10" />
-          <div className="relative z-10 max-w-2xl">
-            <p className="mb-3 text-label-caps font-bold text-primary-fixed">{category.name.toUpperCase()}</p>
-            <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">{category.hero_tagline}</h1>
-            <p className="mt-4 text-body-md text-white/70">
-              {total} genuine {total === 1 ? "product" : "products"} · M-Pesa · Same-day Nairobi delivery
-            </p>
-          </div>
-        </div>
-      )}
+      <div className="my-8">
+        <CategoryBanner
+          title={category?.name ?? (searchParams.search ? `Results for "${searchParams.search}"` : "All Gadgets")}
+          tagline={category?.hero_tagline ?? "Genuine tech · M-Pesa · Same-day Nairobi delivery"}
+          images={bannerImages}
+        />
+      </div>
 
       <div className="mb-6 mt-6 flex flex-wrap items-center justify-between gap-4">
         <p className="text-body-sm text-on-surface-variant">
