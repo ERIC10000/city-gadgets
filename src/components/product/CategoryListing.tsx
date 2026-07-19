@@ -51,8 +51,9 @@ export async function CategoryListing({
   // so checking one brand doesn't make the others disappear from the sidebar.
   const { items: allInScope } = await getProducts({ categorySlug: category?.slug, limit: 1000 });
 
-  // Two distinct product cut-outs for the department banner.
-  const bannerImages = Array.from(new Set(allInScope.map((p) => p.images[0]?.url).filter(Boolean))).slice(0, 2) as string[];
+  // Department hero photo — the category's curated image, with the gold cart
+  // artwork backing the generic /shop and search views.
+  const bannerImage = category?.hero_image ?? "/banners/cart-gold.jpg";
   const brandOptions = Array.from(new Set(allInScope.map((p) => p.brand).filter((b): b is string => Boolean(b)))).sort();
   const prices = allInScope.map((p) => p.price);
   const priceBounds = { min: prices.length ? Math.min(...prices) : 0, max: prices.length ? Math.max(...prices) : 0 };
@@ -84,8 +85,9 @@ export async function CategoryListing({
       <div className="my-8">
         <CategoryBanner
           title={category?.name ?? (searchParams.search ? `Results for "${searchParams.search}"` : "All Gadgets")}
-          tagline={category?.hero_tagline ?? "Genuine tech · M-Pesa · Same-day Nairobi delivery"}
-          images={bannerImages}
+          tagline={category?.hero_tagline ?? "Every department, one cart — premium tech for less."}
+          image={bannerImage}
+          productCount={total}
         />
       </div>
 

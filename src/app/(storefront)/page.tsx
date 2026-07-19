@@ -2,6 +2,7 @@ import { HeroCarousel, type HeroSlide } from "@/components/home/HeroCarousel";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { PopularCategories, type CategoryCircle } from "@/components/home/PopularCategories";
 import { TabbedProductRail, type RailGroup } from "@/components/home/TabbedProductRail";
+import { PromoBanners } from "@/components/home/PromoBanners";
 import { TopDeals } from "@/components/home/TopDeals";
 import { RefurbishedBanner } from "@/components/home/RefurbishedBanner";
 import { SectionRail } from "@/components/home/SectionRail";
@@ -114,6 +115,7 @@ export default async function HomePage() {
       <TrustStrip />
       <PopularCategories items={circles} />
       <TabbedProductRail title="Customer Favorites" groups={favoriteGroups} />
+      <PromoBanners />
       <TopDeals products={topDeals} />
       <RefurbishedBanner />
       <SectionRail title="Smart Home & Streaming" href="/category/streaming" products={streaming} />

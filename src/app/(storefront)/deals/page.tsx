@@ -24,10 +24,6 @@ export default async function DealsPage() {
 
   const byDiscount = [...deals].sort((a, b) => discountOf(b) - discountOf(a));
   const featured = byDiscount.slice(0, 6);
-  const bannerImages = byDiscount
-    .filter((p) => p.images[0]?.url)
-    .slice(0, 4)
-    .map((p) => p.images[0].url);
 
   const catOptions = categories
     .filter((c) => deals.some((p) => p.category_slug === c.slug))
@@ -36,7 +32,7 @@ export default async function DealsPage() {
   return (
     <div className="mx-auto w-full max-w-container-max space-y-10 px-margin-mobile py-6 md:px-gutter">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Hot Deals" }]} />
-      <HotDealsBanner images={bannerImages} />
+      <HotDealsBanner />
       <FeaturedDeals products={featured} />
 
       <div>
