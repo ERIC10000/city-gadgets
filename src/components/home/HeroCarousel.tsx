@@ -16,13 +16,16 @@ export type HeroSlide = {
 
 export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   const [index, setIndex] = useState(0);
+  const count = slides.length;
 
   useEffect(() => {
-    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 6000);
+    if (count < 2) return;
+    const t = setInterval(() => setIndex((i) => (i + 1) % count), 6000);
     return () => clearInterval(t);
-  }, [slides.length]);
+  }, [count]);
 
-  const slide = slides[index];
+  if (count === 0) return null;
+  const slide = slides[index % count];
 
   return (
     <section className="mx-auto w-full max-w-container-max px-margin-mobile pt-4 md:px-gutter">

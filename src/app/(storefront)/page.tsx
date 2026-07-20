@@ -51,7 +51,8 @@ export default async function HomePage() {
 
   const byCategory = (slug: string) => all.filter((p) => p.category_slug === slug);
 
-  // Hero slides built from real product imagery per department.
+  // Hero slides built from real product imagery per department; departments
+  // with no stocked products (no imagery) are dropped from the rotation.
   const heroSlides: HeroSlide[] = [
     {
       eyebrow: "Up to 70% off retail",
@@ -77,7 +78,7 @@ export default async function HomePage() {
       cta: "Shop Gaming",
       images: pickImages(all, "consoles", 3),
     },
-  ];
+  ].filter((s) => s.images.length > 0);
 
   // Category circles — one representative product image per department.
   const circles: CategoryCircle[] = categories
