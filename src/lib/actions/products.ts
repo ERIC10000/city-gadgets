@@ -65,6 +65,7 @@ export async function createProduct(formData: FormData): Promise<ProductFormResu
   }
 
   revalidatePath("/vendor/products");
+  revalidatePath("/", "layout"); // storefront: home, shop, categories, deals, product pages
   redirect("/vendor/products");
 }
 
@@ -105,6 +106,7 @@ export async function updateProduct(id: string, formData: FormData): Promise<Pro
   }
 
   revalidatePath("/vendor/products");
+  revalidatePath("/", "layout"); // storefront: home, shop, categories, deals, product pages
   redirect("/vendor/products");
 }
 
@@ -113,6 +115,7 @@ export async function deleteProduct(formData: FormData) {
   const supabase = await createClient();
   await supabase.from("products").delete().eq("id", id);
   revalidatePath("/vendor/products");
+  revalidatePath("/", "layout"); // storefront: home, shop, categories, deals, product pages
 }
 
 export async function toggleProductStatus(formData: FormData) {
@@ -124,4 +127,5 @@ export async function toggleProductStatus(formData: FormData) {
     .update({ status: status === "published" ? "draft" : "published" })
     .eq("id", id);
   revalidatePath("/vendor/products");
+  revalidatePath("/", "layout"); // storefront: home, shop, categories, deals, product pages
 }

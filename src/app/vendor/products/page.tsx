@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { StatusBadge } from "@/components/ui/StatusBadge";
 import { formatKES } from "@/lib/format";
 import { getCurrentUser } from "@/lib/data/auth";
 import { getVendorProducts } from "@/lib/data/vendor";
@@ -65,7 +64,17 @@ export default async function VendorProductsPage() {
                   <td className="px-5 py-4 font-bold text-on-surface">{formatKES(product.price)}</td>
                   <td className="px-5 py-4 text-on-surface-variant">{product.stock_quantity}</td>
                   <td className="px-5 py-4">
-                    <StatusBadge status={product.status === "published" ? "delivered" : "pending"} />
+                    {product.status === "published" ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2.5 py-1 text-badge-text font-bold text-on-secondary-container">
+                        <Icon name="visibility" className="text-[13px]" />
+                        Live in store
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-price-gold/15 px-2.5 py-1 text-badge-text font-bold text-price-gold">
+                        <Icon name="visibility_off" className="text-[13px]" />
+                        Draft — hidden
+                      </span>
+                    )}
                   </td>
                   <td className="px-5 py-4">
                     <div className="flex items-center justify-end gap-2">

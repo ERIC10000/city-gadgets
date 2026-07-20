@@ -64,7 +64,17 @@ export function ProductForm({
   const [brand, setBrand] = useState(product?.brand ?? "");
   const [price, setPrice] = useState(product?.price ? String(product.price) : "");
   const [compareAt, setCompareAt] = useState(product?.compare_at_price ? String(product.compare_at_price) : "");
-  const [categoryId, setCategoryId] = useState(product?.category_slug ?? categories[0]?.id ?? "");
+  // The select posts category IDs; an edited product arrives with its slug, so
+  // map it back to the matching id (falls back to the raw value for seed data
+  // where id === slug).
+  const [categoryId, setCategoryId] = useState(() => {
+    if (!product) return categories[0]?.id ?? "";
+    const match = categories.find((c) => c.slug === product.category_slug || c.id === product.category_slug);
+    return match?.id ?? categories[0]?.id ?? "";
+  });
+  // New listings default to Published — "upload but invisible" was the #1
+  // vendor confusion; drafts are now an explicit opt-in.
+  const [status, setStatus] = useState(product?.status ?? "published");
   const [coverUrl, setCoverUrl] = useState(product?.images[0]?.url ?? "");
 
   const activeCategory = categories.find((c) => c.id === categoryId || c.slug === categoryId);
@@ -320,12 +330,44 @@ export function ProductForm({
               </dl>
 
               <div className="mt-6">
-                <Field label="Status" hint="Drafts are hidden from the storefront until published.">
-                  <select name="status" defaultValue={product?.status ?? "draft"} className={inputClass}>
-                    <option value="draft">Draft</option>
-                    <option value="published">Published</option>
-                  </select>
-                </Field>
+                <input type="hidden" name="status" value={status} />
+                <p className="mb-2 text-body-sm font-semibold text-on-surface">Visibility</p>
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    onClick={() => setStatus("published")}
+                    className={cn(
+                      "rounded-xl border p-4 text-left transition-colors",
+                      status === "published" ? "border-secondary bg-secondary-container/40" : "border-outline-variant hover:border-on-surface/40",
+                    )}
+                  >
+                    <p className="flex items-center gap-1.5 text-body-sm font-bold text-on-surface">
+                      <Icon name="visibility" className="text-[16px] text-secondary" />
+                      Published
+                    </p>
+                    <p className="mt-0.5 text-badge-text text-on-surface-variant">Live in the store the moment you save.</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("draft")}
+                    className={cn(
+                      "rounded-xl border p-4 text-left transition-colors",
+                      status === "draft" ? "border-on-surface bg-surface-container" : "border-outline-variant hover:border-on-surface/40",
+                    )}
+                  >
+                    <p className="flex items-center gap-1.5 text-body-sm font-bold text-on-surface">
+                      <Icon name="visibility_off" className="text-[16px]" />
+                      Draft
+                    </p>
+                    <p className="mt-0.5 text-badge-text text-on-surface-variant">Hidden from shoppers until you publish it.</p>
+                  </button>
+                </div>
+                {status === "draft" && (
+                  <p className="mt-3 flex items-start gap-2 rounded-xl border border-price-gold/40 bg-price-gold/10 p-3 text-body-sm font-semibold text-on-surface">
+                    <Icon name="warning" filled className="mt-0.5 text-[16px] text-price-gold" />
+                    This product will NOT appear in the store until you publish it from the Products list.
+                  </p>
+                )}
               </div>
             </Card>
           </div>
