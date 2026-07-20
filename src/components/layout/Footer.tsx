@@ -99,7 +99,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="mail" className="text-price-gold" />
-                <span>sales@citygadgets.co.ke</span>
+                <span>sales@citygadgetskenya.co.ke</span>
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="schedule" className="text-price-gold" />

@@ -1,6 +1,6 @@
 import type { Product } from "@/lib/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke";
 const SITE_NAME = "City Gadgets";
 
 export function websiteJsonLd() {

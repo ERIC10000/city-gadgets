@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getCategories } from "@/lib/data/categories";
 import { getProducts } from "@/lib/data/products";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [categories, { items: products }] = await Promise.all([

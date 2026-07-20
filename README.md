@@ -175,7 +175,13 @@ Settings → Environment Variables** (they are not read from `.env.local` in pro
 
 - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` — to serve the live catalog (otherwise the
   bundled seed catalog is used, which still renders the full store)
-- `NEXT_PUBLIC_SITE_URL` — your production URL, for canonical links / OG / sitemap
+- `NEXT_PUBLIC_SITE_URL` = `https://citygadgetskenya.co.ke` — the production domain, for canonical links / OG / sitemap
+
+### Custom domain (citygadgetskenya.co.ke)
+
+1. Vercel → Project → Settings → **Domains** → add `citygadgetskenya.co.ke` and `www.citygadgetskenya.co.ke`.
+2. At the registrar, add the DNS records Vercel shows (apex `A → 76.76.21.21`, `www CNAME → cname.vercel-dns.com`).
+3. HTTPS is automatic — Vercel provisions a free certificate once DNS resolves; no registrar SSL needs installing.
 
 ## License
 
