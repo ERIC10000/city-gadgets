@@ -3,6 +3,10 @@ import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/product/ProductCard";
 import type { Product } from "@/lib/types";
 
+/**
+ * Department section rendered as a responsive grid (was a horizontal rail —
+ * grids keep the full range visible instead of hiding stock off-screen).
+ */
 export function SectionRail({
   title,
   href,
@@ -24,11 +28,9 @@ export function SectionRail({
             See all <Icon name="chevron_right" className="text-[18px]" />
           </Link>
         </div>
-        <div className="no-scrollbar scrollbar-thin -mx-1 flex gap-4 overflow-x-auto px-1 pb-2">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {products.map((p) => (
-            <div key={p.id} className="w-[220px] shrink-0">
-              <ProductCard product={p} />
-            </div>
+            <ProductCard key={p.id} product={p} />
           ))}
         </div>
       </div>

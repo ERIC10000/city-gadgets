@@ -1,7 +1,7 @@
 import { HeroCarousel, type HeroSlide } from "@/components/home/HeroCarousel";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { PopularCategories, type CategoryCircle } from "@/components/home/PopularCategories";
-import { TabbedProductRail, type RailGroup } from "@/components/home/TabbedProductRail";
+import { TabbedProductGrid, type GridGroup } from "@/components/home/TabbedProductGrid";
 import { PromoBanners } from "@/components/home/PromoBanners";
 import { TopDeals } from "@/components/home/TopDeals";
 import { RefurbishedBanner } from "@/components/home/RefurbishedBanner";
@@ -88,12 +88,16 @@ export default async function HomePage() {
     })
     .filter((c): c is CategoryCircle => c !== null);
 
-  // Customer favourites — top-rated per tab.
-  const favoriteGroups: RailGroup[] = FAVORITE_TABS.map((tab) => ({
-    label: tab.label,
-    href: `/category/${tab.slug}`,
-    products: byCategory(tab.slug).slice(0, 8),
-  })).filter((g) => g.products.length > 0);
+  // Browse grid — an "All" tab so the whole catalog is visible up front, then
+  // one tab per stocked department.
+  const browseGroups: GridGroup[] = [
+    { label: "All Products", href: "/shop", products: all },
+    ...FAVORITE_TABS.map((tab) => ({
+      label: tab.label,
+      href: `/category/${tab.slug}`,
+      products: byCategory(tab.slug),
+    })),
+  ].filter((g) => g.products.length > 0);
 
   // Today's top deals — biggest discounts first.
   const topDeals = all
@@ -107,6 +111,11 @@ export default async function HomePage() {
   const streaming = byCategory("streaming").slice(0, 8);
   const gaming = [...byCategory("consoles"), ...byCategory("gaming-accessories")].slice(0, 8);
 
+  // Departments already surfaced by the browse grid's tabs — don't repeat them
+  // lower down the page as near-identical sections.
+  const browsedSlugs = new Set(browseGroups.flatMap((g) => g.products.map((p) => p.category_slug)));
+  const showGaming = gaming.length > 0 && !browsedSlugs.has("consoles");
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
@@ -115,12 +124,16 @@ export default async function HomePage() {
       <HeroCarousel slides={heroSlides} />
       <TrustStrip />
       <PopularCategories items={circles} />
-      <TabbedProductRail title="Customer Favorites" groups={favoriteGroups} />
+      <TabbedProductGrid
+        title="Shop Our Collection"
+        subtitle="Every product in stock — filter by department or browse the lot."
+        groups={browseGroups}
+      />
       <PromoBanners />
       <TopDeals products={topDeals} />
       <RefurbishedBanner />
       <SectionRail title="Smart Home & Streaming" href="/category/streaming" products={streaming} />
-      <SectionRail title="Gaming" href="/category/consoles" products={gaming} tone="gray" />
+      {showGaming && <SectionRail title="Gaming" href="/category/consoles" products={gaming} tone="gray" />}
       <CircularEconomy videos={videos} />
     </>
   );
