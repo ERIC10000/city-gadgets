@@ -194,6 +194,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Height of the sticky storefront header — lets full-viewport surfaces (the
+   reels feed) size themselves to the space actually left below it. */
+:root {
+  --header-h: 116px;
+}
+@media (min-width: 768px) {
+  :root {
+    --header-h: 127px;
+  }
+}
+
 /* Dual-thumb price slider — overlaid range inputs; only the thumbs are clickable */
 .range-thumb {
   pointer-events: none;

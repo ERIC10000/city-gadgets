@@ -4,7 +4,7 @@ import { Icon } from "@/components/ui/Icon";
 import { VideoForm } from "@/components/vendor/VideoForm";
 import { formatDuration } from "@/lib/format";
 import { getCurrentUser } from "@/lib/data/auth";
-import { getVendorVideos } from "@/lib/data/vendor";
+import { getVendorProducts, getVendorVideos } from "@/lib/data/vendor";
 import { createVideo, deleteVideo } from "@/lib/actions/videos";
 
 export const metadata: Metadata = { title: "Video Inspiration" };
@@ -13,7 +13,10 @@ export default async function VendorVideosPage() {
   const current = await getCurrentUser();
   if (!current) return null;
 
-  const videos = await getVendorVideos(current.profile.id);
+  const [videos, products] = await Promise.all([
+    getVendorVideos(current.profile.id),
+    getVendorProducts(current.profile.id),
+  ]);
 
   return (
     <div className="space-y-8">
@@ -52,7 +55,7 @@ export default async function VendorVideosPage() {
 
       <div className="rounded-2xl bg-surface-container-lowest p-6 shadow-card">
         <h2 className="mb-4 font-bold text-on-surface">Add New Video</h2>
-        <VideoForm action={createVideo} />
+        <VideoForm action={createVideo} products={products} />
       </div>
     </div>
   );

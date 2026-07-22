@@ -64,11 +64,29 @@ const SEED_VIDEOS: ProductVideo[] = [
   },
 ];
 
-export async function getVideos(): Promise<ProductVideo[]> {
+/** A video plus the product it sells, for the shoppable overlay. */
+export type ShoppableVideo = ProductVideo & {
+  product?: { slug: string; name: string; price: number; image: string | null } | null;
+};
+
+export async function getVideos(): Promise<ShoppableVideo[]> {
   if (!isSupabaseConfigured()) return SEED_VIDEOS;
 
   const supabase = await createClient();
-  const { data, error } = await supabase.from("product_videos").select("*").order("created_at", { ascending: false });
+  const { data, error } = await supabase
+    .from("product_videos")
+    .select("*, products(slug, name, price, product_images(url, sort_order))")
+    .order("created_at", { ascending: false });
   if (error || !data) return SEED_VIDEOS;
-  return data as ProductVideo[];
+
+  return (data as unknown as (ProductVideo & {
+    products: { slug: string; name: string; price: number; product_images: { url: string; sort_order: number }[] } | null;
+  })[]).map((row) => {
+    const p = row.products;
+    const cover = p?.product_images?.slice().sort((a, b) => a.sort_order - b.sort_order)[0]?.url ?? null;
+    return {
+      ...row,
+      product: p ? { slug: p.slug, name: p.name, price: p.price, image: cover } : null,
+    };
+  });
 }

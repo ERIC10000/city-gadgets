@@ -10,8 +10,7 @@ import { getCategories } from "@/lib/data/categories";
 // City Gadgets route (Home/Fashion swapped for Audio/Cameras which we stock).
 const NAV_LINKS = [
   { href: "/deals", label: "Deals", flame: true },
-  { href: "/category/phones?brand=Apple", label: "iPhones" },
-  { href: "/category/phones?brand=Samsung", label: "Samsung Phones" },
+  { href: "/category/phones", label: "Phones" },
   { href: "/category/macbooks", label: "Laptops" },
   { href: "/category/tablets", label: "Tablets" },
   { href: "/category/wearables", label: "Smartwatches" },
