@@ -34,7 +34,7 @@ export function Footer() {
                 <WhatsAppIcon />
               </Link>
               <a
-                href="#"
+                href="mailto:citygadgetskenya@gmail.com"
                 aria-label="Email"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-price-gold/40 text-price-gold transition-all hover:bg-price-gold hover:text-inverse-surface"
               >
@@ -99,7 +99,9 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="mail" className="text-price-gold" />
-                <span>sales@citygadgetskenya.co.ke</span>
+                <a href="mailto:citygadgetskenya@gmail.com" className="transition-colors hover:text-price-gold">
+                  citygadgetskenya@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="schedule" className="text-price-gold" />

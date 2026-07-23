@@ -11,8 +11,8 @@ import { getCategories } from "@/lib/data/categories";
 const NAV_LINKS = [
   { href: "/deals", label: "Deals", flame: true },
   { href: "/category/phones", label: "Phones" },
-  { href: "/category/macbooks", label: "Laptops" },
-  { href: "/category/tablets", label: "Tablets" },
+  { href: "/category/macbooks", label: "Laptops and MacBooks" },
+  { href: "/category/tablets", label: "Tablets and iPads" },
   { href: "/category/wearables", label: "Smartwatches" },
   { href: "/category/audio", label: "Audio" },
   { href: "/category/consoles", label: "Gaming" },
