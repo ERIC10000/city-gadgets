@@ -13,6 +13,7 @@ import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { COMES_WITH } from "@/lib/spec-templates";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
+import { canonical } from "@/lib/site";
 
 function deliveryWindow(): string {
   const fmt = (d: Date) => d.toLocaleDateString("en-KE", { month: "short", day: "numeric" });
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: product.name,
     description: product.description ?? undefined,
+    alternates: canonical(`/product/${product.slug}`),
     openGraph: {
       title: product.name,
       description: product.description ?? undefined,

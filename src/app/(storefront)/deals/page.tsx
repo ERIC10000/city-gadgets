@@ -7,9 +7,12 @@ import { getProducts } from "@/lib/data/products";
 import { getCategories } from "@/lib/data/categories";
 import type { Product } from "@/lib/types";
 
+import { canonical } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Hot Deals",
   description: "Limited-time markdowns on premium smartphones, laptops, gaming and more — up to 70% off retail.",
+  alternates: canonical("/deals"),
 };
 
 function discountOf(p: Product) {

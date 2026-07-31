@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -9,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "City Gadgets | Premium Tech. Better Prices.",
     template: "%s | City Gadgets",

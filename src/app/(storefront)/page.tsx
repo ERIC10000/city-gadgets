@@ -11,7 +11,13 @@ import { getCategories } from "@/lib/data/categories";
 import { getProducts } from "@/lib/data/products";
 import { getVideos } from "@/lib/data/videos";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { canonical } from "@/lib/site";
 import type { Product } from "@/lib/types";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: canonical("/"),
+};
 
 const CIRCLE_LABEL: Record<string, string> = {
   consoles: "Gaming",

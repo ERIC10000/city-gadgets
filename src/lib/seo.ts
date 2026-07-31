@@ -1,7 +1,8 @@
 import { OPENING_HOURS, SOCIAL_LINKS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
 import type { Product } from "@/lib/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke";
+import { SITE_URL } from "@/lib/site";
+
 const SITE_NAME = "City Gadgets";
 
 export function websiteJsonLd() {

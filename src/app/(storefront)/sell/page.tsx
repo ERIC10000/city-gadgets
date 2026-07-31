@@ -4,11 +4,13 @@ import { SellDeviceForm } from "@/components/sell/SellDeviceForm";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { OPENING_HOURS, STORE_ADDRESS, whatsappLink } from "@/lib/contact";
+import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Sell Your Device",
   description:
     "Trade in your phone, laptop, console or camera at City Gadgets Nairobi. Get an instant WhatsApp quote and same-day payment via M-Pesa.",
+  alternates: canonical("/sell"),
 };
 
 const STEPS = [

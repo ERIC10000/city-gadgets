@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CategoryListing, type ListingSearchParams } from "@/components/product/CategoryListing";
 import { getCategoryBySlug } from "@/lib/data/categories";
+import { canonical } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,6 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: category.name,
     description: category.hero_tagline ?? `Shop ${category.name} at City Gadgets — genuine tech, M-Pesa payments, same-day Nairobi delivery.`,
+    // Sort/filter params must not fragment this category's ranking signals.
+    alternates: canonical(`/category/${slug}`),
   };
 }
 
