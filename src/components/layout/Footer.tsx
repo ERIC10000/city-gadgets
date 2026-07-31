@@ -2,7 +2,23 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { OPENING_HOURS, STORE_ADDRESS, WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
+import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
+import {
+  OPENING_HOURS,
+  SOCIAL_LINKS,
+  STORE_ADDRESS,
+  WHATSAPP_NUMBERS,
+  whatsappLink,
+} from "@/lib/contact";
+
+const SOCIAL_GLYPH: Record<
+  (typeof SOCIAL_LINKS)[number]["id"],
+  (props: { className?: string }) => React.ReactElement
+> = {
+  instagram: InstagramIcon,
+  tiktok: TikTokIcon,
+  facebook: FacebookIcon,
+};
 
 export function Footer() {
   return (
@@ -41,13 +57,22 @@ export function Footer() {
               >
                 <Icon name="alternate_email" />
               </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-price-gold/40 text-price-gold transition-all hover:bg-price-gold hover:text-inverse-surface"
-              >
-                <Icon name="photo_camera" />
-              </a>
+              {SOCIAL_LINKS.map((s) => {
+                const Glyph = SOCIAL_GLYPH[s.id];
+                return (
+                  <a
+                    key={s.id}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${s.label} — ${s.handle}`}
+                    title={s.handle}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-price-gold/40 text-price-gold transition-all hover:bg-price-gold hover:text-inverse-surface"
+                  >
+                    <Glyph />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

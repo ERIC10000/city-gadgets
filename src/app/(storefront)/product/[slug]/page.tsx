@@ -121,7 +121,7 @@ export default async function ProductPage({ params }: Props) {
             {[
               { icon: "verified", text: "Genuine stock, sourced & checked in Nairobi 🇰🇪" },
               { icon: "verified_user", text: "12-Month Warranty incl. battery" },
-              { icon: "cached", text: "30-Day risk-free trial" },
+              { icon: "local_shipping", text: "Free same-day Nairobi delivery" },
             ].map((row) => (
               <div key={row.text} className="flex items-center gap-3 px-4 py-3 text-body-sm text-on-surface">
                 <Icon name={row.icon} className="text-secondary" />

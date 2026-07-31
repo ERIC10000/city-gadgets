@@ -31,6 +31,33 @@ export const STORE_ADDRESS = {
 export const STORE_EMAIL = "citygadgetskenya@gmail.com";
 
 /**
+ * Official social profiles. Tracking parameters (utm_source, igsh, _t, _r)
+ * are stripped — they belong to the share link that produced the URL, not to
+ * the profile, and they would leak into the `sameAs` block Google reads.
+ */
+export const SOCIAL_LINKS = [
+  {
+    id: "instagram",
+    label: "Instagram",
+    handle: "@citygadgetskenya",
+    href: "https://www.instagram.com/citygadgetskenya",
+  },
+  {
+    id: "tiktok",
+    label: "TikTok",
+    handle: "@citygadgets_ke",
+    href: "https://www.tiktok.com/@citygadgets_ke",
+  },
+  {
+    id: "facebook",
+    label: "Facebook",
+    handle: "City Gadgets Kenya",
+    // The numeric id is the profile itself, so this query string stays.
+    href: "https://www.facebook.com/profile.php?id=61573338262561",
+  },
+] as const;
+
+/**
  * Trading hours. `schemaDays` feeds schema.org OpeningHoursSpecification;
  * closed days are represented by omitting them from the spec entirely.
  */

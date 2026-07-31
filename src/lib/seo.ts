@@ -1,4 +1,4 @@
-import { OPENING_HOURS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
+import { OPENING_HOURS, SOCIAL_LINKS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
 import type { Product } from "@/lib/types";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke";
@@ -45,7 +45,10 @@ export function organizationJsonLd() {
       opens: h.opens,
       closes: h.closes,
     })),
-    sameAs: WHATSAPP_NUMBERS.map((n) => `https://wa.me/${n.raw}`),
+    sameAs: [
+      ...SOCIAL_LINKS.map((s) => s.href),
+      ...WHATSAPP_NUMBERS.map((n) => `https://wa.me/${n.raw}`),
+    ],
   };
 }
 
