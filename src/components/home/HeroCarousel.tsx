@@ -5,13 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
+export type HeroImage = {
+  src: string;
+  /** Shown as a chip on the card, so the slide advertises the brands stocked. */
+  brand: string | null;
+};
+
 export type HeroSlide = {
   eyebrow?: string;
   title: string;
   subtitle: string;
   href: string;
   cta: string;
-  images: string[];
+  images: HeroImage[];
 };
 
 export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
@@ -65,13 +71,25 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
               transition={{ duration: 0.5 }}
               className="relative flex h-48 items-end justify-center gap-3 md:h-72"
             >
-              {slide.images.slice(0, 3).map((src, i) => (
+              {slide.images.slice(0, 3).map((img, i) => (
                 <div
-                  key={src}
+                  key={img.src}
                   className="relative h-40 w-28 overflow-hidden rounded-2xl bg-white/30 shadow-card-lg backdrop-blur-sm md:h-64 md:w-44"
                   style={{ transform: `translateY(${i === 1 ? -18 : 0}px) rotate(${(i - 1) * 5}deg)`, zIndex: i === 1 ? 2 : 1 }}
                 >
-                  <Image src={src} alt="" fill sizes="176px" className="object-contain p-3" priority={index === 0} />
+                  <Image
+                    src={img.src}
+                    alt={img.brand ? `${img.brand} — ${slide.title}` : ""}
+                    fill
+                    sizes="176px"
+                    className="object-contain p-3 pb-7"
+                    priority={index === 0}
+                  />
+                  {img.brand && (
+                    <span className="absolute inset-x-2 bottom-2 truncate rounded-full bg-white/75 px-2 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-on-surface backdrop-blur-sm">
+                      {img.brand}
+                    </span>
+                  )}
                 </div>
               ))}
             </motion.div>

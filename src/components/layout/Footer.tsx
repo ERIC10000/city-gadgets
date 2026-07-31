@@ -1,7 +1,8 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
+import { OPENING_HOURS, STORE_ADDRESS, WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
 
 export function Footer() {
   return (
@@ -80,19 +81,28 @@ export function Footer() {
             <div className="space-y-4 text-inverse-on-surface/70">
               <div className="flex items-start gap-3">
                 <Icon name="location_on" className="text-price-gold" />
-                <span>Gadget Plaza, 2nd Floor<br />Nairobi, CBD</span>
+                <span>
+                  {STORE_ADDRESS.line1}
+                  <br />
+                  {STORE_ADDRESS.line2}
+                  <br />
+                  {STORE_ADDRESS.line3}
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <WhatsAppIcon className="mt-0.5 h-5 w-5 text-whatsapp-green" />
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   {WHATSAPP_NUMBERS.map((n) => (
                     <Link
                       key={n.raw}
                       href={whatsappLink("Hi City Gadgets!", n.raw)}
                       target="_blank"
-                      className="transition-colors hover:text-price-gold"
+                      className="group transition-colors hover:text-price-gold"
                     >
-                      {n.display}
+                      <span className="block text-xs uppercase tracking-wider text-inverse-on-surface/50">
+                        {n.role}
+                      </span>
+                      <span className="block group-hover:text-price-gold">{n.display}</span>
                     </Link>
                   ))}
                 </div>
@@ -103,9 +113,18 @@ export function Footer() {
                   citygadgetskenya@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Icon name="schedule" className="text-price-gold" />
-                <span>Mon–Sat · 9:00am – 7:00pm</span>
+              <div className="flex items-start gap-3">
+                <Icon name="schedule" className="mt-0.5 text-price-gold" />
+                <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+                  {OPENING_HOURS.map((h) => (
+                    <Fragment key={h.label}>
+                      <dt className="whitespace-nowrap">{h.label}</dt>
+                      <dd className={h.open ? "text-inverse-on-surface" : "text-inverse-on-surface/45"}>
+                        {h.value}
+                      </dd>
+                    </Fragment>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>

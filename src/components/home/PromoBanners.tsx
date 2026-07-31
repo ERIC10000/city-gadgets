@@ -16,7 +16,7 @@ export function PromoBanners() {
           className="group relative min-h-[220px] overflow-hidden rounded-3xl bg-inverse-surface md:min-h-[260px]"
         >
           <Image
-            src="/banners/sale-red.jpg"
+            src="/banners/sale-red.webp"
             alt=""
             fill
             sizes="(max-width:1024px) 100vw, 50vw"
@@ -45,7 +45,7 @@ export function PromoBanners() {
           className="group relative min-h-[220px] overflow-hidden rounded-3xl bg-price-gold md:min-h-[260px]"
         >
           <Image
-            src="/banners/cart-gold.jpg"
+            src="/banners/cart-gold.webp"
             alt=""
             fill
             sizes="(max-width:1024px) 100vw, 50vw"

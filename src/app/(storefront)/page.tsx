@@ -1,4 +1,4 @@
-import { HeroCarousel, type HeroSlide } from "@/components/home/HeroCarousel";
+import { HeroCarousel, type HeroImage, type HeroSlide } from "@/components/home/HeroCarousel";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { PopularCategories, type CategoryCircle } from "@/components/home/PopularCategories";
 import { TabbedProductGrid, type GridGroup } from "@/components/home/TabbedProductGrid";
@@ -35,11 +35,40 @@ const FAVORITE_TABS: { label: string; slug: string }[] = [
   { label: "Gaming", slug: "consoles" },
 ];
 
-function pickImages(products: Product[], slug: string, n: number): string[] {
-  return products
-    .filter((p) => p.category_slug === slug && p.images[0]?.url)
-    .slice(0, n)
-    .map((p) => p.images[0].url);
+/**
+ * Picks up to `n` hero images for a department, one per brand, so the banner
+ * showcases the range stocked rather than three of the same handset. Products
+ * arrive sorted by rating, so the pick is still the best-rated example of each
+ * brand. If a department has fewer distinct brands than slots, the remaining
+ * slots are filled with the next best-rated products, skipping duplicate
+ * imagery.
+ */
+function pickBrandImages(products: Product[], slug: string, n: number): HeroImage[] {
+  const inCategory = products.filter((p) => p.category_slug === slug && p.images[0]?.url);
+
+  const picked: HeroImage[] = [];
+  const seenBrands = new Set<string>();
+  const seenUrls = new Set<string>();
+
+  for (const p of inCategory) {
+    const url = p.images[0].url;
+    const brand = p.brand?.trim();
+    if (!brand || seenBrands.has(brand.toLowerCase()) || seenUrls.has(url)) continue;
+    seenBrands.add(brand.toLowerCase());
+    seenUrls.add(url);
+    picked.push({ src: url, brand });
+    if (picked.length === n) return picked;
+  }
+
+  for (const p of inCategory) {
+    const url = p.images[0].url;
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    picked.push({ src: url, brand: p.brand?.trim() || null });
+    if (picked.length === n) break;
+  }
+
+  return picked;
 }
 
 export default async function HomePage() {
@@ -60,7 +89,7 @@ export default async function HomePage() {
       subtitle: "Expertly sourced, quality guaranteed — flagship phones for less.",
       href: "/category/phones",
       cta: "Shop Now",
-      images: pickImages(all, "phones", 3),
+      images: pickBrandImages(all, "phones", 3),
     },
     {
       eyebrow: "Pro power, less spend",
@@ -68,7 +97,7 @@ export default async function HomePage() {
       subtitle: "M5 performance and all-day battery, with a 12-month warranty.",
       href: "/category/macbooks",
       cta: "Shop Laptops",
-      images: pickImages(all, "macbooks", 3),
+      images: pickBrandImages(all, "macbooks", 3),
     },
     {
       eyebrow: "Play more, pay less",
@@ -76,7 +105,7 @@ export default async function HomePage() {
       subtitle: "Consoles, handhelds and VR — genuine gear, unbeatable prices.",
       href: "/category/consoles",
       cta: "Shop Gaming",
-      images: pickImages(all, "consoles", 3),
+      images: pickBrandImages(all, "consoles", 3),
     },
   ].filter((s) => s.images.length > 0);
 

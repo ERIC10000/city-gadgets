@@ -53,7 +53,7 @@ export async function CategoryListing({
 
   // Department hero photo — the category's curated image, with the gold cart
   // artwork backing the generic /shop and search views.
-  const bannerImage = category?.hero_image ?? "/banners/cart-gold.jpg";
+  const bannerImage = category?.hero_image ?? "/banners/cart-gold.webp";
   const brandOptions = Array.from(new Set(allInScope.map((p) => p.brand).filter((b): b is string => Boolean(b)))).sort();
   const prices = allInScope.map((p) => p.price);
   const priceBounds = { min: prices.length ? Math.min(...prices) : 0, max: prices.length ? Math.max(...prices) : 0 };

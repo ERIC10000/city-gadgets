@@ -5,7 +5,7 @@ export function HotDealsBanner() {
   return (
     <div className="relative min-h-[260px] overflow-hidden rounded-3xl bg-inverse-surface md:min-h-[320px]">
       {/* Red sale photography backdrop, phone & ornaments kept to the right */}
-      <Image src="/banners/sale-red.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[65%_center]" />
+      <Image src="/banners/sale-red.webp" alt="" fill priority sizes="100vw" className="object-cover object-[65%_center]" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
 
       <div className="relative z-10 flex min-h-[260px] flex-col justify-center px-8 py-10 md:min-h-[320px] md:px-14">

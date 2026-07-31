@@ -4,7 +4,6 @@ import { TrustpilotRating } from "@/components/home/Trustpilot";
 const FEATURES = [
   { icon: "verified_user", label: "12-Month Warranty" },
   { icon: "local_shipping", label: "Free Delivery" },
-  { icon: "cached", label: "30-Day Trial" },
 ];
 
 export function TrustStrip() {

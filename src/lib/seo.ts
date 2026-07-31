@@ -1,3 +1,4 @@
+import { OPENING_HOURS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
 import type { Product } from "@/lib/types";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://citygadgetskenya.co.ke";
@@ -23,18 +24,28 @@ export function websiteJsonLd() {
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Store",
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/icon.png`,
+    image: `${SITE_URL}/icon.png`,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Gadget Plaza, 2nd Floor",
+      streetAddress: `${STORE_ADDRESS.line1}, ${STORE_ADDRESS.line2}`,
       addressLocality: "Nairobi",
+      addressRegion: "Nairobi",
       addressCountry: "KE",
     },
-    telephone: "+254745575931",
-    sameAs: ["https://wa.me/254745575931", "https://wa.me/254794488806"],
+    email: STORE_EMAIL,
+    telephone: `+${WHATSAPP_NUMBERS[0].raw}`,
+    // Closed days are omitted rather than listed with null hours.
+    openingHoursSpecification: OPENING_HOURS.filter((h) => h.open).map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.schemaDays,
+      opens: h.opens,
+      closes: h.closes,
+    })),
+    sameAs: WHATSAPP_NUMBERS.map((n) => `https://wa.me/${n.raw}`),
   };
 }
 

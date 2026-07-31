@@ -8,6 +8,14 @@ import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { ShoppableVideo } from "@/lib/data/videos";
 
+/** mm:ss, with a stable placeholder before metadata lands. */
+function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
 /**
  * Full-bleed vertical reel. Autoplays muted while in view (the only autoplay
  * browsers allow), pauses when scrolled away, and surfaces a shoppable card
@@ -18,6 +26,9 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [scrubbing, setScrubbing] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -28,6 +39,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
       el.pause();
       el.currentTime = 0;
       setProgress(0);
+      setElapsed(0);
     }
   }, [active]);
 
@@ -41,6 +53,20 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
       el.pause();
       setPaused(true);
     }
+  }
+
+  /** Jump by a signed number of seconds, clamped to the clip. */
+  function seekBy(seconds: number) {
+    const el = ref.current;
+    if (!el || !el.duration) return;
+    el.currentTime = Math.min(Math.max(el.currentTime + seconds, 0), el.duration);
+  }
+
+  /** Scrub from a pointer position on the track. */
+  function seekToRatio(ratio: number) {
+    const el = ref.current;
+    if (!el || !el.duration) return;
+    el.currentTime = Math.min(Math.max(ratio, 0), 1) * el.duration;
   }
 
   return (
@@ -61,8 +87,10 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           playsInline
           preload="metadata"
           onClick={toggle}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
           onTimeUpdate={(e) => {
             const v = e.currentTarget;
+            setElapsed(v.currentTime);
             if (v.duration) setProgress((v.currentTime / v.duration) * 100);
           }}
           className="h-full w-full cursor-pointer object-cover"
@@ -88,7 +116,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
         <button
           onClick={() => setMuted((m) => !m)}
           aria-label={muted ? "Unmute" : "Mute"}
-          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white ring-1 ring-white/15 backdrop-blur-md transition-all hover:bg-black/70 active:scale-95"
         >
           <Icon name={muted ? "volume_off" : "volume_up"} />
         </button>
@@ -99,8 +127,23 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           </span>
         )}
 
-        {/* Caption + shoppable card — extra bottom padding clears the mobile tab bar */}
-        <div className="absolute inset-x-0 bottom-0 space-y-3 p-5 pb-24 md:pb-5">
+        {/* Double-tap seek zones — invisible, sit behind the caption block */}
+        <button
+          onDoubleClick={() => seekBy(-10)}
+          aria-label="Rewind 10 seconds"
+          tabIndex={-1}
+          className="absolute inset-y-0 left-0 w-1/4 cursor-default"
+        />
+        <button
+          onDoubleClick={() => seekBy(10)}
+          aria-label="Forward 10 seconds"
+          tabIndex={-1}
+          className="absolute inset-y-0 right-0 w-1/4 cursor-default"
+        />
+
+        {/* Caption + shoppable card — bottom padding clears the transport bar
+            (and, on mobile, the tab bar beneath it) */}
+        <div className="absolute inset-x-0 bottom-0 space-y-3 p-5 pb-44 md:pb-28">
           {video.category && (
             <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
               {video.category}
@@ -139,9 +182,93 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           )}
         </div>
 
-        {/* Scrub progress */}
-        <div className="absolute inset-x-0 bottom-0 h-0.5 bg-white/20">
-          <div className="h-full bg-white transition-[width] duration-200" style={{ width: `${progress}%` }} />
+        {/* Transport controls — scrub track plus playback cluster */}
+        <div className="absolute inset-x-0 bottom-0 px-4 pb-20 md:pb-4">
+          <div className="rounded-2xl bg-black/45 px-3 py-2.5 ring-1 ring-white/10 backdrop-blur-md">
+            {/* Scrub track — click or drag anywhere to seek */}
+            <div
+              role="slider"
+              tabIndex={0}
+              aria-label="Seek"
+              aria-valuemin={0}
+              aria-valuemax={Math.round(duration)}
+              aria-valuenow={Math.round(elapsed)}
+              aria-valuetext={`${formatTime(elapsed)} of ${formatTime(duration)}`}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowLeft") seekBy(-5);
+                if (e.key === "ArrowRight") seekBy(5);
+                if (e.key === " " || e.key === "Enter") {
+                  e.preventDefault();
+                  toggle();
+                }
+              }}
+              onPointerDown={(e) => {
+                e.currentTarget.setPointerCapture(e.pointerId);
+                setScrubbing(true);
+                const r = e.currentTarget.getBoundingClientRect();
+                seekToRatio((e.clientX - r.left) / r.width);
+              }}
+              onPointerMove={(e) => {
+                if (!scrubbing) return;
+                const r = e.currentTarget.getBoundingClientRect();
+                seekToRatio((e.clientX - r.left) / r.width);
+              }}
+              onPointerUp={() => setScrubbing(false)}
+              onPointerCancel={() => setScrubbing(false)}
+              className="group relative flex cursor-pointer touch-none items-center py-2"
+            >
+              <div className="h-1 w-full overflow-hidden rounded-full bg-white/25">
+                <div
+                  className={cn("h-full rounded-full bg-white", !scrubbing && "transition-[width] duration-200")}
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <span
+                className={cn(
+                  "absolute h-3 w-3 -translate-x-1/2 rounded-full bg-white shadow transition-transform",
+                  scrubbing ? "scale-100" : "scale-0 group-hover:scale-100",
+                )}
+                style={{ left: `${progress}%` }}
+                aria-hidden="true"
+              />
+            </div>
+
+            <div className="flex items-center gap-1">
+              <button
+                onClick={toggle}
+                aria-label={paused ? "Play" : "Pause"}
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 active:scale-95"
+              >
+                <Icon name={paused ? "play_arrow" : "pause"} filled className="text-[22px]" />
+              </button>
+              <button
+                onClick={() => seekBy(-10)}
+                aria-label="Rewind 10 seconds"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 active:scale-95"
+              >
+                <Icon name="replay_10" className="text-[20px]" />
+              </button>
+              <button
+                onClick={() => seekBy(10)}
+                aria-label="Forward 10 seconds"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 active:scale-95"
+              >
+                <Icon name="forward_10" className="text-[20px]" />
+              </button>
+
+              <span className="ml-1 font-mono text-[11px] tabular-nums text-white/85">
+                {formatTime(elapsed)} <span className="text-white/40">/ {formatTime(duration)}</span>
+              </span>
+
+              <button
+                onClick={() => setMuted((m) => !m)}
+                aria-label={muted ? "Unmute" : "Mute"}
+                className="ml-auto flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 active:scale-95"
+              >
+                <Icon name={muted ? "volume_off" : "volume_up"} className="text-[20px]" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
