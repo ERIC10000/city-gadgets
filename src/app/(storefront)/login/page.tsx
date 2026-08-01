@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AuthForm } from "@/components/auth/AuthForm";
+import { SocialAuth } from "@/components/auth/SocialAuth";
 import { SupabaseRequiredNotice } from "@/components/ui/SupabaseRequiredNotice";
 import { signIn } from "@/lib/actions/auth";
 import { isSupabaseConfigured } from "@/lib/env";
@@ -14,6 +15,8 @@ export default function LoginPage() {
       <p className="mb-8 text-center text-on-surface-variant">Sign in to track orders and manage your account.</p>
       {isSupabaseConfigured() ? (
         <>
+          <SocialAuth next="/account" />
+          <div className="mt-4" />
           <AuthForm mode="login" action={signIn} />
           <p className="mt-6 text-center text-body-sm text-on-surface-variant">
             New to City Gadgets?{" "}

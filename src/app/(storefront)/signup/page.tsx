@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AuthForm } from "@/components/auth/AuthForm";
+import { SocialAuth } from "@/components/auth/SocialAuth";
 import { SupabaseRequiredNotice } from "@/components/ui/SupabaseRequiredNotice";
 import { signUp } from "@/lib/actions/auth";
 import { isSupabaseConfigured } from "@/lib/env";
@@ -14,6 +15,8 @@ export default function SignupPage() {
       <p className="mb-8 text-center text-on-surface-variant">Join City Gadgets for faster checkout and order tracking.</p>
       {isSupabaseConfigured() ? (
         <>
+          <SocialAuth next="/account" />
+          <div className="mt-4" />
           <AuthForm mode="signup" action={signUp} />
           <p className="mt-6 text-center text-body-sm text-on-surface-variant">
             Already have an account?{" "}
