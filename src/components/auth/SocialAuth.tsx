@@ -4,8 +4,6 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Icon } from "@/components/ui/Icon";
 
-type Provider = "google" | "facebook";
-
 function GoogleG() {
   return (
     <svg viewBox="0 0 48 48" className="h-5 w-5" aria-hidden>
@@ -17,55 +15,42 @@ function GoogleG() {
   );
 }
 
-function FacebookF() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden>
-      <path
-        fill="#1877F2"
-        d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"
-      />
-    </svg>
-  );
-}
-
 export function SocialAuth({ next = "/account" }: { next?: string }) {
-  const [loading, setLoading] = useState<Provider | null>(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function signInWith(provider: Provider) {
+  async function signInWithGoogle() {
     setError(null);
-    setLoading(provider);
+    setLoading(true);
     try {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
-        provider,
+        provider: "google",
         options: {
           redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
         },
       });
       if (error) {
         setError(error.message);
-        setLoading(null);
+        setLoading(false);
       }
-      // On success the browser is redirected to the provider — no further UI.
+      // On success the browser is redirected to Google — no further UI.
     } catch {
       setError("Couldn't start sign-in. Please try again.");
-      setLoading(null);
+      setLoading(false);
     }
   }
 
-  const btn =
-    "flex h-12 w-full items-center justify-center gap-3 rounded-xl border border-outline-variant bg-white font-bold text-on-surface transition-colors hover:bg-surface-container-low disabled:opacity-60";
-
   return (
     <div className="space-y-3">
-      <button type="button" onClick={() => signInWith("google")} disabled={loading !== null} className={btn}>
-        {loading === "google" ? <Icon name="progress_activity" className="animate-spin" /> : <GoogleG />}
+      <button
+        type="button"
+        onClick={signInWithGoogle}
+        disabled={loading}
+        className="flex h-12 w-full items-center justify-center gap-3 rounded-xl border border-outline-variant bg-white font-bold text-on-surface transition-colors hover:bg-surface-container-low disabled:opacity-60"
+      >
+        {loading ? <Icon name="progress_activity" className="animate-spin" /> : <GoogleG />}
         Continue with Google
-      </button>
-      <button type="button" onClick={() => signInWith("facebook")} disabled={loading !== null} className={btn}>
-        {loading === "facebook" ? <Icon name="progress_activity" className="animate-spin" /> : <FacebookF />}
-        Continue with Facebook
       </button>
 
       {error && <p className="text-body-sm font-semibold text-error">{error}</p>}
