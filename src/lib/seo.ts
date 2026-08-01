@@ -1,4 +1,5 @@
 import { OPENING_HOURS, SOCIAL_LINKS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
+import { toPlainText } from "@/components/ui/RichText";
 import type { Product } from "@/lib/types";
 
 import { SITE_URL } from "@/lib/site";
@@ -58,7 +59,7 @@ export function productJsonLd(product: Product) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.description,
+    description: product.description ? toPlainText(product.description, 500) : undefined,
     brand: { "@type": "Brand", name: product.brand ?? SITE_NAME },
     image: product.images.map((img) => img.url),
     sku: product.id,

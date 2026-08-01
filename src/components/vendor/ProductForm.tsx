@@ -3,6 +3,7 @@
 import { useMemo, useState, useTransition } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { ImageUploader } from "@/components/vendor/ImageUploader";
+import { MarkdownField } from "@/components/vendor/MarkdownField";
 import { SPEC_TEMPLATES } from "@/lib/spec-templates";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -201,14 +202,8 @@ export function ProductForm({
               </div>
             </Card>
 
-            <Card title="Description">
-              <textarea
-                name="description"
-                rows={5}
-                defaultValue={product?.description ?? ""}
-                placeholder="What makes this product worth buying? Warranty, box contents, key features…"
-                className={inputClass}
-              />
+            <Card title="Description" sub="Supports Markdown — paragraphs, headings, tables, lists and FAQs.">
+              <MarkdownField name="description" defaultValue={product?.description ?? ""} className={inputClass} />
             </Card>
           </div>
 

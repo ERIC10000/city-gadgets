@@ -10,6 +10,7 @@ import { StarRating } from "@/components/ui/StarRating";
 import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductReviews } from "@/components/product/ProductReviews";
+import { RichText, toPlainText } from "@/components/ui/RichText";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductReviews, getMyReview } from "@/lib/data/reviews";
@@ -33,13 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) return {};
+  const metaDescription = product.description ? toPlainText(product.description, 160) : undefined;
   return {
     title: product.name,
-    description: product.description ?? undefined,
+    description: metaDescription,
     alternates: canonical(`/product/${product.slug}`),
     openGraph: {
       title: product.name,
-      description: product.description ?? undefined,
+      description: metaDescription,
       images: product.images.map((img) => ({ url: img.url, alt: img.alt })),
     },
   };
@@ -197,7 +199,7 @@ export default async function ProductPage({ params }: Props) {
               Description
               <Icon name="expand_more" className="transition-transform group-open:rotate-180" />
             </summary>
-            <p className="pb-2 pt-3 leading-relaxed text-on-surface-variant">{product.description}</p>
+            <RichText content={product.description} className="pb-2 pt-3" />
           </details>
         )}
 
