@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CategoryListing, type ListingSearchParams } from "@/components/product/CategoryListing";
 import { getCategoryBySlug } from "@/lib/data/categories";
+import { getProducts } from "@/lib/data/products";
+import { breadcrumbJsonLd, collectionPageJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
 
 type Props = {
@@ -27,5 +29,26 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   if (!category) notFound();
 
   const resolvedSearchParams = await searchParams;
-  return <CategoryListing category={category} searchParams={resolvedSearchParams} basePath={`/category/${slug}`} />;
+  const { items } = await getProducts({ categorySlug: slug, limit: 30 });
+
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", href: "/" },
+    { name: "Shop", href: "/shop" },
+    { name: category.name, href: `/category/${slug}` },
+  ]);
+  const collection = collectionPageJsonLd({
+    name: category.name,
+    description:
+      category.hero_tagline ?? `Shop ${category.name} at City Gadgets — genuine tech, M-Pesa payments, same-day Nairobi delivery.`,
+    path: `/category/${slug}`,
+    products: items.map((p) => ({ slug: p.slug, name: p.name })),
+  });
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collection) }} />
+      <CategoryListing category={category} searchParams={resolvedSearchParams} basePath={`/category/${slug}`} />
+    </>
+  );
 }

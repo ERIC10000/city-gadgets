@@ -83,6 +83,41 @@ export function productJsonLd(product: Product) {
   };
 }
 
+/**
+ * Marks a category page as a product collection and (optionally) lists its
+ * items. Alongside the BreadcrumbList this is the structure Google reads when
+ * deciding which category pages to surface as organic sitelinks.
+ */
+export function collectionPageJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  products?: { slug: string; name: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${opts.name} | ${SITE_NAME}`,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+    ...(opts.products?.length
+      ? {
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: opts.products.length,
+            itemListElement: opts.products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/product/${p.slug}`,
+              name: p.name,
+            })),
+          },
+        }
+      : {}),
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; href: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -11,6 +11,28 @@ function slugify(input: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * Returns a slug guaranteed free in `products`, appending -2, -3, … on
+ * collision. Keeps URLs unique (so /product/[slug] is unambiguous) while
+ * letting vendors save products whose names would otherwise clash.
+ */
+async function uniqueSlug(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  base: string,
+  excludeId?: string,
+): Promise<string> {
+  const root = base || "product";
+  let query = supabase.from("products").select("slug").like("slug", `${root}%`);
+  if (excludeId) query = query.neq("id", excludeId);
+  const { data } = await query;
+  const taken = new Set((data ?? []).map((r) => (r as { slug: string }).slug));
+
+  if (!taken.has(root)) return root;
+  let i = 2;
+  while (taken.has(`${root}-${i}`)) i++;
+  return `${root}-${i}`;
+}
+
 function parseSpecs(formData: FormData): Record<string, string> {
   const keys = formData.getAll("specKey") as string[];
   const values = formData.getAll("specValue") as string[];
@@ -31,7 +53,7 @@ export async function createProduct(formData: FormData): Promise<ProductFormResu
   if (!user) return { error: "Not signed in" };
 
   const name = String(formData.get("name") ?? "");
-  const slug = slugify(String(formData.get("slug") || name));
+  const slug = await uniqueSlug(supabase, slugify(String(formData.get("slug") || name)));
   const imageUrls = String(formData.get("imageUrls") ?? "")
     .split("\n")
     .map((u) => u.trim())
