@@ -31,6 +31,14 @@ export const STORE_ADDRESS = {
 export const STORE_EMAIL = "citygadgetskenya@gmail.com";
 
 /**
+ * Google Business Profile review link. This is the share link the owner
+ * provided; it opens the profile where the "Write a review" button lives.
+ * For a one-tap review dialog, swap in the direct link from the GBP dashboard
+ * ("Ask for reviews" → the g.page/r/…/review URL).
+ */
+export const GOOGLE_REVIEW_URL = "https://share.google/ZUy5G2NttxScR13Fc";
+
+/**
  * Official social profiles. Tracking parameters (utm_source, igsh, _t, _r)
  * are stripped — they belong to the share link that produced the URL, not to
  * the profile, and they would leak into the `sameAs` block Google reads.

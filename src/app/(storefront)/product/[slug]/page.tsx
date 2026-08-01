@@ -9,8 +9,11 @@ import { PriceDisplay } from "@/components/ui/PriceDisplay";
 import { StarRating } from "@/components/ui/StarRating";
 import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductReviews } from "@/components/product/ProductReviews";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
+import { getProductReviews, getMyReview } from "@/lib/data/reviews";
+import { getCurrentUser } from "@/lib/data/auth";
 import { COMES_WITH } from "@/lib/spec-templates";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
@@ -22,22 +25,6 @@ function deliveryWindow(): string {
   const to = new Date();
   to.setDate(to.getDate() + 2);
   return `${fmt(from)} – ${fmt(to)}`;
-}
-
-/** Deterministic, plausible star distribution derived from the average rating. */
-function ratingBars(rating: number): { stars: number; pct: number }[] {
-  const five = Math.round(Math.min(88, Math.max(35, (rating - 3.4) * 55)));
-  const four = Math.round((100 - five) * 0.62);
-  const three = Math.round((100 - five - four) * 0.6);
-  const two = Math.round((100 - five - four - three) * 0.55);
-  const one = Math.max(0, 100 - five - four - three - two);
-  return [
-    { stars: 5, pct: five },
-    { stars: 4, pct: four },
-    { stars: 3, pct: three },
-    { stars: 2, pct: two },
-    { stars: 1, pct: one },
-  ];
 }
 
 type Props = { params: Promise<{ slug: string }> };
@@ -63,9 +50,12 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const [category, related] = await Promise.all([
+  const [category, related, reviews, currentUser, myReview] = await Promise.all([
     getCategoryBySlug(product.category_slug),
     getRelatedProducts(product, 4),
+    getProductReviews(product.id),
+    getCurrentUser(),
+    getMyReview(product.id),
   ]);
   const outOfStock = product.stock_quantity <= 0;
   const image = product.images[0]?.url ?? "";
@@ -110,7 +100,11 @@ export default async function ProductPage({ params }: Props) {
           )}
           <h1 className="text-3xl font-extrabold text-on-surface md:text-4xl">{product.name}</h1>
           <div className="flex items-center gap-3">
-            <StarRating rating={product.rating} reviewCount={product.review_count} />
+            {product.review_count > 0 ? (
+              <StarRating rating={product.rating} reviewCount={product.review_count} />
+            ) : (
+              <span className="text-body-sm text-on-surface-variant">No reviews yet</span>
+            )}
             <span className="text-body-sm font-semibold text-m-pesa-green">
               {outOfStock ? "Out of Stock" : "In Stock"}
             </span>
@@ -224,38 +218,17 @@ export default async function ProductPage({ params }: Props) {
           </dl>
         </details>
 
-        <details className="group px-6 py-4">
-          <summary className="flex cursor-pointer list-none items-center justify-between font-bold text-on-surface">
-            <span>
-              Customer Reviews{" "}
-              <span className="ml-1 font-semibold text-on-surface-variant">
-                {product.rating.toFixed(1)} ★ · {product.review_count}
-              </span>
-            </span>
-            <Icon name="expand_more" className="transition-transform group-open:rotate-180" />
-          </summary>
-          <div className="grid grid-cols-1 gap-6 pb-2 pt-4 sm:grid-cols-[auto_1fr] sm:items-center">
-            <div className="text-center sm:pr-6">
-              <p className="text-4xl font-extrabold text-on-surface">{product.rating.toFixed(1)}</p>
-              <div className="mt-1 flex justify-center">
-                <StarRating rating={product.rating} />
-              </div>
-              <p className="mt-1 text-body-sm text-on-surface-variant">{product.review_count} verified reviews</p>
-            </div>
-            <div className="space-y-1.5">
-              {ratingBars(product.rating).map((bar) => (
-                <div key={bar.stars} className="flex items-center gap-3">
-                  <span className="w-8 text-body-sm text-on-surface-variant">{bar.stars} ★</span>
-                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-container">
-                    <div className="h-full rounded-full bg-trustpilot" style={{ width: `${bar.pct}%` }} />
-                  </div>
-                  <span className="w-10 text-right text-body-sm text-on-surface-variant">{bar.pct}%</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </details>
       </div>
+
+      <ProductReviews
+        productId={product.id}
+        slug={product.slug}
+        reviews={reviews}
+        rating={product.rating}
+        reviewCount={product.review_count}
+        isLoggedIn={currentUser !== null}
+        myReview={myReview}
+      />
 
       {related.length > 0 && (
         <div className="mt-16">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
+import { GoogleReviewCta } from "@/components/marketing/GoogleReviewCta";
 
 export const metadata: Metadata = { title: "Order Confirmed" };
 
@@ -30,6 +31,10 @@ export default async function CheckoutSuccessPage({
         <Link href="/shop" className="rounded-xl bg-surface-container-highest px-6 py-3 font-bold text-on-surface hover:bg-surface-dim">
           Continue Shopping
         </Link>
+      </div>
+
+      <div className="mt-10 w-full text-left">
+        <GoogleReviewCta variant="banner" />
       </div>
     </div>
   );
