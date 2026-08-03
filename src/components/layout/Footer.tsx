@@ -84,6 +84,7 @@ export function Footer() {
               <li><Link href="/category/consoles" className="transition-colors hover:text-price-gold">Gaming Gear</Link></li>
               <li><Link href="/sell" className="transition-colors hover:text-price-gold">Sell Your Device</Link></li>
               <li><Link href="/inspiration" className="transition-colors hover:text-price-gold">Video Inspiration</Link></li>
+              <li><Link href="/about" className="transition-colors hover:text-price-gold">About Us</Link></li>
             </ul>
           </div>
 
@@ -93,9 +94,10 @@ export function Footer() {
               <li><Link href="/account/orders" className="transition-colors hover:text-price-gold">Track Your Order</Link></li>
               <li><Link href="#" className="transition-colors hover:text-price-gold">Returns &amp; Warranty</Link></li>
               <li><Link href="#" className="transition-colors hover:text-price-gold">Shipping Policy</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-price-gold">Contact Us</Link></li>
               <li>
                 <Link href={whatsappLink()} target="_blank" className="transition-colors hover:text-price-gold">
-                  Contact Support
+                  WhatsApp Support
                 </Link>
               </li>
             </ul>
