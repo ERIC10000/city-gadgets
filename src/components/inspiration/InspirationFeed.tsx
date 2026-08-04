@@ -78,6 +78,10 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
       )}
 
       <div className="relative h-full w-full max-w-[520px] overflow-hidden bg-black md:my-3 md:h-[calc(100%-1.5rem)] md:rounded-3xl">
+        {/* Blurred fill so a contained (never-cropped) video sits on soft bars, not stark black */}
+        {video.thumbnail_url && (
+          <Image src={video.thumbnail_url} alt="" fill sizes="520px" className="scale-125 object-cover opacity-40 blur-2xl" />
+        )}
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={ref}
@@ -94,7 +98,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
             setElapsed(v.currentTime);
             if (v.duration) setProgress((v.currentTime / v.duration) * 100);
           }}
-          className="h-full w-full cursor-pointer object-cover"
+          className="relative h-full w-full cursor-pointer object-contain"
         />
 
         {/* Legibility scrim */}
