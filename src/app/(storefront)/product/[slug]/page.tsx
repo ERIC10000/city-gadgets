@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: Props) {
 
   const [category, related, reviews, currentUser, myReview] = await Promise.all([
     getCategoryBySlug(product.category_slug),
-    getRelatedProducts(product, 4),
+    getRelatedProducts(product, 10),
     getProductReviews(product.id),
     getCurrentUser(),
     getMyReview(product.id),
@@ -234,8 +234,8 @@ export default async function ProductPage({ params }: Props) {
 
       {related.length > 0 && (
         <div className="mt-16">
-          <h2 className="mb-8 text-headline-lg font-bold text-on-surface">Explore More</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <h2 className="mb-8 text-headline-lg font-bold text-on-surface">Similar Products</h2>
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

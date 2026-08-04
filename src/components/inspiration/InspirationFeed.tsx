@@ -44,6 +44,12 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
     }
   }, [active]);
 
+  // React doesn't reliably reflect the `muted` prop to the DOM property, so
+  // the mute button appears to do nothing — sync it imperatively.
+  useEffect(() => {
+    if (ref.current) ref.current.muted = muted;
+  }, [muted]);
+
   function toggle() {
     const el = ref.current;
     if (!el) return;
@@ -71,13 +77,13 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
   }
 
   return (
-    <section className="relative flex h-[calc(100svh-var(--header-h))] snap-start snap-always items-center justify-center bg-black">
+    <section className="relative flex h-[100svh] snap-start snap-always items-center justify-center bg-black">
       {/* Blurred backdrop fills the letterbox on wide screens */}
       {video.thumbnail_url && (
         <Image src={video.thumbnail_url} alt="" fill sizes="100vw" className="scale-110 object-cover opacity-25 blur-2xl" />
       )}
 
-      <div className="relative h-full w-full max-w-[520px] overflow-hidden bg-black md:my-3 md:h-[calc(100%-1.5rem)] md:rounded-3xl">
+      <div className="relative h-full w-full max-w-[500px] overflow-hidden bg-black md:my-3 md:h-[calc(100%-1.5rem)] md:rounded-3xl">
         {/* Blurred fill so a contained (never-cropped) video sits on soft bars, not stark black */}
         {video.thumbnail_url && (
           <Image src={video.thumbnail_url} alt="" fill sizes="520px" className="scale-125 object-cover opacity-40 blur-2xl" />
@@ -148,7 +154,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
 
         {/* Caption + shoppable card — bottom padding clears the transport bar
             (and, on mobile, the tab bar beneath it) */}
-        <div className="absolute inset-x-0 bottom-0 space-y-3 p-5 pb-44 md:pb-28">
+        <div className="absolute inset-x-0 bottom-0 space-y-3 p-5 pb-32 md:pb-24">
           {video.category && (
             <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
               {video.category}
@@ -211,7 +217,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
         </div>
 
         {/* Transport controls — scrub track plus playback cluster */}
-        <div className="absolute inset-x-0 bottom-0 px-4 pb-20 md:pb-4">
+        <div className="absolute inset-x-0 bottom-0 px-4 pb-7 md:pb-4">
           <div className="rounded-2xl bg-black/45 px-3 py-2.5 ring-1 ring-white/10 backdrop-blur-md">
             {/* Scrub track — click or drag anywhere to seek */}
             <div
@@ -329,6 +335,15 @@ export function InspirationFeed({ videos }: { videos: ShoppableVideo[] }) {
     sectionRefs.current[i]?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
+  // Immersive takeover: lock the page behind so the feed is the whole screen.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
+
   if (videos.length === 0) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 bg-black px-6 text-center text-white">
@@ -345,10 +360,20 @@ export function InspirationFeed({ videos }: { videos: ShoppableVideo[] }) {
   }
 
   return (
-    <div className="relative bg-black">
+    <div className="fixed inset-0 z-[70] bg-black">
+      {/* Exit back to the store — the header/nav are covered by this overlay */}
+      <Link
+        href="/"
+        aria-label="Back to store"
+        className="absolute left-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white ring-1 ring-white/15 backdrop-blur-md transition-colors hover:bg-black/70"
+        style={{ top: "max(1rem, env(safe-area-inset-top))" }}
+      >
+        <Icon name="arrow_back" />
+      </Link>
+
       <div
         ref={containerRef}
-        className="no-scrollbar h-[calc(100svh-var(--header-h))] snap-y snap-mandatory overflow-y-auto overscroll-y-contain"
+        className="no-scrollbar h-[100svh] snap-y snap-mandatory overflow-y-auto overscroll-y-contain"
       >
         {videos.map((v, i) => (
           <div

@@ -142,9 +142,25 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   };
 }
 
-export async function getRelatedProducts(product: Product, limit = 4): Promise<Product[]> {
-  const { items } = await getProducts({ categorySlug: product.category_slug, limit: limit + 1 });
-  return items.filter((p) => p.id !== product.id).slice(0, limit);
+export async function getRelatedProducts(product: Product, limit = 8): Promise<Product[]> {
+  // Same department first…
+  const { items: sameCat } = await getProducts({ categorySlug: product.category_slug, limit: limit + 8 });
+  const related = sameCat.filter((p) => p.id !== product.id);
+
+  // …then top up with top-rated products from the wider catalog so the row is
+  // always full, even for a thinly-stocked category.
+  if (related.length < limit) {
+    const { items: more } = await getProducts({ sort: "rating", limit: limit + 16 });
+    const seen = new Set([product.id, ...related.map((p) => p.id)]);
+    for (const p of more) {
+      if (related.length >= limit) break;
+      if (!seen.has(p.id)) {
+        related.push(p);
+        seen.add(p.id);
+      }
+    }
+  }
+  return related.slice(0, limit);
 }
 
 export async function getFeaturedProducts(limit = 4): Promise<Product[]> {
