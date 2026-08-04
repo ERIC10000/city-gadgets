@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
 import { Icon } from "@/components/ui/Icon";
-import { StatusBadge } from "@/components/ui/StatusBadge";
-import { formatKES } from "@/lib/format";
+import { OrdersTable } from "@/components/vendor/OrdersTable";
 import { getAllOrders } from "@/lib/data/orders";
-import { updateOrderStatus } from "@/lib/actions/vendor-orders";
-import type { OrderStatus } from "@/lib/types";
 
 export const metadata: Metadata = { title: "Orders" };
-
-const STATUS_OPTIONS: OrderStatus[] = ["pending", "processing", "shipped", "delivered", "cancelled"];
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-KE", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
 
 export default async function OrdersPage() {
   const orders = await getAllOrders();
@@ -61,56 +48,7 @@ export default async function OrdersPage() {
           <p className="text-body-sm text-on-surface-variant">Orders placed by customers will appear here.</p>
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-2xl bg-surface-container-lowest shadow-card">
-          <table className="w-full text-left">
-            <thead className="border-b border-outline-variant text-body-sm text-on-surface-variant">
-              <tr>
-                <th className="px-5 py-4 font-semibold">Order ID</th>
-                <th className="px-5 py-4 font-semibold">Date</th>
-                <th className="px-5 py-4 font-semibold">Items</th>
-                <th className="px-5 py-4 font-semibold">Total</th>
-                <th className="px-5 py-4 font-semibold">Payment</th>
-                <th className="px-5 py-4 font-semibold">Status</th>
-                <th className="px-5 py-4 text-right font-semibold">Update</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant/40">
-              {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-surface-container transition-colors">
-                  <td className="px-5 py-4">
-                    <span className="font-mono text-body-sm text-on-surface-variant">
-                      #{order.id.slice(0, 8).toUpperCase()}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4 text-on-surface-variant">{formatDate(order.created_at)}</td>
-                  <td className="px-5 py-4 text-on-surface-variant">{order.items?.length ?? 0} item(s)</td>
-                  <td className="px-5 py-4 font-bold text-on-surface">{formatKES(order.total)}</td>
-                  <td className="px-5 py-4 capitalize text-on-surface-variant">{order.payment_method ?? "—"}</td>
-                  <td className="px-5 py-4">
-                    <StatusBadge status={order.status} />
-                  </td>
-                  <td className="px-5 py-4">
-                    <form action={updateOrderStatus} className="flex justify-end">
-                      <input type="hidden" name="id" value={order.id} />
-                      <select
-                        name="status"
-                        defaultValue={order.status}
-                        className="rounded-lg border border-outline-variant bg-surface px-3 py-1.5 text-body-sm font-semibold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary"
-                        onChange={(e) => e.currentTarget.form?.requestSubmit()}
-                      >
-                        {STATUS_OPTIONS.map((s) => (
-                          <option key={s} value={s} className="capitalize">
-                            {s.charAt(0).toUpperCase() + s.slice(1)}
-                          </option>
-                        ))}
-                      </select>
-                    </form>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <OrdersTable orders={orders} />
       )}
     </div>
   );

@@ -29,6 +29,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
   const [elapsed, setElapsed] = useState(0);
   const [duration, setDuration] = useState(0);
   const [scrubbing, setScrubbing] = useState(false);
+  const [showFullDesc, setShowFullDesc] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -150,7 +151,30 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
             </span>
           )}
           <h2 className="text-xl font-extrabold leading-tight text-white">{video.title}</h2>
-          {video.description && <p className="line-clamp-2 text-body-sm text-white/75">{video.description}</p>}
+          {video.description && (
+            <div>
+              <p
+                className={cn(
+                  "whitespace-pre-line text-body-sm text-white/80",
+                  showFullDesc ? "max-h-[38vh] overflow-y-auto pr-1" : "line-clamp-2",
+                )}
+              >
+                {video.description}
+              </p>
+              {video.description.length > 90 && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowFullDesc((v) => !v);
+                  }}
+                  className="mt-1 text-body-sm font-bold text-white underline underline-offset-2"
+                >
+                  {showFullDesc ? "Show less" : "Read more"}
+                </button>
+              )}
+            </div>
+          )}
 
           {video.product ? (
             <Link
