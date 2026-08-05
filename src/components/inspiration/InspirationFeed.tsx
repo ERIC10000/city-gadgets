@@ -50,6 +50,13 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
     if (ref.current) ref.current.muted = muted;
   }, [muted]);
 
+  // Toggle sound. Set the DOM property *synchronously* inside the click so the
+  // unmute happens within the user-gesture window browsers require for audio.
+  const applyMuted = useCallback((next: boolean) => {
+    if (ref.current) ref.current.muted = next;
+    setMuted(next);
+  }, []);
+
   function toggle() {
     const el = ref.current;
     if (!el) return;
@@ -123,34 +130,46 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           </button>
         )}
 
-        {/* Mute toggle */}
+        {/* Double-tap seek zones — invisible, kept BELOW the controls so they
+            never swallow taps meant for the mute button or caption. */}
         <button
-          onClick={() => setMuted((m) => !m)}
+          onClick={toggle}
+          onDoubleClick={() => seekBy(-10)}
+          aria-label="Rewind 10 seconds"
+          tabIndex={-1}
+          className="absolute inset-y-0 left-0 z-10 w-1/4 cursor-default"
+        />
+        <button
+          onClick={toggle}
+          onDoubleClick={() => seekBy(10)}
+          aria-label="Forward 10 seconds"
+          tabIndex={-1}
+          className="absolute inset-y-0 right-0 z-10 w-1/4 cursor-default"
+        />
+
+        {/* Mute toggle — above the seek zones so the tap always lands */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            applyMuted(!muted);
+          }}
           aria-label={muted ? "Unmute" : "Mute"}
-          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white ring-1 ring-white/15 backdrop-blur-md transition-all hover:bg-black/70 active:scale-95"
+          className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white ring-1 ring-white/15 backdrop-blur-md transition-all hover:bg-black/70 active:scale-95"
         >
           <Icon name={muted ? "volume_off" : "volume_up"} />
         </button>
 
         {muted && active && (
-          <span className="pointer-events-none absolute right-16 top-6 rounded-full bg-black/60 px-3 py-1 text-badge-text font-bold text-white backdrop-blur-sm">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              applyMuted(false);
+            }}
+            className="absolute right-16 top-6 z-30 rounded-full bg-black/60 px-3 py-1 text-badge-text font-bold text-white backdrop-blur-sm"
+          >
             Tap for sound
-          </span>
+          </button>
         )}
-
-        {/* Double-tap seek zones — invisible, sit behind the caption block */}
-        <button
-          onDoubleClick={() => seekBy(-10)}
-          aria-label="Rewind 10 seconds"
-          tabIndex={-1}
-          className="absolute inset-y-0 left-0 w-1/4 cursor-default"
-        />
-        <button
-          onDoubleClick={() => seekBy(10)}
-          aria-label="Forward 10 seconds"
-          tabIndex={-1}
-          className="absolute inset-y-0 right-0 w-1/4 cursor-default"
-        />
 
         {/* Caption + shoppable card — bottom padding clears the transport bar
             (and, on mobile, the tab bar beneath it) */}
@@ -295,7 +314,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
               </span>
 
               <button
-                onClick={() => setMuted((m) => !m)}
+                onClick={() => applyMuted(!muted)}
                 aria-label={muted ? "Unmute" : "Mute"}
                 className="ml-auto flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/15 active:scale-95"
               >
