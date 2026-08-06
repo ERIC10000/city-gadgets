@@ -1,10 +1,41 @@
 import { OPENING_HOURS, SOCIAL_LINKS, STORE_ADDRESS, STORE_EMAIL, WHATSAPP_NUMBERS } from "@/lib/contact";
 import { toPlainText } from "@/components/ui/RichText";
+import { formatKES } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
 import { SITE_URL } from "@/lib/site";
 
 const SITE_NAME = "City Gadgets";
+
+/*
+ * Search-intent copy. Kenyans type "<product> price in Kenya" and
+ * "<category> price in Kenya", so we bake that phrasing — plus the real price,
+ * warranty and local-delivery hooks that win the click — into every product
+ * and category page's <title> and meta description. This is the single biggest
+ * free SEO lever: the title tag is the strongest on-page ranking signal, and
+ * the description drives click-through from the search result.
+ */
+
+/** e.g. "iPhone 15 Pro — Price in Kenya" (the template appends " | City Gadgets"). */
+export function productMetaTitle(product: Product): string {
+  return `${product.name} — Price in Kenya`;
+}
+
+/** Front-loaded with the product name, "in Kenya" and the live price. */
+export function productMetaDescription(product: Product): string {
+  const price = formatKES(product.price);
+  const condition = product.condition === "refurbished" ? "certified refurbished" : "brand-new";
+  const brand = product.brand ? `${product.brand} ` : "";
+  return `Buy the ${product.name} in Kenya at ${price} — genuine ${brand}${condition} stock with a 12-month warranty and free same-day Nairobi delivery.`;
+}
+
+export function categoryMetaTitle(name: string): string {
+  return `${name} in Kenya — Best Prices`;
+}
+
+export function categoryMetaDescription(name: string): string {
+  return `Shop ${name} in Kenya at City Gadgets — best prices on genuine stock, 12-month warranty, M-Pesa payments and free same-day Nairobi delivery.`;
+}
 
 export function websiteJsonLd() {
   return {

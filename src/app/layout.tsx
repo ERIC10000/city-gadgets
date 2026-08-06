@@ -12,11 +12,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "City Gadgets | Premium Tech. Better Prices.",
+    default: "City Gadgets — Buy Phones, Laptops, Gaming & Tech in Kenya",
     template: "%s | City Gadgets",
   },
   description:
-    "City Gadgets is Nairobi's premier destination for premium smartphones, laptops, gaming and lifestyle tech — quality guaranteed with savings up to 70%. 12-month warranty, free delivery, M-Pesa payments.",
+    "Buy phones, laptops, gaming consoles, audio and accessories in Kenya at City Gadgets — best prices, genuine stock, 12-month warranty, M-Pesa payments and free same-day Nairobi delivery.",
   openGraph: {
     type: "website",
     siteName: "City Gadgets",

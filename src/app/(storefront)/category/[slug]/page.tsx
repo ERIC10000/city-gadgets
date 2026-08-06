@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CategoryListing, type ListingSearchParams } from "@/components/product/CategoryListing";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProducts } from "@/lib/data/products";
-import { breadcrumbJsonLd, collectionPageJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, collectionPageJsonLd, categoryMetaTitle, categoryMetaDescription } from "@/lib/seo";
 import { canonical } from "@/lib/site";
 
 type Props = {
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await getCategoryBySlug(slug);
   if (!category) return {};
   return {
-    title: category.name,
-    description: category.hero_tagline ?? `Shop ${category.name} at City Gadgets — genuine tech, M-Pesa payments, same-day Nairobi delivery.`,
+    title: categoryMetaTitle(category.name),
+    description: categoryMetaDescription(category.name),
     // Sort/filter params must not fragment this category's ranking signals.
     alternates: canonical(`/category/${slug}`),
   };
@@ -38,8 +38,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   ]);
   const collection = collectionPageJsonLd({
     name: category.name,
-    description:
-      category.hero_tagline ?? `Shop ${category.name} at City Gadgets — genuine tech, M-Pesa payments, same-day Nairobi delivery.`,
+    description: categoryMetaDescription(category.name),
     path: `/category/${slug}`,
     products: items.map((p) => ({ slug: p.slug, name: p.name })),
   });

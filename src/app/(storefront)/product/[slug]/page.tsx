@@ -10,13 +10,13 @@ import { StarRating } from "@/components/ui/StarRating";
 import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductReviews } from "@/components/product/ProductReviews";
-import { RichText, toPlainText } from "@/components/ui/RichText";
+import { RichText } from "@/components/ui/RichText";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductReviews, getMyReview } from "@/lib/data/reviews";
 import { getCurrentUser } from "@/lib/data/auth";
 import { COMES_WITH } from "@/lib/spec-templates";
-import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, productJsonLd, productMetaTitle, productMetaDescription } from "@/lib/seo";
 import { canonical } from "@/lib/site";
 
 function deliveryWindow(): string {
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) return {};
-  const metaDescription = product.description ? toPlainText(product.description, 160) : undefined;
+  const metaDescription = productMetaDescription(product);
   return {
-    title: product.name,
+    title: productMetaTitle(product),
     description: metaDescription,
     alternates: canonical(`/product/${product.slug}`),
     openGraph: {
