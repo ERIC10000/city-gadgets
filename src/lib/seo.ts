@@ -37,6 +37,76 @@ export function categoryMetaDescription(name: string): string {
   return `Shop ${name} in Kenya at City Gadgets — best prices on genuine stock, 12-month warranty, M-Pesa payments and free same-day Nairobi delivery.`;
 }
 
+/**
+ * Visible, data-driven intro paragraph for a category page. Real product
+ * count, price range and brands make each one unique (not thin duplicate
+ * copy) while repeating the "<category> in Kenya" phrasing search engines and
+ * shoppers key on.
+ */
+export function categoryIntro(opts: {
+  name: string;
+  count: number;
+  minPrice: number;
+  maxPrice: number;
+  brands: string[];
+}): string {
+  const range =
+    opts.minPrice && opts.maxPrice && opts.maxPrice > opts.minPrice
+      ? ` with prices from ${formatKES(opts.minPrice)} to ${formatKES(opts.maxPrice)}`
+      : "";
+  const brands = opts.brands.slice(0, 3);
+  const brandLine = brands.length ? ` Top brands include ${brands.join(", ")}.` : "";
+  return `Browse ${opts.count} ${opts.name.toLowerCase()} in Kenya at City Gadgets${range}.${brandLine} Every item is 100% genuine and backed by a 12-month warranty — pay with M-Pesa or on delivery and enjoy free same-day delivery across Nairobi.`;
+}
+
+/**
+ * Buyer-question FAQ generated from the product's own data. Adds keyword-rich
+ * on-page text (the product name paired with "price in Kenya", "available in
+ * Kenya", "warranty", "delivery in Nairobi") and powers the FAQPage schema.
+ */
+export function productFaqs(product: Product): { q: string; a: string }[] {
+  const price = formatKES(product.price);
+  const wasClause =
+    product.compare_at_price && product.compare_at_price > product.price
+      ? `, down from ${formatKES(product.compare_at_price)}`
+      : "";
+  const condition = product.condition === "refurbished" ? "certified refurbished" : "brand-new";
+
+  return [
+    {
+      q: `How much does the ${product.name} cost in Kenya?`,
+      a: `The ${product.name} is priced at ${price}${wasClause} at City Gadgets. You can pay via M-Pesa, card or cash on delivery.`,
+    },
+    {
+      q: `Is the ${product.name} available in Kenya?`,
+      a:
+        product.stock_quantity > 0
+          ? `Yes — the ${product.name} is in stock at City Gadgets, ready for same-day delivery in Nairobi and countrywide shipping across Kenya.`
+          : `The ${product.name} is currently out of stock. Message us on WhatsApp and we'll let you know the moment it's back.`,
+    },
+    {
+      q: `Is the ${product.name} genuine and does it have a warranty?`,
+      a: `Every ${product.name} we sell is 100% genuine ${condition} stock and comes with a 12-month warranty.`,
+    },
+    {
+      q: `Do you deliver the ${product.name} in Nairobi?`,
+      a: `Yes. We offer free same-day delivery within Nairobi and fast, affordable delivery to the rest of Kenya — order online or on WhatsApp.`,
+    },
+  ];
+}
+
+export function faqJsonLd(faqs: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",

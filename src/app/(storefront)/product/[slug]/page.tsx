@@ -10,13 +10,14 @@ import { StarRating } from "@/components/ui/StarRating";
 import { Icon } from "@/components/ui/Icon";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductReviews } from "@/components/product/ProductReviews";
+import { ProductFaq } from "@/components/product/ProductFaq";
 import { RichText } from "@/components/ui/RichText";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductReviews, getMyReview } from "@/lib/data/reviews";
 import { getCurrentUser } from "@/lib/data/auth";
 import { COMES_WITH } from "@/lib/spec-templates";
-import { breadcrumbJsonLd, productJsonLd, productMetaTitle, productMetaDescription } from "@/lib/seo";
+import { breadcrumbJsonLd, productJsonLd, productMetaTitle, productMetaDescription, productFaqs, faqJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
 
 function deliveryWindow(): string {
@@ -61,6 +62,7 @@ export default async function ProductPage({ params }: Props) {
   ]);
   const outOfStock = product.stock_quantity <= 0;
   const image = product.images[0]?.url ?? "";
+  const faqs = productFaqs(product);
 
   return (
     <div className="mx-auto w-full max-w-container-max px-margin-mobile py-8 md:px-gutter">
@@ -79,6 +81,10 @@ export default async function ProductPage({ params }: Props) {
             ]),
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
       />
 
       <Breadcrumbs
@@ -221,6 +227,8 @@ export default async function ProductPage({ params }: Props) {
         </details>
 
       </div>
+
+      <ProductFaq faqs={faqs} />
 
       <ProductReviews
         productId={product.id}

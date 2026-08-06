@@ -5,6 +5,7 @@ import { SortDropdown } from "@/components/product/SortDropdown";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { Pagination } from "@/components/ui/Pagination";
 import { getProducts, type ProductSort } from "@/lib/data/products";
+import { categoryIntro } from "@/lib/seo";
 import type { Category } from "@/lib/types";
 
 const PAGE_SIZE = 9;
@@ -90,6 +91,19 @@ export async function CategoryListing({
           productCount={total}
         />
       </div>
+
+      {/* Keyword-rich, data-driven intro — real dept pages only (not /shop or search). */}
+      {category && (
+        <p className="-mt-2 mb-6 max-w-4xl text-body-md leading-relaxed text-on-surface-variant">
+          {categoryIntro({
+            name: category.name,
+            count: total,
+            minPrice: priceBounds.min,
+            maxPrice: priceBounds.max,
+            brands: brandOptions,
+          })}
+        </p>
+      )}
 
       <div className="mb-6 mt-6 flex flex-wrap items-center justify-between gap-4">
         <p className="text-body-sm text-on-surface-variant">
