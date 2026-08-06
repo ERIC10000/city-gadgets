@@ -220,6 +220,31 @@ export function collectionPageJsonLd(opts: {
   };
 }
 
+export function articleJsonLd(opts: {
+  title: string;
+  description: string;
+  path: string;
+  image: string;
+  updatedAt: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    image: opts.image,
+    datePublished: opts.updatedAt,
+    dateModified: opts.updatedAt,
+    author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${opts.path}` },
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; href: string }[]) {
   return {
     "@context": "https://schema.org",

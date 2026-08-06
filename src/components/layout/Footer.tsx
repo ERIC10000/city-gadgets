@@ -83,6 +83,7 @@ export function Footer() {
               <li><Link href="/shop" className="transition-colors hover:text-price-gold">Latest Releases</Link></li>
               <li><Link href="/category/consoles" className="transition-colors hover:text-price-gold">Gaming Gear</Link></li>
               <li><Link href="/sell" className="transition-colors hover:text-price-gold">Sell Your Device</Link></li>
+              <li><Link href="/guides" className="transition-colors hover:text-price-gold">Buying Guides</Link></li>
               <li><Link href="/inspiration" className="transition-colors hover:text-price-gold">Video Inspiration</Link></li>
               <li><Link href="/about" className="transition-colors hover:text-price-gold">About Us</Link></li>
             </ul>
