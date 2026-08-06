@@ -17,6 +17,7 @@ const NAV_LINKS = [
   { href: "/category/audio", label: "Audio" },
   { href: "/category/consoles", label: "Gaming" },
   { href: "/category/cameras", label: "Cameras" },
+  { href: "/guides", label: "Guides" },
 ];
 
 export async function Header() {

@@ -42,8 +42,14 @@ export default async function GuidesPage() {
           href={`/guides/${feature.slug}`}
           className="group mb-8 grid overflow-hidden rounded-3xl border border-outline-variant bg-surface-container-lowest shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lg md:grid-cols-2"
         >
-          <GuideVisual categorySlug={feature.categorySlug} className="min-h-[200px] md:min-h-full" iconClassName="text-[80px]">
-            <span className="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+          <GuideVisual
+            categorySlug={feature.categorySlug}
+            image={feature.heroImage}
+            priority
+            sizes="(max-width: 768px) 100vw, 640px"
+            className="min-h-[220px] md:min-h-full"
+          >
+            <span className="absolute left-5 top-5 rounded-full bg-black/55 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
               {nameBySlug[feature.categorySlug] ?? "Guide"}
             </span>
           </GuideVisual>
@@ -74,8 +80,13 @@ export default async function GuidesPage() {
             href={`/guides/${guide.slug}`}
             className="group flex flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-card transition-all hover:-translate-y-1 hover:shadow-lg"
           >
-            <GuideVisual categorySlug={guide.categorySlug} className="aspect-[16/9]">
-              <span className="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+            <GuideVisual
+              categorySlug={guide.categorySlug}
+              image={guide.heroImage}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+              className="aspect-[16/9]"
+            >
+              <span className="absolute left-4 top-4 rounded-full bg-black/55 px-2.5 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
                 {nameBySlug[guide.categorySlug] ?? "Guide"}
               </span>
             </GuideVisual>

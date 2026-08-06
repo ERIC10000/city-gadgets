@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils";
 
 /**
- * Designed, self-contained guide artwork — a themed gradient + product icon.
- * Deliberately uses NO external image so a guide hero can never render as a
- * broken/grey box (category hero photos aren't guaranteed to exist), and every
- * guide shares one clean, on-brand look.
+ * Guide artwork. Renders a real photo when one is supplied, sitting on top of
+ * an on-brand themed gradient. The gradient (never an external asset) is the
+ * base layer, so if the photo is slow or fails the hero still looks finished
+ * rather than a broken/grey box. Pass `scrim` when text is overlaid on top.
  */
 type Theme = { gradient: string; icon: string };
 
@@ -29,44 +30,64 @@ export function guideTheme(categorySlug: string): Theme {
 
 export function GuideVisual({
   categorySlug,
+  image,
+  sizes = "(max-width: 768px) 100vw, 800px",
   className,
   showIcon = true,
   iconClassName = "text-[52px]",
+  scrim = false,
+  priority = false,
   children,
 }: {
   categorySlug: string;
+  image?: string;
+  sizes?: string;
   className?: string;
   showIcon?: boolean;
   iconClassName?: string;
+  scrim?: boolean;
+  priority?: boolean;
   children?: React.ReactNode;
 }) {
   const theme = guideTheme(categorySlug);
   return (
     <div className={cn("relative overflow-hidden", className)} style={{ background: theme.gradient }}>
-      {/* corner light bloom */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(130% 90% at 85% 8%, rgba(255,255,255,0.22), transparent 55%)" }}
-      />
-      {/* circuit-grid texture, echoing the brand mark */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.12]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-        }}
-      />
-      {/* oversized watermark icon */}
-      <Icon
-        name={theme.icon}
-        filled
-        className="pointer-events-none absolute -bottom-8 -right-5 select-none text-[150px] leading-none text-white/10"
-      />
-      {showIcon && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Icon name={theme.icon} filled className={cn("text-white drop-shadow-lg", iconClassName)} />
-        </div>
+      {image ? (
+        <>
+          <Image src={image} alt="" fill sizes={sizes} priority={priority} className="object-cover" />
+          {scrim && (
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4) 55%, rgba(0,0,0,0.15))" }}
+            />
+          )}
+        </>
+      ) : (
+        <>
+          {/* Fallback design — used only if no photo is supplied. */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "radial-gradient(130% 90% at 85% 8%, rgba(255,255,255,0.22), transparent 55%)" }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.12]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+              backgroundSize: "26px 26px",
+            }}
+          />
+          <Icon
+            name={theme.icon}
+            filled
+            className="pointer-events-none absolute -bottom-8 -right-5 select-none text-[150px] leading-none text-white/10"
+          />
+          {showIcon && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Icon name={theme.icon} filled className={cn("text-white drop-shadow-lg", iconClassName)} />
+            </div>
+          )}
+        </>
       )}
       {children}
     </div>

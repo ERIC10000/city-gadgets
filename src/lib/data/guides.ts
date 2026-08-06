@@ -16,8 +16,10 @@ export type Guide = {
   description: string;
   /** Short summary shown on the index cards. */
   excerpt: string;
-  /** Category this guide funnels into (breadcrumb + hero image + "shop all" CTA). */
+  /** Category this guide funnels into (breadcrumb + "shop all" CTA). */
   categorySlug: string;
+  /** Verified hero photo (attached from HERO_IMAGE so bodies stay clean). */
+  heroImage: string;
   /** Live products shown inside the guide. */
   productQuery: ProductQuery;
   /** Heading above the live product grid. */
@@ -28,7 +30,7 @@ export type Guide = {
   body: string;
 };
 
-const GUIDES: Guide[] = [
+const GUIDES: Omit<Guide, "heroImage">[] = [
   {
     slug: "best-phones-under-20000-in-kenya",
     title: "Best Phones Under KSh 20,000 in Kenya (2026)",
@@ -203,10 +205,25 @@ For most people, a **certified refurbished flagship** delivers the best value â€
   },
 ];
 
+/** Verified hero photos, kept out of the guide bodies. See scratchpad checks. */
+const HERO_IMAGE: Record<string, string> = {
+  "best-phones-under-20000-in-kenya": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=1200&q=80&auto=format&fit=crop",
+  "iphone-price-in-kenya": "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=1200&q=80&auto=format&fit=crop",
+  "best-gaming-laptops-in-kenya": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&q=80&auto=format&fit=crop",
+  "ps5-price-in-kenya": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1200&q=80&auto=format&fit=crop",
+  "best-wireless-earbuds-in-kenya": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1200&q=80&auto=format&fit=crop",
+  "new-vs-refurbished-phones-kenya": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=1200&q=80&auto=format&fit=crop",
+};
+
+function withHero(g: Omit<Guide, "heroImage">): Guide {
+  return { ...g, heroImage: HERO_IMAGE[g.slug] ?? "" };
+}
+
 export function getGuides(): Guide[] {
-  return [...GUIDES].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  return [...GUIDES].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(withHero);
 }
 
 export function getGuideBySlug(slug: string): Guide | null {
-  return GUIDES.find((g) => g.slug === slug) ?? null;
+  const g = GUIDES.find((x) => x.slug === slug);
+  return g ? withHero(g) : null;
 }

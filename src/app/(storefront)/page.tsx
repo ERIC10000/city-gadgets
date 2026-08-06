@@ -7,8 +7,10 @@ import { TopDeals } from "@/components/home/TopDeals";
 import { RefurbishedBanner } from "@/components/home/RefurbishedBanner";
 import { SectionRail } from "@/components/home/SectionRail";
 import { CircularEconomy } from "@/components/home/CircularEconomy";
+import { HomeGuides } from "@/components/home/HomeGuides";
 import { getCategories } from "@/lib/data/categories";
 import { getProducts } from "@/lib/data/products";
+import { getGuides } from "@/lib/data/guides";
 import { getVideos } from "@/lib/data/videos";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
@@ -146,6 +148,9 @@ export default async function HomePage() {
   const streaming = byCategory("streaming").slice(0, 8);
   const gaming = [...byCategory("consoles"), ...byCategory("gaming-accessories")].slice(0, 8);
 
+  const guides = getGuides().slice(0, 3);
+  const categoryNames = Object.fromEntries(categories.map((c) => [c.slug, c.name]));
+
   // Departments already surfaced by the browse grid's tabs — don't repeat them
   // lower down the page as near-identical sections.
   const browsedSlugs = new Set(browseGroups.flatMap((g) => g.products.map((p) => p.category_slug)));
@@ -169,6 +174,7 @@ export default async function HomePage() {
       <RefurbishedBanner />
       <SectionRail title="Smart Home & Streaming" href="/category/streaming" products={streaming} />
       {showGaming && <SectionRail title="Gaming" href="/category/consoles" products={gaming} tone="gray" />}
+      <HomeGuides guides={guides} nameBySlug={categoryNames} />
       <CircularEconomy videos={videos} />
     </>
   );

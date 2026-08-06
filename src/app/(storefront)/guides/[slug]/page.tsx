@@ -55,9 +55,8 @@ export default async function GuidePage({ params }: Props) {
     });
     picks = fallback.items;
   }
-  // Article schema needs a real image; a live product shot is topical + always
-  // valid, with the brand logo as a guaranteed fallback.
-  const articleImage = picks[0]?.images[0]?.url ?? absoluteUrl("/logo.jpeg");
+  // Article schema image — the guide's own hero photo, logo as a fallback.
+  const articleImage = guide.heroImage || absoluteUrl("/logo.jpeg");
 
   return (
     <div className="mx-auto w-full max-w-container-max px-margin-mobile py-8 md:px-gutter">
@@ -96,11 +95,14 @@ export default async function GuidePage({ params }: Props) {
         ]}
       />
 
-      {/* Magazine-style hero — title overlaid on the themed banner */}
+      {/* Magazine-style hero — title overlaid on the guide's hero photo */}
       <GuideVisual
         categorySlug={guide.categorySlug}
-        showIcon={false}
-        className="mt-6 flex min-h-[240px] flex-col justify-end rounded-3xl p-6 md:min-h-[300px] md:p-10"
+        image={guide.heroImage}
+        priority
+        scrim
+        sizes="(max-width: 1280px) 100vw, 1200px"
+        className="mt-6 flex min-h-[240px] flex-col justify-end rounded-3xl p-6 md:min-h-[320px] md:p-10"
       >
         <div className="relative max-w-3xl">
           {category && (
