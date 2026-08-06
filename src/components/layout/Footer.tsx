@@ -38,7 +38,7 @@ export function Footer() {
               className="h-20 w-auto rounded-xl ring-1 ring-white/10"
             />
             <p className="leading-relaxed text-inverse-on-surface/70">
-              Nairobi&apos;s premier destination for high-end electronics, gaming consoles, and innovative
+              Nairobi&apos;s premier destination for high-end gadgets, gaming consoles, and innovative
               lifestyle tech. Precision-engineered for your digital life.
             </p>
             <div className="flex items-center gap-4">
