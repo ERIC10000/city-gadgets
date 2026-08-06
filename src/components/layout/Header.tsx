@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { CartBadge } from "@/components/cart/CartBadge";
-import { LogoMark } from "@/components/layout/LogoMark";
 import { SearchBar } from "@/components/layout/SearchBar";
 import { AllItemsMenu } from "@/components/layout/AllItemsMenu";
 import { getCategories } from "@/lib/data/categories";
@@ -27,9 +27,18 @@ export async function Header() {
       {/* Row 1 — logo, search, utilities */}
       <div className="border-b border-outline-variant/70">
         <div className="mx-auto flex w-full max-w-container-max items-center gap-4 px-margin-mobile py-3 md:px-gutter">
-          <Link href="/" className="flex shrink-0 items-center gap-2 text-on-surface">
-            <LogoMark className="h-7 w-7" />
-            <span className="text-xl font-extrabold tracking-tight">City Gadgets</span>
+          <Link href="/" aria-label="City Gadgets home" className="flex shrink-0 items-center gap-2.5 text-on-surface">
+            <Image
+              src="/logo.jpeg"
+              alt="City Gadgets"
+              width={160}
+              height={151}
+              priority
+              className="h-11 w-11 rounded-lg object-cover shadow-sm ring-1 ring-black/5"
+            />
+            <span className="text-xl font-extrabold tracking-tight">
+              City <span className="text-primary">Gadgets</span>
+            </span>
           </Link>
 
           <SearchBar className="mx-auto hidden w-full max-w-xl md:flex" />

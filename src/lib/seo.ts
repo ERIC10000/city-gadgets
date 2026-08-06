@@ -130,8 +130,8 @@ export function organizationJsonLd() {
     "@type": "Store",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/icon.png`,
-    image: `${SITE_URL}/icon.png`,
+    logo: `${SITE_URL}/logo.jpeg`,
+    image: `${SITE_URL}/logo.jpeg`,
     address: {
       "@type": "PostalAddress",
       streetAddress: `${STORE_ADDRESS.line1}, ${STORE_ADDRESS.line2}`,
@@ -239,7 +239,7 @@ export function articleJsonLd(opts: {
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.jpeg` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${opts.path}` },
   };

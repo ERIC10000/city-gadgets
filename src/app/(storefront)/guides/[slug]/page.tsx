@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/product/Breadcrumbs";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { RichText } from "@/components/ui/RichText";
 import { Icon } from "@/components/ui/Icon";
+import { GuideVisual } from "@/components/guides/GuideVisual";
 import { getGuides, getGuideBySlug } from "@/lib/data/guides";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProducts } from "@/lib/data/products";
@@ -55,7 +55,9 @@ export default async function GuidePage({ params }: Props) {
     });
     picks = fallback.items;
   }
-  const hero = category?.hero_image ?? "/banners/cart-gold.webp";
+  // Article schema needs a real image; a live product shot is topical + always
+  // valid, with the brand logo as a guaranteed fallback.
+  const articleImage = picks[0]?.images[0]?.url ?? absoluteUrl("/logo.jpeg");
 
   return (
     <div className="mx-auto w-full max-w-container-max px-margin-mobile py-8 md:px-gutter">
@@ -67,7 +69,7 @@ export default async function GuidePage({ params }: Props) {
               title: guide.title,
               description: guide.description,
               path: `/guides/${guide.slug}`,
-              image: hero.startsWith("http") ? hero : absoluteUrl(hero),
+              image: articleImage,
               updatedAt: guide.updatedAt,
             }),
           ),
@@ -94,22 +96,31 @@ export default async function GuidePage({ params }: Props) {
         ]}
       />
 
-      <article className="mx-auto mt-6 max-w-3xl">
-        <header>
-          <h1 className="text-3xl font-extrabold leading-tight text-on-surface md:text-4xl">{guide.title}</h1>
-          <div className="mt-3 flex items-center gap-2 text-body-sm text-on-surface-variant">
+      {/* Magazine-style hero — title overlaid on the themed banner */}
+      <GuideVisual
+        categorySlug={guide.categorySlug}
+        showIcon={false}
+        className="mt-6 flex min-h-[240px] flex-col justify-end rounded-3xl p-6 md:min-h-[300px] md:p-10"
+      >
+        <div className="relative max-w-3xl">
+          {category && (
+            <span className="mb-3 inline-block rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+              {category.name}
+            </span>
+          )}
+          <h1 className="text-3xl font-extrabold leading-tight text-white drop-shadow md:text-4xl">{guide.title}</h1>
+          <div className="mt-3 flex items-center gap-2 text-body-sm text-white/85">
             <Icon name="schedule" className="text-[17px]" />
             {guide.readMinutes} min read
-            <span className="text-outline-variant">•</span>
+            <span className="text-white/40">•</span>
             Updated {formatDate(guide.updatedAt)}
           </div>
-        </header>
-
-        <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl bg-surface-container">
-          <Image src={hero} alt="" fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" priority />
         </div>
+      </GuideVisual>
 
-        <RichText content={guide.body} className="mt-8 text-body-md" />
+      {/* Article body */}
+      <article className="mx-auto mt-8 max-w-3xl">
+        <RichText content={guide.body} className="text-body-md" />
       </article>
 
       {/* Live, always-current product picks — the funnel to buy */}

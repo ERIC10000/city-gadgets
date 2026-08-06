@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
@@ -29,14 +30,13 @@ export function Footer() {
       <div className="mx-auto w-full max-w-container-max px-margin-mobile pt-16 md:px-gutter">
         <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-price-gold text-inverse-surface">
-                <Icon name="bolt" filled className="text-[20px]" />
-              </span>
-              <span className="text-xl font-extrabold tracking-tight text-white">
-                City <span className="text-price-gold">Gadgets</span>
-              </span>
-            </div>
+            <Image
+              src="/logo.jpeg"
+              alt="City Gadgets — Smart Gadgets & Electronics"
+              width={200}
+              height={189}
+              className="h-20 w-auto rounded-xl ring-1 ring-white/10"
+            />
             <p className="leading-relaxed text-inverse-on-surface/70">
               Nairobi&apos;s premier destination for high-end electronics, gaming consoles, and innovative
               lifestyle tech. Precision-engineered for your digital life.

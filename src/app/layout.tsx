@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "City Gadgets",
     locale: "en_KE",
+    images: [{ url: "/logo.jpeg", width: 808, height: 764, alt: "City Gadgets — Smart Gadgets & Electronics" }],
   },
   twitter: {
     card: "summary_large_image",
