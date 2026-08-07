@@ -203,6 +203,196 @@ A certified refurbished phone is a pre-owned device that's been professionally i
 
 For most people, a **certified refurbished flagship** delivers the best value — a premium phone at a mid-range price. Whatever you choose from City Gadgets is genuine and backed by a 12-month warranty, so you're covered either way.`,
   },
+  {
+    slug: "best-laptops-for-students-in-kenya",
+    title: "Best Laptops for University Students in Kenya (2026)",
+    description:
+      "Best laptops for university students in Kenya (2026) — the battery, weight, RAM and storage that matter for campus, matched to your course, with genuine laptops in stock, warranty and free Nairobi delivery.",
+    excerpt: "The specs that actually matter on campus, matched to your course — plus affordable student laptops in stock.",
+    categorySlug: "macbooks",
+    productQuery: { categorySlug: "macbooks", sort: "price-asc", limit: 9 },
+    picksHeading: "Student-friendly laptops in stock now",
+    updatedAt: "2026-08-07",
+    readMinutes: 4,
+    body: `Starting university in Kenya? Your laptop is the one tool you'll use every single day — for assignments, research, online classes and Netflix at 2am. Here's how to buy the right one without overspending.
+
+## What actually matters for students
+
+- **Battery life:** lecture halls are short on sockets. Aim for 6+ hours of real use.
+- **Weight:** you'll carry it everywhere — 1.6kg or lighter saves your back.
+- **RAM:** 8GB is the sweet spot; 16GB if you edit video or run heavy software.
+- **Storage:** a 256GB SSD minimum — fast boot and room for your projects.
+- **Build:** a sturdy hinge and keyboard survive four years of campus life.
+
+## Match the laptop to your course
+
+- **Business, law, arts:** any solid 8GB/256GB ultrabook is plenty.
+- **Engineering, architecture, design:** 16GB RAM and a dedicated GPU for CAD and rendering.
+- **Computer science:** 16GB RAM so virtual machines and IDEs don't crawl.
+
+## Save your money for what counts
+
+Don't overspend on a gaming laptop you'll mostly use for Word. Put the savings toward a **padded backpack**, a **mouse** and a **surge protector** — Kenyan power can be rough on chargers.
+
+Every laptop below is genuine, backed by a 12-month warranty, and delivered free same-day in Nairobi.`,
+  },
+  {
+    slug: "best-samsung-phones-in-kenya",
+    title: "Best Samsung Phones in Kenya (2026): S, A & M Series Compared",
+    description:
+      "Best Samsung phones in Kenya (2026) — how the Galaxy S, A and M series compare and which to buy, with genuine Samsung phones in stock, 12-month warranty and free Nairobi delivery.",
+    excerpt: "Galaxy S vs A vs M — which Samsung family is right for you, plus genuine Samsung phones in stock.",
+    categorySlug: "phones",
+    productQuery: { categorySlug: "phones", brands: ["Samsung"], sort: "price-desc", limit: 12 },
+    picksHeading: "Samsung phones in stock now",
+    updatedAt: "2026-08-07",
+    readMinutes: 4,
+    body: `Samsung is the most popular Android brand in Kenya for good reason — bright screens, strong cameras and a phone at every price. But the line-up is confusing, so here's how to pick the right one.
+
+## The three Samsung families
+
+- **Galaxy S series:** the flagships — best cameras, fastest chips and premium glass-and-metal builds. For power users and photographers.
+- **Galaxy A series:** the value champions — big batteries, great screens and solid cameras for far less. This is where most Kenyans should look.
+- **Galaxy M series:** battery monsters at rock-bottom prices — brilliant if all-day life matters more than a fancy camera.
+
+## What to check before you buy
+
+- **Software updates:** newer S and A models get years of Android updates — better long-term value.
+- **5G vs 4G:** 5G is nice to have, but 4G on Safaricom and Airtel is what you'll actually use today.
+- **Storage:** 128GB minimum; many A-series phones take a microSD card.
+
+## Our pick for most people
+
+A mid-range **Galaxy A series** hits the sweet spot — a flagship-feeling screen and battery without the flagship price. Step up to the S series only if the camera is your top priority.
+
+Every Samsung below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+  },
+  {
+    slug: "best-smartwatch-in-kenya",
+    title: "Best Smartwatch in Kenya (2026): Fitness, Style & Battery",
+    description:
+      "Best smartwatch in Kenya (2026) — how to choose for fitness, notifications and battery, and which watch pairs with your phone, with genuine smartwatches in stock, warranty and free Nairobi delivery.",
+    excerpt: "Fitness tracking, notifications, battery and phone pairing — how to choose, plus smartwatches in stock.",
+    categorySlug: "wearables",
+    productQuery: { categorySlug: "wearables", sort: "rating", limit: 9 },
+    picksHeading: "Smartwatches & bands in stock now",
+    updatedAt: "2026-08-07",
+    readMinutes: 4,
+    body: `A smartwatch does more than tell time — it tracks your workouts, buzzes your WhatsApps, watches your heart rate and nudges you to move. Here's how to choose the best one in Kenya in 2026.
+
+## Decide what you want it for
+
+- **Fitness & health:** look for heart-rate, SpO2, sleep tracking and built-in GPS for accurate runs.
+- **Notifications & style:** a bright AMOLED screen and swappable straps to match your fit.
+- **Battery:** Apple and Samsung watches last ~1-2 days; fitness bands and outdoor watches go a week or more.
+
+## Match the watch to your phone
+
+- **iPhone:** the Apple Watch is unbeatable — but it only works with iPhones.
+- **Samsung / Android:** Galaxy Watch and Wear OS watches pair best.
+- **Any phone, tight budget:** a good fitness band gives you 80% of the features for a fraction of the price.
+
+## Don't overpay for features you won't use
+
+Most people want notifications, steps, heart-rate and a week of battery — a mid-range watch or a premium band nails all of that. Save the flagship money unless you're a serious runner or cyclist.
+
+Every wearable below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+  },
+  {
+    slug: "best-cameras-for-content-creators-in-kenya",
+    title: "Best Cameras & Gear for Content Creators in Kenya (2026)",
+    description:
+      "Best cameras and gear for content creators in Kenya (2026) — what to buy first for YouTube, TikTok and podcasts, from mics to lighting to cameras, with genuine gear in stock and free Nairobi delivery.",
+    excerpt: "Building a YouTube or TikTok channel? What to buy first — mic, light, gimbal, camera — and where to spend.",
+    categorySlug: "cameras",
+    productQuery: { categorySlug: "cameras", sort: "rating", limit: 9 },
+    picksHeading: "Creator cameras & gear in stock now",
+    updatedAt: "2026-08-07",
+    readMinutes: 4,
+    body: `Whether you're building a YouTube channel, going viral on TikTok or launching a podcast, the right gear makes your content look and sound pro. Here's what to buy in Kenya — and where to spend first.
+
+## Spend in this order
+
+1. **Sound before video:** viewers forgive shaky footage but not bad audio. A clip-on or shotgun mic is the best first upgrade.
+2. **Lighting:** a single LED panel or ring light instantly lifts your footage — especially indoors.
+3. **Stabilisation:** a gimbal makes your walking-and-talking shots smooth and watchable.
+4. **The camera:** a mirrorless camera or a rugged action cam for movement and vlogging.
+
+## Phone or camera?
+
+A modern flagship phone shoots fantastic 4K — start there and add a mic, light and tripod. Move to a dedicated camera when you need better low-light, background blur or interchangeable lenses.
+
+## The creator starter kit
+
+Mic + light + tripod + a phone or entry mirrorless will take you a very long way. Add a gimbal and a spare battery and you're ready to shoot anywhere in Nairobi.
+
+Every item below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+  },
+  {
+    slug: "ps5-vs-xbox-vs-switch-kenya",
+    title: "PS5 vs Xbox vs Nintendo Switch: Which to Buy in Kenya (2026)",
+    description:
+      "PS5 vs Xbox vs Nintendo Switch in Kenya (2026) — an honest comparison of game libraries, value and who each console is for, with genuine consoles in stock, warranty and free Nairobi delivery.",
+    excerpt: "An honest showdown — game libraries, value and who each console is really for in Kenya.",
+    categorySlug: "consoles",
+    productQuery: { categorySlug: "consoles", sort: "featured", limit: 9 },
+    picksHeading: "Consoles in stock now",
+    updatedAt: "2026-08-07",
+    readMinutes: 5,
+    body: `Buying a console in Kenya in 2026? The "best" one depends entirely on how — and what — you play. Here's the honest breakdown.
+
+## PlayStation 5 — the all-rounder
+
+The biggest library of blockbuster exclusives, gorgeous 4K graphics and the most active local player base for FIFA and Call of Duty. If you want one console that does everything, it's the safe pick.
+
+## Xbox Series X|S — the value play
+
+Game Pass is the killer feature — a huge library of games for a monthly fee, which stretches your shilling much further than buying titles one by one. Great if you play widely and love variety.
+
+## Nintendo Switch — the fun, portable one
+
+Nothing else plays like it. Family-friendly exclusives (Mario, Zelda, Mario Kart) and it switches from TV to handheld in seconds — perfect for travel, kids and casual nights.
+
+## Quick advice
+
+- **Play FIFA or COD with friends?** PS5 — that's where everyone in Kenya is.
+- **Want the most games for your money?** Xbox plus Game Pass.
+- **Family, kids or portability?** Switch.
+
+Whatever you choose below is genuine, warrantied and delivered free same-day in Nairobi — with games and controllers to match.`,
+  },
+  {
+    slug: "how-to-spot-a-fake-phone-in-kenya",
+    title: "How to Spot a Fake Phone in Kenya (Before You Pay)",
+    description:
+      "How to spot a fake phone in Kenya — check the IMEI, the build, the screen and the price before you pay, and buy safely with a receipt and warranty. Genuine phones in stock at City Gadgets.",
+    excerpt: "A deal too good to be true usually is. The 30-second IMEI test and the red flags that expose a clone.",
+    categorySlug: "phones",
+    productQuery: { categorySlug: "phones", sort: "featured", limit: 9 },
+    picksHeading: "Genuine phones you can trust",
+    updatedAt: "2026-08-07",
+    readMinutes: 4,
+    body: `Kenya's phone market is huge — and so is the number of fakes and "clones" passed off as the real thing. A deal that's too good to be true usually is. Here's how to protect yourself before you pay.
+
+## Check the IMEI — the 30-second test
+
+Dial \`*#06#\` to show the phone's IMEI number, then check it on the manufacturer's website or a trusted IMEI checker. A fake will show a mismatched model, a blocked number, or nothing at all.
+
+## Look closely at the details
+
+- **Build & weight:** clones often feel light, creaky or use cheap plastic.
+- **Screen & icons:** blurry logos, laggy animations or the wrong app store are red flags.
+- **Software:** open Settings — the real model number and Android/iOS version should match the box.
+- **Ports & sensors:** test the fingerprint reader, cameras and charging before you hand over money.
+
+## Protect yourself
+
+- **If the price is far below everyone else's, walk away.** Genuine stock has a floor.
+- **Buy from a seller who gives you a receipt and a warranty** — that's your proof and your protection.
+- **Insist on unboxing and testing** before paying.
+
+At City Gadgets every phone is 100% genuine, IMEI-clean and backed by a 12-month warranty — no clones, no surprises. Browse verified phones below.`,
+  },
 ];
 
 /** Verified hero photos, kept out of the guide bodies. See scratchpad checks. */
@@ -213,6 +403,12 @@ const HERO_IMAGE: Record<string, string> = {
   "ps5-price-in-kenya": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1200&q=80&auto=format&fit=crop",
   "best-wireless-earbuds-in-kenya": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1200&q=80&auto=format&fit=crop",
   "new-vs-refurbished-phones-kenya": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=1200&q=80&auto=format&fit=crop",
+  "best-laptops-for-students-in-kenya": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&auto=format&fit=crop",
+  "best-samsung-phones-in-kenya": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=1200&q=80&auto=format&fit=crop",
+  "best-smartwatch-in-kenya": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=1200&q=80&auto=format&fit=crop",
+  "best-cameras-for-content-creators-in-kenya": "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=1200&q=80&auto=format&fit=crop",
+  "ps5-vs-xbox-vs-switch-kenya": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=1200&q=80&auto=format&fit=crop",
+  "how-to-spot-a-fake-phone-in-kenya": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&q=80&auto=format&fit=crop",
 };
 
 function withHero(g: Omit<Guide, "heroImage">): Guide {
