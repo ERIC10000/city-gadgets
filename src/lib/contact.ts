@@ -36,7 +36,9 @@ export const STORE_EMAIL = "citygadgetskenya@gmail.com";
  * For a one-tap review dialog, swap in the direct link from the GBP dashboard
  * ("Ask for reviews" → the g.page/r/…/review URL).
  */
-export const GOOGLE_REVIEW_URL = "https://share.google/ZUy5G2NttxScR13Fc";
+// Direct "write a review" deep link (Place ID: City Gadgets, Accra Rd, Nairobi)
+// — lands the user straight on the review box instead of the profile page.
+export const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJz7oSFAARLxgRl0Z3G5aNws4";
 
 /**
  * Official social profiles. Tracking parameters (utm_source, igsh, _t, _r)
