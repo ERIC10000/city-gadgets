@@ -55,7 +55,11 @@ function queryFromSeed(query: ProductQuery): ProductPage {
   if (query.categorySlug) items = items.filter((p) => p.category_slug === query.categorySlug);
   if (query.featuredOnly) items = items.filter((p) => p.is_featured);
   if (query.onSaleOnly) items = items.filter((p) => p.compare_at_price != null && p.compare_at_price > p.price);
-  if (query.brands?.length) items = items.filter((p) => p.brand && query.brands!.includes(p.brand));
+  if (query.brands?.length) {
+    // Case-insensitive: catalog brand casing is inconsistent (e.g. "SAMSUNG").
+    const wanted = new Set(query.brands.map((b) => b.toLowerCase()));
+    items = items.filter((p) => p.brand && wanted.has(p.brand.toLowerCase()));
+  }
   if (query.minPrice != null) items = items.filter((p) => p.price >= query.minPrice!);
   if (query.maxPrice != null) items = items.filter((p) => p.price <= query.maxPrice!);
   if (query.search) {
@@ -82,7 +86,13 @@ export async function getProducts(query: ProductQuery = {}): Promise<ProductPage
   if (query.categorySlug) request = request.eq("categories.slug", query.categorySlug);
   if (query.featuredOnly) request = request.eq("is_featured", true);
   if (query.onSaleOnly) request = request.not("compare_at_price", "is", null);
-  if (query.brands?.length) request = request.in("brand", query.brands);
+  if (query.brands?.length) {
+    // Case-insensitive brand match — catalog casing is inconsistent (e.g. "SAMSUNG"
+    // vs "Apple"), so an exact .in() silently misses. ilike with no wildcards is an
+    // exact, case-insensitive compare. Safe unquoted: no brand contains an
+    // or-filter delimiter (, ( ) &) — verified against the catalog.
+    request = request.or(query.brands.map((b) => `brand.ilike.${b}`).join(","));
+  }
   if (query.minPrice != null) request = request.gte("price", query.minPrice);
   if (query.maxPrice != null) request = request.lte("price", query.maxPrice);
   if (query.search) request = request.ilike("name", `%${query.search}%`);
