@@ -92,6 +92,7 @@ export function Footer() {
           <div>
             <h5 className="mb-6 text-sm font-bold uppercase tracking-wider text-price-gold">Customer Care</h5>
             <ul className="space-y-4 text-inverse-on-surface/70">
+              <li><Link href="/repair" className="transition-colors hover:text-price-gold">Repair a Gadget</Link></li>
               <li><Link href="/account/orders" className="transition-colors hover:text-price-gold">Track Your Order</Link></li>
               <li><Link href="#" className="transition-colors hover:text-price-gold">Returns &amp; Warranty</Link></li>
               <li><Link href="#" className="transition-colors hover:text-price-gold">Shipping Policy</Link></li>

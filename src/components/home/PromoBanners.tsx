@@ -10,9 +10,9 @@ export function PromoBanners() {
   return (
     <section className="mx-auto w-full max-w-container-max px-margin-mobile py-6 md:px-gutter">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {/* Flash sale — red campaign */}
+        {/* Repairs — red campaign */}
         <Link
-          href="/deals"
+          href="/repair"
           className="group relative min-h-[220px] overflow-hidden rounded-3xl bg-inverse-surface md:min-h-[260px]"
         >
           <Image
@@ -24,16 +24,17 @@ export function PromoBanners() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
           <div className="relative z-10 flex min-h-[220px] flex-col justify-center p-8 md:min-h-[260px] md:p-10">
-            <span className="mb-3 w-fit rounded-full bg-discount px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white">
-              Flash Sale
+            <span className="mb-3 flex w-fit items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+              <Icon name="build" filled className="text-[14px]" />
+              Repairs
             </span>
             <h3 className="text-2xl font-extrabold leading-tight text-white md:text-3xl">
-              Up to 70% off
+              Cracked or broken?
               <br />
-              premium tech
+              We&apos;ll fix it fast
             </h3>
             <span className="mt-4 flex w-fit items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-body-sm font-bold text-on-surface transition-transform group-hover:scale-[1.03]">
-              Shop Hot Deals
+              Request a Repair
               <Icon name="arrow_forward" className="text-[16px]" />
             </span>
           </div>
