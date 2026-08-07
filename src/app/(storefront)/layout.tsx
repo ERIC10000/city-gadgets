@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
+import { ReviewPopup } from "@/components/marketing/ReviewPopup";
 import { CartHydrator } from "@/components/cart/CartHydrator";
 
 export default function StorefrontLayout({ children }: { children: React.ReactNode }) {
@@ -13,6 +14,7 @@ export default function StorefrontLayout({ children }: { children: React.ReactNo
       <Footer />
       <MobileBottomNav />
       <WhatsAppFAB />
+      <ReviewPopup />
     </>
   );
 }
