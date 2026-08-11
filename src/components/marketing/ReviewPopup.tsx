@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { GOOGLE_REVIEW_URL } from "@/lib/contact";
 
 const STORAGE_KEY = "cg_review_prompt_v1";
-const SHOW_AFTER_MS = 30_000; // ~30s of browsing before we ask
-const SNOOZE_DAYS = 14; // how long "Maybe later" hides it for
+const SHOW_AFTER_MS = 60_000; // 60s of engaged browsing before we ask
+const AUTO_HIDE_MS = 5_000; //    then it slips away after 5s
+const SNOOZE_DISMISS_DAYS = 14; // "closed it" — leave them alone a while
+const SNOOZE_AUTO_DAYS = 3; //    "ignored it" — try again sooner
 
-/** Full-colour Google "G" so the review CTA is instantly recognisable. */
+/** Full-colour Google "G". */
 function GoogleG({ className = "h-5 w-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
@@ -21,141 +23,225 @@ function GoogleG({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 /**
- * Timed Google-review prompt. Appears once the visitor has been browsing for a
- * while, then sends them to the Google Business Profile review page (Google
- * handles sign-in and hosts the review — there is no way to post a Google
- * review from our own form). Dismissals are remembered so it never nags.
- *
- * Mounted in the storefront layout, so a single timer persists across
- * client-side navigation rather than restarting on every page.
+ * Non-intrusive Google-review nudge. Slides in as a small card in the
+ * bottom-right after the visitor has browsed & interacted for ~60s, plays a
+ * soft chime, and auto-dismisses after 5s (paused while hovered) so it never
+ * blocks what the user is doing. Sends to the Google review page — the only
+ * place a Google review can actually be posted.
  */
 export function ReviewPopup() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // in the DOM
+  const [entered, setEntered] = useState(false); // slide-in state
+  const [paused, setPaused] = useState(false); // hover pauses auto-hide
+  const [barKey, setBarKey] = useState(0); // restart the countdown bar
   const [hover, setHover] = useState(0);
 
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const audioCtx = useRef<AudioContext | null>(null);
+
+  const ensureAudio = useCallback(() => {
+    try {
+      const AC = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+      if (!AC) return;
+      if (!audioCtx.current) audioCtx.current = new AC();
+      if (audioCtx.current.state === "suspended") void audioCtx.current.resume();
+    } catch {
+      /* audio unsupported — no problem */
+    }
+  }, []);
+
+  /** Soft two-note chime, synthesised (no asset needed), kept low and brief. */
+  const playChime = useCallback(() => {
+    const ctx = audioCtx.current;
+    if (!ctx || ctx.state !== "running") return;
+    const now = ctx.currentTime;
+    ([
+      [880, 0],
+      [1174.66, 0.11],
+    ] as const).forEach(([freq, t]) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, now + t);
+      gain.gain.linearRampToValueAtTime(0.06, now + t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + t + 0.28);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now + t);
+      osc.stop(now + t + 0.3);
+    });
+  }, []);
+
+  const persist = useCallback((state: "reviewed" | "snoozed", days = 0) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ state, ts: Date.now(), days }));
+    } catch {
+      /* private mode — ignore */
+    }
+  }, []);
+
+  const animateOut = useCallback(() => {
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    setEntered(false);
+    setTimeout(() => setOpen(false), 320);
+  }, []);
+
+  const startHideTimer = useCallback(() => {
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(() => {
+      persist("snoozed", SNOOZE_AUTO_DAYS);
+      animateOut();
+    }, AUTO_HIDE_MS);
+  }, [animateOut, persist]);
+
+  const show = useCallback(() => {
+    setOpen(true);
+    requestAnimationFrame(() => setEntered(true));
+    playChime();
+    setBarKey((k) => k + 1);
+    startHideTimer();
+  }, [playChime, startHideTimer]);
+
+  const dismiss = useCallback(() => {
+    persist("snoozed", SNOOZE_DISMISS_DAYS);
+    animateOut();
+  }, [animateOut, persist]);
+
+  const review = useCallback(() => {
+    persist("reviewed");
+    window.open(GOOGLE_REVIEW_URL, "_blank", "noopener,noreferrer");
+    animateOut();
+  }, [animateOut, persist]);
+
+  // Schedule: engaged (interacted) + 60s elapsed, for new/eligible visitors.
   useEffect(() => {
-    let saved: { state?: string; ts?: number } | null = null;
+    let saved: { state?: string; ts?: number; days?: number } | null = null;
     try {
       saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     } catch {
       saved = null;
     }
-    if (saved?.state === "reviewed") return; // already sent to Google — don't ask again
-    if (saved?.state === "snoozed" && saved.ts && Date.now() - saved.ts < SNOOZE_DAYS * 86_400_000) return;
+    if (saved?.state === "reviewed") return;
+    if (saved?.state === "snoozed" && saved.ts && Date.now() - saved.ts < (saved.days ?? SNOOZE_DISMISS_DAYS) * 86_400_000) return;
 
-    const timer = setTimeout(() => {
+    let interacted = false;
+    let elapsed = false;
+    let done = false;
+    const events = ["pointerdown", "keydown", "scroll", "wheel", "touchstart"] as const;
+
+    const maybeShow = () => {
+      if (done || !interacted || !elapsed) return;
       const path = window.location.pathname;
-      // Never interrupt an active checkout/cart.
-      if (path.startsWith("/checkout") || path.startsWith("/cart")) return;
-      setOpen(true);
-    }, SHOW_AFTER_MS);
-    return () => clearTimeout(timer);
-  }, []);
+      if (path.startsWith("/checkout") || path.startsWith("/cart") || path.startsWith("/inspiration")) return;
+      done = true;
+      cleanup();
+      show();
+    };
+    const onInteract = () => {
+      interacted = true;
+      ensureAudio();
+      maybeShow();
+    };
+    const cleanup = () => {
+      clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, onInteract));
+    };
 
-  // Lock background scroll + allow Escape to dismiss while open.
+    events.forEach((e) => window.addEventListener(e, onInteract, { passive: true }));
+    const timer = setTimeout(() => {
+      elapsed = true;
+      maybeShow();
+    }, SHOW_AFTER_MS);
+
+    return cleanup;
+  }, [ensureAudio, show]);
+
+  // Escape closes it too.
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") snooze();
+      if (e.key === "Escape") dismiss();
     };
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
-
-  function persist(state: "reviewed" | "snoozed") {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ state, ts: Date.now() }));
-    } catch {
-      /* private mode — ignore */
-    }
-  }
-
-  function snooze() {
-    persist("snoozed");
-    setOpen(false);
-  }
-
-  function goToGoogle() {
-    persist("reviewed");
-    window.open(GOOGLE_REVIEW_URL, "_blank", "noopener,noreferrer");
-    setOpen(false);
-  }
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, dismiss]);
 
   if (!open) return null;
 
   return (
     <div
       role="dialog"
-      aria-modal="true"
       aria-label="Rate City Gadgets on Google"
-      onClick={snooze}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+      onMouseEnter={() => {
+        setPaused(true);
+        if (hideTimer.current) clearTimeout(hideTimer.current);
+      }}
+      onMouseLeave={() => {
+        setPaused(false);
+        setBarKey((k) => k + 1);
+        startHideTimer();
+      }}
+      className={`fixed bottom-24 right-4 z-[75] w-[min(360px,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-outline-variant bg-white shadow-2xl ring-1 ring-black/5 transition-all duration-300 ease-out md:right-6 ${
+        entered ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      }`}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl md:p-8"
+      <button
+        onClick={dismiss}
+        aria-label="Dismiss"
+        className="absolute right-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container hover:text-on-surface"
       >
-        <button
-          onClick={snooze}
-          aria-label="Close"
-          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container hover:text-on-surface"
-        >
-          <Icon name="close" />
-        </button>
+        <Icon name="close" className="text-[18px]" />
+      </button>
 
-        <div className="flex flex-col items-center text-center">
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-container-low shadow-sm ring-1 ring-outline-variant">
-            <GoogleG className="h-8 w-8" />
-          </span>
-
-          <h2 className="mt-4 text-xl font-extrabold text-on-surface">Enjoying City Gadgets?</h2>
-          <p className="mt-2 text-body-sm leading-relaxed text-on-surface-variant">
-            Tap a star to rate us on Google — it takes 20 seconds and helps other shoppers in Kenya find us.
-          </p>
-
-          {/* Stars are an engagement hook — any rating opens Google, where you
-              sign in and leave the actual review. */}
-          <div className="mt-5 flex items-center gap-1" onMouseLeave={() => setHover(0)}>
-            {[1, 2, 3, 4, 5].map((i) => (
-              <button
-                key={i}
-                onMouseEnter={() => setHover(i)}
-                onFocus={() => setHover(i)}
-                onClick={goToGoogle}
-                aria-label={`Rate ${i} star${i > 1 ? "s" : ""} on Google`}
-                className="rounded p-1 transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                <Icon
-                  name="star"
-                  filled={i <= hover}
-                  className={i <= hover ? "text-[34px] text-price-gold" : "text-[34px] text-outline-variant"}
-                />
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={goToGoogle}
-            className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-on-surface px-6 py-3 font-bold text-white transition-transform hover:scale-[1.02] active:scale-95"
-          >
+      <div className="p-4">
+        <div className="flex items-start gap-3 pr-6">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-container-low ring-1 ring-outline-variant">
             <GoogleG className="h-5 w-5" />
-            Review us on Google
-          </button>
-
-          <button
-            onClick={snooze}
-            className="mt-3 text-body-sm font-semibold text-on-surface-variant transition-colors hover:text-on-surface"
-          >
-            Maybe later
-          </button>
+          </span>
+          <div className="min-w-0">
+            <p className="text-body-md font-extrabold leading-tight text-on-surface">Enjoying City Gadgets?</p>
+            <p className="mt-0.5 text-badge-text text-on-surface-variant">Tap a star to rate us on Google.</p>
+          </div>
         </div>
+
+        <div className="mt-3 flex items-center gap-0.5 pl-[52px]" onMouseLeave={() => setHover(0)}>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <button
+              key={i}
+              onMouseEnter={() => setHover(i)}
+              onFocus={() => setHover(i)}
+              onClick={review}
+              aria-label={`Rate ${i} star${i > 1 ? "s" : ""} on Google`}
+              className="rounded p-0.5 transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <Icon name="star" filled={i <= hover} className={i <= hover ? "text-[26px] text-price-gold" : "text-[26px] text-outline-variant"} />
+            </button>
+          ))}
+        </div>
+
+        <button
+          onClick={review}
+          className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-on-surface px-4 py-2.5 text-body-sm font-bold text-white transition-transform hover:scale-[1.02] active:scale-95"
+        >
+          <GoogleG className="h-4 w-4" />
+          Review us on Google
+        </button>
       </div>
+
+      {/* Auto-hide countdown — pauses on hover */}
+      <div className="h-1 w-full bg-surface-container">
+        <div
+          key={barKey}
+          className="h-full bg-primary/60"
+          style={{
+            transformOrigin: "left",
+            transform: "scaleX(1)",
+            animation: `cgReviewBar ${AUTO_HIDE_MS}ms linear forwards`,
+            animationPlayState: paused ? "paused" : "running",
+          }}
+        />
+      </div>
+      <style>{`@keyframes cgReviewBar{from{transform:scaleX(1)}to{transform:scaleX(0)}}`}</style>
     </div>
   );
 }
