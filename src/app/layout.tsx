@@ -4,7 +4,7 @@ import Script from "next/script";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const GA_ID = "G-Q057CTSDS2";
+const GA_ID = "G-FZV3D3FW36";
 
 const poppins = Poppins({
   variable: "--font-poppins",
