@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Breadcrumbs } from "@/components/product/Breadcrumbs";
 import { Icon } from "@/components/ui/Icon";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { RepairRequestForm } from "@/components/repair/RepairRequestForm";
-import { STORE_ADDRESS } from "@/lib/contact";
+import { STORE_ADDRESS, WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
+import { faqJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +14,8 @@ export const metadata: Metadata = {
     "Fast, genuine gadget repair in Nairobi. Fix cracked screens, batteries, water damage and more on phones, laptops, consoles, gaming pads and TVs. Free diagnosis, free rider pickup, warranty on repairs.",
   alternates: canonical("/repair"),
 };
+
+const REPAIR_IMAGE = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80&auto=format&fit=crop";
 
 const STEPS = [
   { icon: "edit_note", title: "Tell us the fault", desc: "Pick your device and what's wrong — takes a minute." },
@@ -53,49 +58,82 @@ const WHY = [
 const FAQS = [
   {
     q: "How much will my repair cost?",
-    a: "It depends on the device and the fault. Diagnosis is free — once we've assessed it, we send you a clear, fixed quote before any work begins. Nothing is charged until you approve.",
+    a: "It depends on the device and the fault. Diagnosis is free — once we've assessed it we send a clear, fixed quote before any work begins, so there are no surprises. Nothing is charged until you approve.",
+  },
+  {
+    q: "What devices and brands do you repair?",
+    a: "Phones, laptops and MacBooks, gaming consoles, gaming pads, tablets, smartwatches, TV and monitor screens, and audio gear — across all major brands including Apple, Samsung, Sony, HP, Dell, Lenovo, Tecno and Infinix.",
+  },
+  {
+    q: "Do you use genuine, original parts?",
+    a: "Yes. We use genuine or high-grade replacement parts — never the cheap knock-offs that fail within weeks — so your device keeps working the way it should.",
   },
   {
     q: "Do you really pick up from my location?",
-    a: "Yes. Choose 'Send a rider' and we'll collect your device free within Nairobi, repair it, and return it to you. Outside Nairobi, we'll arrange a courier option.",
+    a: "Yes. Choose 'Send a rider' and we'll collect your device free within Nairobi, repair it, and return it to you. Outside Nairobi, we'll arrange a trusted courier option.",
   },
   {
     q: "How long does a repair take?",
-    a: "Common repairs like screens and batteries are often done the same day or next day. For parts we need to source, we'll tell you the timeline upfront.",
+    a: "Common repairs like screens and batteries are often done the same day or next day. If we need to source a specific part, we'll tell you the exact timeline upfront.",
   },
   {
-    q: "Is my data safe?",
-    a: "Yes. We never access your personal data unless a repair specifically requires it, and only with your permission. Back up your device before any repair where possible.",
+    q: "What if my device can't be fixed?",
+    a: "If we can't fix it, you don't pay a repair fee — simple. We'll explain why and, where it makes sense, suggest a trade-in or a replacement from our store.",
   },
   {
-    q: "Do you offer a warranty?",
-    a: "Every repair comes with a workmanship warranty. If the same fault returns within the warranty period, we fix it again at no cost.",
+    q: "Can you fix water damage or recover my data?",
+    a: "Often, yes. Switch the device off and bring it in as soon as possible — the sooner we treat liquid damage the better the chances. We can also attempt data recovery where the storage is intact.",
+  },
+  {
+    q: "Is my data safe during the repair?",
+    a: "Yes. We never access your personal data unless a repair specifically requires it, and only with your permission. Please back up your device before any repair where possible.",
+  },
+  {
+    q: "Do you repair devices I didn't buy from you?",
+    a: "Absolutely. We repair devices no matter where you bought them — you don't need to have purchased from City Gadgets.",
+  },
+  {
+    q: "Do you offer a warranty, and how do I pay?",
+    a: "Every repair comes with a workmanship warranty — if the same fault returns within the warranty period, we fix it again free. Pay by M-Pesa, card or cash once you've approved the repair.",
   },
 ];
 
 export default function RepairPage() {
   return (
     <div className="mx-auto w-full max-w-container-max px-margin-mobile py-8 md:px-gutter">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }} />
+
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Gadget Repair" }]} />
 
-      {/* Hero */}
-      <section className="mt-6 overflow-hidden rounded-3xl bg-inverse-surface p-8 text-white md:p-12">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide backdrop-blur-sm">
-          <Icon name="build" className="text-[15px]" />
-          Repairs
-        </span>
-        <h1 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight md:text-5xl">Broken gadget? We&apos;ll fix it.</h1>
-        <p className="mt-3 max-w-xl text-white/80">
-          Cracked screens, dead batteries, water damage and more — on phones, laptops, consoles, gaming pads and TVs.
-          Free diagnosis, free Nairobi pickup, and a warranty on every repair.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {["Free diagnosis", "Free rider pickup", "Genuine parts", "Warranty on repairs"].map((t) => (
-            <span key={t} className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-badge-text font-semibold backdrop-blur-sm">
-              <Icon name="check_circle" filled className="text-[15px] text-whatsapp-green" />
-              {t}
-            </span>
-          ))}
+      {/* Hero — text on the dark panel, circuit-board image blended on the right */}
+      <section className="relative mt-6 overflow-hidden rounded-3xl bg-inverse-surface text-white">
+        <Image
+          src={REPAIR_IMAGE}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 1200px"
+          priority
+          className="object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-inverse-surface from-30% via-inverse-surface/95 to-inverse-surface/50 md:to-inverse-surface/10" />
+        <div className="relative z-10 max-w-2xl p-8 md:p-12">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide backdrop-blur-sm">
+            <Icon name="build" className="text-[15px]" />
+            Repairs
+          </span>
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight md:text-5xl">Broken gadget? We&apos;ll fix it.</h1>
+          <p className="mt-3 max-w-xl text-white/80">
+            Cracked screens, dead batteries, water damage and more — on phones, laptops, consoles, gaming pads and TVs.
+            Free diagnosis, free Nairobi pickup, and a warranty on every repair.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["Free diagnosis", "Free rider pickup", "Genuine parts", "Warranty on repairs"].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-badge-text font-semibold backdrop-blur-sm">
+                <Icon name="check_circle" filled className="text-[15px] text-whatsapp-green" />
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -176,18 +214,50 @@ export default function RepairPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mt-16 max-w-3xl">
-        <h2 className="mb-4 text-2xl font-extrabold text-on-surface md:text-headline-lg">Repair FAQs</h2>
-        <div className="divide-y divide-outline-variant rounded-2xl border border-outline-variant bg-white">
-          {FAQS.map((f) => (
-            <details key={f.q} className="group px-6 py-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-on-surface">
-                {f.q}
-                <Icon name="expand_more" className="shrink-0 transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="pb-1 pt-3 text-body-md leading-relaxed text-on-surface-variant">{f.a}</p>
-            </details>
+      <section className="mt-16">
+        <div className="mb-6 max-w-2xl">
+          <h2 className="text-2xl font-extrabold text-on-surface md:text-headline-lg">Repair FAQs</h2>
+          <p className="mt-2 text-body-md text-on-surface-variant">
+            Everything you need to know before you send your gadget in. Still unsure? Message us — we&apos;re happy to help.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {[FAQS.slice(0, 5), FAQS.slice(5)].map((column, ci) => (
+            <div key={ci} className="space-y-4">
+              {column.map((f) => (
+                <details
+                  key={f.q}
+                  className="group h-fit rounded-2xl border border-outline-variant bg-white p-5 transition-shadow open:shadow-card"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-on-surface">
+                    {f.q}
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant transition-all group-open:rotate-180 group-open:bg-primary group-open:text-white">
+                      <Icon name="expand_more" className="text-[18px]" />
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-body-sm leading-relaxed text-on-surface-variant">{f.a}</p>
+                </details>
+              ))}
+            </div>
           ))}
+        </div>
+
+        {/* Still have a question — WhatsApp */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 text-center shadow-card sm:flex-row sm:text-left">
+          <div>
+            <p className="font-bold text-on-surface">Still have a question?</p>
+            <p className="text-body-sm text-on-surface-variant">Chat with our repair team on WhatsApp — we usually reply in minutes.</p>
+          </div>
+          <a
+            href={whatsappLink("Hi City Gadgets! I have a question about a repair.", WHATSAPP_NUMBERS[1].raw)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex shrink-0 items-center gap-2 rounded-full bg-whatsapp-green px-6 py-3 font-bold text-white transition-transform hover:scale-[1.02]"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            Chat with us
+          </a>
         </div>
       </section>
     </div>
