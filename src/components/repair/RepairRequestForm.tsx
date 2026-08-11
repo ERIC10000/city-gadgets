@@ -89,7 +89,7 @@ export function RepairRequestForm() {
       description.trim() ? `• Details: ${description.trim()}` : null,
       brandModel.trim() ? `• Brand & model: ${brandModel.trim()}` : null,
       serviceLine,
-      when.trim() ? `• Preferred time: ${when.trim()}` : null,
+      service === "pickup" && when.trim() ? `• Preferred time: ${when.trim()}` : null,
       name.trim() ? `• Name: ${name.trim()}` : null,
       `• Phone: ${phone.trim()}`,
       "",
@@ -162,7 +162,7 @@ export function RepairRequestForm() {
         </fieldset>
 
         {/* Faults */}
-        <fieldset ref={faultsRef}>
+        <fieldset ref={faultsRef} aria-describedby={errors.faults ? "rp-faults-error" : undefined}>
           <legend className="mb-3 block text-body-sm font-semibold text-on-surface">
             What&apos;s the problem? <span className="font-normal text-on-surface-variant">(select all that apply)</span>
           </legend>
@@ -188,8 +188,16 @@ export function RepairRequestForm() {
               );
             })}
           </div>
-          {errors.faults && <p className="mt-2 text-badge-text font-semibold text-error">{errors.faults}</p>}
+          {errors.faults && (
+            <p id="rp-faults-error" role="alert" className="mt-2 text-badge-text font-semibold text-error">
+              {errors.faults}
+            </p>
+          )}
+          <label htmlFor="rp-details" className="mb-1.5 mt-3 block text-body-sm font-semibold text-on-surface">
+            Additional details <span className="font-normal text-on-surface-variant">(optional)</span>
+          </label>
           <textarea
+            id="rp-details"
             value={description}
             onChange={(e) => {
               setDescription(e.target.value);
@@ -197,7 +205,7 @@ export function RepairRequestForm() {
             }}
             rows={3}
             placeholder="Describe what happened — e.g. screen cracked after a fall, still turns on."
-            className={cn(inputClass, "mt-3 resize-none")}
+            className={cn(inputClass, "resize-none")}
           />
         </fieldset>
 
@@ -216,7 +224,7 @@ export function RepairRequestForm() {
         </div>
 
         {/* Service */}
-        <fieldset ref={serviceRef}>
+        <fieldset ref={serviceRef} aria-describedby={errors.service ? "rp-service-error" : undefined}>
           <legend className="mb-3 block text-body-sm font-semibold text-on-surface">How should we collect it?</legend>
           <div role="radiogroup" aria-label="Collection method" className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {SERVICES.map((s) => {
@@ -247,7 +255,11 @@ export function RepairRequestForm() {
               );
             })}
           </div>
-          {errors.service && <p className="mt-2 text-badge-text font-semibold text-error">{errors.service}</p>}
+          {errors.service && (
+            <p id="rp-service-error" role="alert" className="mt-2 text-badge-text font-semibold text-error">
+              {errors.service}
+            </p>
+          )}
 
           {service === "pickup" && (
             <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -265,9 +277,14 @@ export function RepairRequestForm() {
                   }}
                   placeholder="Area / estate + landmark"
                   aria-invalid={Boolean(errors.location)}
+                  aria-describedby={errors.location ? "rp-location-error" : undefined}
                   className={cn(inputClass, errors.location && "border-error")}
                 />
-                {errors.location && <p className="mt-1.5 text-badge-text font-semibold text-error">{errors.location}</p>}
+                {errors.location && (
+                  <p id="rp-location-error" role="alert" className="mt-1.5 text-badge-text font-semibold text-error">
+                    {errors.location}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="rp-when" className="mb-1.5 block text-body-sm font-semibold text-on-surface">
@@ -309,9 +326,14 @@ export function RepairRequestForm() {
               inputMode="tel"
               placeholder="07xx xxx xxx"
               aria-invalid={Boolean(errors.phone)}
+              aria-describedby={errors.phone ? "rp-phone-error" : undefined}
               className={cn(inputClass, errors.phone && "border-error")}
             />
-            {errors.phone && <p className="mt-1.5 text-badge-text font-semibold text-error">{errors.phone}</p>}
+            {errors.phone && (
+              <p id="rp-phone-error" role="alert" className="mt-1.5 text-badge-text font-semibold text-error">
+                {errors.phone}
+              </p>
+            )}
           </div>
         </div>
 

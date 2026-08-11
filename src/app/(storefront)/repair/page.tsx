@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/product/Breadcrumbs";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { RepairRequestForm } from "@/components/repair/RepairRequestForm";
+import { RepairCarousel } from "@/components/repair/RepairCarousel";
 import { STORE_ADDRESS, WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
 import { faqJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
@@ -22,17 +23,6 @@ const STEPS = [
   { icon: "two_wheeler", title: "Drop off or we collect", desc: "Come to our shop, or a rider picks it up free in Nairobi." },
   { icon: "build", title: "We diagnose & quote", desc: "Free diagnosis, then a clear price before any work starts." },
   { icon: "check_circle", title: "Fixed & returned", desc: "We repair it and hand it back — with a warranty." },
-];
-
-const REPAIRS = [
-  { icon: "smartphone", label: "Phones" },
-  { icon: "laptop_mac", label: "Laptops & MacBooks" },
-  { icon: "sports_esports", label: "Consoles" },
-  { icon: "stadia_controller", label: "Gaming Pads" },
-  { icon: "tablet_mac", label: "Tablets & iPads" },
-  { icon: "watch", label: "Smartwatches" },
-  { icon: "tv", label: "TV & Monitor Screens" },
-  { icon: "headphones", label: "Audio Devices" },
 ];
 
 const FAULTS = [
@@ -112,7 +102,7 @@ export default function RepairPage() {
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 1200px"
-          priority
+          preload
           className="object-cover object-right"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-inverse-surface from-30% via-inverse-surface/95 to-inverse-surface/50 md:to-inverse-surface/10" />
@@ -126,7 +116,14 @@ export default function RepairPage() {
             Cracked screens, dead batteries, water damage and more — on phones, laptops, consoles, gaming pads and TVs.
             Free diagnosis, free Nairobi pickup, and a warranty on every repair.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <a
+            href="#repair-request"
+            className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-white px-6 text-body-sm font-bold text-on-surface transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-inverse-surface"
+          >
+            Request a repair
+            <Icon name="arrow_downward" className="text-[18px]" />
+          </a>
+          <div className="mt-5 flex flex-wrap gap-2">
             {["Free diagnosis", "Free rider pickup", "Genuine parts", "Warranty on repairs"].map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-badge-text font-semibold backdrop-blur-sm">
                 <Icon name="check_circle" filled className="text-[15px] text-whatsapp-green" />
@@ -136,6 +133,9 @@ export default function RepairPage() {
           </div>
         </div>
       </section>
+
+      {/* Devices carousel */}
+      <RepairCarousel />
 
       {/* How it works */}
       <section className="mt-10">
@@ -155,23 +155,15 @@ export default function RepairPage() {
       </section>
 
       {/* Form + supporting info */}
-      <section className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <section id="repair-request" className="mt-12 grid scroll-mt-24 grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <RepairRequestForm />
         </div>
 
         <aside className="space-y-8 lg:col-span-5">
           <div className="rounded-3xl border border-outline-variant bg-surface-container-lowest p-6 shadow-card">
-            <h2 className="font-extrabold text-on-surface">What we repair</h2>
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              {REPAIRS.map((r) => (
-                <span key={r.label} className="flex items-center gap-2 rounded-xl border border-outline-variant bg-white px-3 py-2.5 text-body-sm font-semibold text-on-surface">
-                  <Icon name={r.icon} className="text-[18px] text-secondary" />
-                  {r.label}
-                </span>
-              ))}
-            </div>
-            <div className="mt-5 flex flex-wrap gap-1.5">
+            <h2 className="font-extrabold text-on-surface">Common faults we fix</h2>
+            <div className="mt-4 flex flex-wrap gap-1.5">
               {FAULTS.map((f) => (
                 <span key={f} className="rounded-full bg-surface-container-high px-2.5 py-1 text-badge-text font-semibold text-on-surface-variant">
                   {f}
