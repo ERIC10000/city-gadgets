@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/env";
+import { createWebpEncoder, encodeCanvasAsWebp, fitImageDimensions, type WebpEncoder } from "@/lib/image-upload";
 import { cn } from "@/lib/utils";
 
 const MAX_MB = 100;
@@ -17,10 +18,12 @@ export function VideoUploader({
   initialVideoUrl = "",
   initialThumbnailUrl = "",
   initialDuration = "",
+  onBusyChange,
 }: {
   initialVideoUrl?: string;
   initialThumbnailUrl?: string;
   initialDuration?: string | number;
+  onBusyChange?: (busy: boolean) => void;
 }) {
   const [videoUrl, setVideoUrl] = useState(initialVideoUrl);
   const [thumbUrl, setThumbUrl] = useState(initialThumbnailUrl);
@@ -29,40 +32,69 @@ export function VideoUploader({
   const [error, setError] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const uploadInProgressRef = useRef(false);
 
   /** Decode the file locally to read duration and snapshot a poster frame. */
-  function probe(file: File): Promise<{ duration: number; poster: Blob | null }> {
+  function probe(file: File, encoder: WebpEncoder): Promise<{ duration: number; poster: Blob | null }> {
     return new Promise((resolve) => {
       const video = document.createElement("video");
-      video.preload = "metadata";
-      video.muted = true;
-      video.src = URL.createObjectURL(file);
-      const done = (duration: number, poster: Blob | null) => {
-        URL.revokeObjectURL(video.src);
+      const objectUrl = URL.createObjectURL(file);
+      let settled = false;
+      let detectedDuration = 0;
+      const timeout = window.setTimeout(() => finish(detectedDuration, null), 15000);
+
+      const cleanup = () => {
+        window.clearTimeout(timeout);
+        video.onloadedmetadata = null;
+        video.onseeked = null;
+        video.onerror = null;
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+        URL.revokeObjectURL(objectUrl);
+      };
+      const finish = (duration: number, poster: Blob | null) => {
+        if (settled) return;
+        settled = true;
+        cleanup();
         resolve({ duration, poster });
       };
-      video.onloadedmetadata = () => {
-        const d = Math.round(video.duration || 0);
-        // Seek slightly in — frame 0 is often black.
-        video.currentTime = Math.min(1, video.duration / 3 || 0);
-        video.onseeked = () => {
-          try {
-            const canvas = document.createElement("canvas");
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext("2d")?.drawImage(video, 0, 0, canvas.width, canvas.height);
-            canvas.toBlob((b) => done(d, b), "image/jpeg", 0.82);
-          } catch {
-            done(d, null);
-          }
-        };
-        video.onerror = () => done(d, null);
+      const capture = async () => {
+        const canvas = document.createElement("canvas");
+        try {
+          const dimensions = fitImageDimensions(video.videoWidth, video.videoHeight);
+          canvas.width = dimensions.width;
+          canvas.height = dimensions.height;
+          const context = canvas.getContext("2d");
+          if (!context) throw new Error("Video frame capture is unavailable.");
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          finish(detectedDuration, await encodeCanvasAsWebp(canvas, encoder));
+        } catch {
+          finish(detectedDuration, null);
+        } finally {
+          canvas.width = 0;
+          canvas.height = 0;
+        }
       };
-      video.onerror = () => done(0, null);
+
+      video.preload = "metadata";
+      video.muted = true;
+      video.playsInline = true;
+      video.src = objectUrl;
+      video.onloadedmetadata = () => {
+        detectedDuration = Math.round(video.duration || 0);
+        video.onseeked = capture;
+        // Seek slightly in — frame 0 is often black.
+        const target = Math.min(1, video.duration / 3 || 0);
+        if (target > 0) video.currentTime = target;
+        else void capture();
+      };
+      video.onerror = () => finish(detectedDuration, null);
     });
   }
 
   async function upload(file: File) {
+    if (uploadInProgressRef.current) return;
     setError(null);
     if (!file.type.startsWith("video/")) {
       setError("That file isn't a video — upload an MP4, MOV or WebM.");
@@ -73,26 +105,23 @@ export function VideoUploader({
       return;
     }
 
-    let supabase;
+    uploadInProgressRef.current = true;
+    setBusy("Preparing upload…");
+    onBusyChange?.(true);
+    let encoder: WebpEncoder | null = null;
     try {
-      supabase = createClient();
-    } catch {
-      setError("Connect Supabase to upload video files.");
-      return;
-    }
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) {
+        setError("Your session expired — sign in again to upload.");
+        return;
+      }
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setError("Your session expired — sign in again to upload.");
-      return;
-    }
-
-    try {
+      encoder = createWebpEncoder();
       setBusy("Reading video…");
-      const { duration: secs, poster } = await probe(file);
-      if (secs) setDuration(String(secs));
+      const { duration: secs, poster } = await probe(file, encoder);
 
       setBusy("Uploading video…");
       const base = `${user.id}/videos/${Date.now()}`;
@@ -106,20 +135,31 @@ export function VideoUploader({
         setError(`Upload failed: ${vErr.message}`);
         return;
       }
-      setVideoUrl(supabase.storage.from("media").getPublicUrl(videoPath).data.publicUrl);
+      const nextVideoUrl = supabase.storage.from("media").getPublicUrl(videoPath).data.publicUrl;
+      let nextThumbUrl = "";
 
       if (poster) {
         setBusy("Saving cover frame…");
-        const posterPath = `${base}-poster.jpg`;
+        const posterPath = `${base}-poster.webp`;
         const { error: pErr } = await supabase.storage.from("media").upload(posterPath, poster, {
           cacheControl: "31536000",
-          contentType: "image/jpeg",
+          contentType: "image/webp",
           upsert: false,
         });
-        if (!pErr) setThumbUrl(supabase.storage.from("media").getPublicUrl(posterPath).data.publicUrl);
+        if (pErr) setError(`Video uploaded, but the cover frame failed: ${pErr.message}`);
+        else nextThumbUrl = supabase.storage.from("media").getPublicUrl(posterPath).data.publicUrl;
       }
+      setDuration(secs ? String(secs) : "");
+      setThumbUrl(nextThumbUrl);
+      setVideoUrl(nextVideoUrl);
+    } catch (uploadError) {
+      const message = uploadError instanceof Error ? uploadError.message : "Video upload failed.";
+      setError(message.includes("Supabase") ? "Connect Supabase to upload video files." : message);
     } finally {
+      encoder?.terminate();
+      uploadInProgressRef.current = false;
       setBusy(null);
+      onBusyChange?.(false);
     }
   }
 
@@ -132,7 +172,6 @@ export function VideoUploader({
 
       {videoUrl ? (
         <div className="overflow-hidden rounded-2xl border border-outline-variant bg-black">
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video src={videoUrl} poster={thumbUrl || undefined} controls className="max-h-[320px] w-full bg-black" />
           <div className="flex items-center justify-between gap-3 bg-white px-4 py-3">
             <p className="flex items-center gap-1.5 text-body-sm font-semibold text-secondary">

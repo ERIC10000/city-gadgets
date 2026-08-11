@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/env";
+import { createWebpEncoder, prepareImageForUpload, safeImageStem } from "@/lib/image-upload";
 import { cn } from "@/lib/utils";
 
 const MAX_FILES = 8;
@@ -12,9 +13,11 @@ const MAX_SIZE_MB = 8;
 export function ImageUploader({
   initialUrls,
   onChange,
+  onBusyChange,
 }: {
   initialUrls: string[];
   onChange?: (urls: string[]) => void;
+  onBusyChange?: (busy: boolean) => void;
 }) {
   const [urls, setUrls] = useState<string[]>(initialUrls);
   const [uploading, setUploading] = useState(0); // number of in-flight uploads
@@ -22,19 +25,22 @@ export function ImageUploader({
   const [urlDraft, setUrlDraft] = useState("");
   const [dragging, setDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const urlsRef = useRef(initialUrls);
+  const uploadInProgressRef = useRef(false);
 
   const canUploadFiles = isSupabaseConfigured();
 
   function commit(next: string[]) {
+    urlsRef.current = next;
     setUrls(next);
     onChange?.(next);
   }
 
   async function uploadFiles(files: FileList | File[]) {
+    if (uploadInProgressRef.current) return;
     setError(null);
-    const list = Array.from(files)
-      .filter((f) => f.type.startsWith("image/"))
-      .slice(0, MAX_FILES - urls.length);
+    const availableSlots = Math.max(0, MAX_FILES - urlsRef.current.length);
+    const list = Array.from(files).slice(0, availableSlots);
     if (list.length === 0) return;
 
     const oversize = list.find((f) => f.size > MAX_SIZE_MB * 1024 * 1024);
@@ -51,8 +57,12 @@ export function ImageUploader({
       return;
     }
 
-    setUploading((n) => n + list.length);
+    uploadInProgressRef.current = true;
+    setUploading(list.length);
+    onBusyChange?.(true);
+    let encoder: ReturnType<typeof createWebpEncoder> | null = null;
     try {
+      encoder = createWebpEncoder();
       const {
         data: { user },
       } = await supabase.auth.getUser();
@@ -61,47 +71,67 @@ export function ImageUploader({
         return;
       }
 
-      let current = urls;
+      const failures: string[] = [];
       for (const file of list) {
-        const safeName = file.name.toLowerCase().replace(/[^a-z0-9.]+/g, "-").slice(-60);
-        // Storage policy requires the first folder segment to be the user's id.
-        const path = `${user.id}/products/${Date.now()}-${safeName}`;
-        const { error: upErr } = await supabase.storage.from("media").upload(path, file, {
-          cacheControl: "31536000",
-          upsert: false,
-        });
-        if (upErr) {
-          setError(`Upload failed for "${file.name}": ${upErr.message}`);
-          continue;
-        }
-        const { data } = supabase.storage.from("media").getPublicUrl(path);
-        if (data?.publicUrl) {
-          current = [...current, data.publicUrl].slice(0, MAX_FILES);
-          commit(current);
+        try {
+          const prepared = await prepareImageForUpload(file, encoder);
+          const path = `${user.id}/products/${crypto.randomUUID()}-${safeImageStem(prepared.file.name)}.webp`;
+          const { error: upErr } = await supabase.storage.from("media").upload(path, prepared.file, {
+            cacheControl: "31536000",
+            contentType: "image/webp",
+            upsert: false,
+          });
+          if (upErr) throw new Error(upErr.message);
+
+          const { data } = supabase.storage.from("media").getPublicUrl(path);
+          if (data?.publicUrl) {
+            commit([...urlsRef.current, data.publicUrl].slice(0, MAX_FILES));
+          }
+        } catch (uploadError) {
+          failures.push(
+            `"${file.name}": ${uploadError instanceof Error ? uploadError.message : "upload failed"}`,
+          );
         }
       }
+      if (failures.length) setError(failures.join(" "));
+    } catch (uploadError) {
+      setError(uploadError instanceof Error ? uploadError.message : "Image upload failed.");
     } finally {
-      setUploading((n) => Math.max(0, n - list.length));
+      encoder?.terminate();
+      uploadInProgressRef.current = false;
+      setUploading(0);
+      onBusyChange?.(false);
     }
   }
 
   function addUrl() {
     const u = urlDraft.trim();
-    if (!/^https?:\/\//.test(u)) {
+    let parsed: URL;
+    try {
+      parsed = new URL(u);
+    } catch {
+      setError("Paste a valid hosted image URL.");
+      return;
+    }
+    if (parsed.protocol !== "https:") {
       setError("Paste a full image URL starting with https://");
       return;
     }
+    if (!parsed.pathname.toLowerCase().endsWith(".webp")) {
+      setError("Hosted image URLs must point to a .webp file. Upload JPG or PNG files above to convert them automatically.");
+      return;
+    }
     setError(null);
-    commit([...urls, u].slice(0, MAX_FILES));
+    commit([...urlsRef.current, u].slice(0, MAX_FILES));
     setUrlDraft("");
   }
 
   function remove(index: number) {
-    commit(urls.filter((_, i) => i !== index));
+    commit(urlsRef.current.filter((_, i) => i !== index));
   }
 
   function makeCover(index: number) {
-    commit([urls[index], ...urls.filter((_, i) => i !== index)]);
+    commit([urlsRef.current[index], ...urlsRef.current.filter((_, i) => i !== index)]);
   }
 
   return (
@@ -123,8 +153,10 @@ export function ImageUploader({
           setDragging(false);
           uploadFiles(e.dataTransfer.files);
         }}
+        disabled={uploading > 0}
+        aria-busy={uploading > 0}
         className={cn(
-          "flex w-full flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed px-6 py-10 text-center transition-colors",
+          "flex w-full flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed px-6 py-10 text-center transition-colors disabled:cursor-wait disabled:opacity-70",
           dragging ? "border-secondary bg-secondary-container/30" : "border-outline-variant bg-surface-container-low hover:border-on-surface/40",
         )}
       >
@@ -132,17 +164,19 @@ export function ImageUploader({
           <Icon name={uploading > 0 ? "progress_activity" : "add_photo_alternate"} className={cn("text-[26px]", uploading > 0 && "animate-spin")} />
         </span>
         <span className="font-semibold text-on-surface">
-          {uploading > 0 ? `Uploading ${uploading} image${uploading > 1 ? "s" : ""}…` : "Drag & drop photos, or click to browse"}
+          {uploading > 0
+            ? `Optimizing and uploading ${uploading} image${uploading > 1 ? "s" : ""}…`
+            : "Drag & drop photos, or click to browse"}
         </span>
         <span className="text-badge-text text-on-surface-variant">
-          Up to {MAX_FILES} images · JPG/PNG/WebP · max {MAX_SIZE_MB}MB each
+          Up to {MAX_FILES} images · JPG/PNG converted to WebP · max {MAX_SIZE_MB}MB each
           {!canUploadFiles && " · direct upload needs Supabase connected"}
         </span>
       </button>
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/*"
+        accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
         multiple
         className="hidden"
         onChange={(e) => {
@@ -162,12 +196,14 @@ export function ImageUploader({
               addUrl();
             }
           }}
-          placeholder="…or paste a hosted image URL"
+          placeholder="…or paste a hosted WebP URL"
+          disabled={uploading > 0}
           className="w-full flex-1 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-body-sm placeholder:text-on-surface-variant/60 focus:border-on-surface focus:outline-none"
         />
         <button
           type="button"
           onClick={addUrl}
+          disabled={uploading > 0}
           className="shrink-0 rounded-xl border border-outline-variant px-4 py-2.5 text-body-sm font-bold text-on-surface transition-colors hover:border-on-surface"
         >
           Add
@@ -206,6 +242,7 @@ export function ImageUploader({
                 <button
                   type="button"
                   onClick={() => makeCover(i)}
+                  disabled={uploading > 0}
                   className="absolute bottom-1 left-1 rounded bg-white/90 px-1.5 py-0.5 text-[9px] font-bold uppercase text-on-surface opacity-0 transition-opacity group-hover:opacity-100"
                 >
                   Set cover
@@ -214,6 +251,7 @@ export function ImageUploader({
               <button
                 type="button"
                 onClick={() => remove(i)}
+                disabled={uploading > 0}
                 aria-label="Remove image"
                 className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-on-surface opacity-0 shadow transition-opacity hover:text-error group-hover:opacity-100"
               >

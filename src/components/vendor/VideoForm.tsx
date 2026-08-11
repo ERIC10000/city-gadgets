@@ -18,8 +18,13 @@ export function VideoForm({
 }) {
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+  const [mediaBusy, setMediaBusy] = useState(false);
 
   function handleSubmit(formData: FormData) {
+    if (mediaBusy) {
+      setError("Wait for the video and cover frame to finish uploading before publishing.");
+      return;
+    }
     if (!String(formData.get("videoUrl") ?? "")) {
       setError("Upload a video file first.");
       return;
@@ -35,7 +40,7 @@ export function VideoForm({
     <form action={handleSubmit} className="space-y-6">
       <div>
         <label className="mb-1.5 block text-body-sm font-semibold text-on-surface">Video file</label>
-        <VideoUploader />
+        <VideoUploader onBusyChange={setMediaBusy} />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -81,13 +86,13 @@ export function VideoForm({
 
       <button
         type="submit"
-        disabled={pending}
+        disabled={pending || mediaBusy}
         className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 font-bold text-on-primary transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        {pending ? (
+        {pending || mediaBusy ? (
           <>
             <Icon name="progress_activity" className="animate-spin" />
-            Publishing…
+            {mediaBusy ? "Finishing upload…" : "Publishing…"}
           </>
         ) : (
           <>

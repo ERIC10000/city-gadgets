@@ -54,6 +54,32 @@ The app reads from Supabase the moment `NEXT_PUBLIC_SUPABASE_URL` **and** `NEXT_
    [`supabase/seed.sql`](supabase/seed.sql) into the Supabase SQL editor by hand.)
 4. **Restart** `npm run dev`. Sign-up, login, order history, and the vendor CMS now work.
 
+### WebP storage workflow
+
+New JPG and PNG product uploads are resized to a maximum 1600px edge and encoded
+as WebP in a browser worker before they enter the public `media` bucket. Video
+cover frames use the same WebP encoder. Hosted image URLs pasted into the vendor
+form must have a `.webp` pathname.
+
+Use the maintenance script to convert JPEGs already referenced by Supabase:
+
+```bash
+npm run images:webp                                      # read-only inventory and conversion dry run
+npm run images:webp -- --write                           # upload WebPs, verify them, then switch DB URLs
+npm run images:webp -- --resume .image-migrations/MANIFEST.json
+npm run images:webp -- --rollback .image-migrations/MANIFEST.json
+```
+
+The dry run requires `NEXT_PUBLIC_SUPABASE_URL` and `DB_URL`; write and resume
+also require Node.js 22 or newer and a local `SUPABASE_SERVICE_ROLE_KEY`. On a
+Node 20 workstation, use `npx -y node@22 scripts/optimize-supabase-images.mjs --write`.
+The script never deletes the
+original files, uses immutable hash-based WebP paths, and changes all database
+references in one transaction. Keep a secure backup of the ignored migration
+manifest until the catalog has been validated and the rollback window has ended.
+External Unsplash category images remain external and continue to use
+Unsplash's automatic format negotiation.
+
 ### IPv4 note (connection pooler)
 
 Supabase's direct database host `db.<ref>.supabase.co` is **IPv6-only**. On an IPv4-only network

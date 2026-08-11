@@ -59,6 +59,7 @@ export function ProductForm({
   );
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+  const [mediaBusy, setMediaBusy] = useState(false);
 
   // Mirrored state for validation + the live preview card.
   const [name, setName] = useState(product?.name ?? "");
@@ -102,6 +103,11 @@ export function ProductForm({
   }
 
   function handleSubmit(formData: FormData) {
+    if (mediaBusy) {
+      setStep(1);
+      setError("Wait for the product images to finish uploading before saving.");
+      return;
+    }
     const v = validate();
     if (!v.ok) {
       setStep(v.step ?? 0);
@@ -213,6 +219,7 @@ export function ProductForm({
               <ImageUploader
                 initialUrls={product?.images.map((i) => i.url) ?? []}
                 onChange={(next) => setCoverUrl(next[0] ?? "")}
+                onBusyChange={setMediaBusy}
               />
             </Card>
           </div>
@@ -397,13 +404,13 @@ export function ProductForm({
             ) : (
               <button
                 type="submit"
-                disabled={pending}
+                disabled={pending || mediaBusy}
                 className="flex items-center gap-2 rounded-xl bg-primary px-8 py-2.5 text-body-sm font-bold text-on-primary transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {pending ? (
+                {pending || mediaBusy ? (
                   <>
                     <Icon name="progress_activity" className="animate-spin" />
-                    Saving…
+                    {mediaBusy ? "Finishing images…" : "Saving…"}
                   </>
                 ) : (
                   <>
@@ -463,7 +470,7 @@ export function ProductForm({
               Listing tips
             </h4>
             <ul className="space-y-2 text-body-sm text-white/70">
-              <li>• Lead the name with the brand — "Sony Xm6 Headphones".</li>
+              <li>• Lead the name with the brand — &quot;Sony Xm6 Headphones&quot;.</li>
               <li>• Square photos on white backgrounds convert best.</li>
               <li>• Set a compare-at price to appear on Hot Deals.</li>
             </ul>
@@ -473,4 +480,3 @@ export function ProductForm({
     </form>
   );
 }
-
