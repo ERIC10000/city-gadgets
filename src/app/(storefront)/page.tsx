@@ -180,6 +180,7 @@ export default async function HomePage() {
         title="Shop Our Collection"
         subtitle="Every product in stock — filter by department or browse the lot."
         groups={browseGroups}
+        initialCount={12}
       />
       <PromoBanners />
       <TopDeals products={topDeals} />
