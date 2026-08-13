@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   alternates: canonical("/"),
 };
 
+// Cache the homepage and refresh it periodically (ISR) instead of rendering it
+// fresh on every request. Product mutations already call revalidatePath("/"),
+// so new stock still appears immediately.
+export const revalidate = 600;
+
+// How many products to render per browse tab. The full catalogue lives behind
+// the "Browse" links — shipping all ~600 into the homepage HTML was the biggest
+// single cause of the multi-second load.
+const HOME_TAB_LIMIT = 12;
+
 const CIRCLE_LABEL: Record<string, string> = {
   consoles: "Gaming",
   phones: "Smartphones",
@@ -82,7 +92,7 @@ function pickBrandImages(products: Product[], slug: string, n: number): HeroImag
 export default async function HomePage() {
   const [categories, { items: all }, videos] = await Promise.all([
     getCategories(),
-    getProducts({ limit: 1000, sort: "rating" }),
+    getProducts({ limit: 200, sort: "rating" }),
     getVideos(),
   ]);
 
@@ -128,11 +138,11 @@ export default async function HomePage() {
   // Browse grid — an "All" tab so the whole catalog is visible up front, then
   // one tab per stocked department.
   const browseGroups: GridGroup[] = [
-    { label: "All Products", href: "/shop", products: all },
+    { label: "All Products", href: "/shop", products: all.slice(0, HOME_TAB_LIMIT) },
     ...FAVORITE_TABS.map((tab) => ({
       label: tab.label,
       href: `/category/${tab.slug}`,
-      products: byCategory(tab.slug),
+      products: byCategory(tab.slug).slice(0, HOME_TAB_LIMIT),
     })),
   ].filter((g) => g.products.length > 0);
 

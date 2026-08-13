@@ -1,5 +1,5 @@
 import { isSupabaseConfigured } from "@/lib/env";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { ProductVideo } from "@/lib/types";
 
 // Curated placeholder showcase reel until vendors upload real "video
@@ -72,7 +72,7 @@ export type ShoppableVideo = ProductVideo & {
 export async function getVideos(): Promise<ShoppableVideo[]> {
   if (!isSupabaseConfigured()) return SEED_VIDEOS;
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("product_videos")
     .select("*, products(slug, name, price, product_images(url, sort_order))")

@@ -1,5 +1,5 @@
 import { isSupabaseConfigured } from "@/lib/env";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Category } from "@/lib/types";
 import rawCategories from "@/data/seed/categories.generated.json";
 
@@ -20,7 +20,7 @@ function fromSeed(): Category[] {
 export async function getCategories(): Promise<Category[]> {
   if (!isSupabaseConfigured()) return fromSeed();
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase.from("categories").select("*").order("sort_order");
   if (error || !data) return fromSeed();
   return data as Category[];

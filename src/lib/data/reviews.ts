@@ -1,5 +1,6 @@
 import { isSupabaseConfigured } from "@/lib/env";
 import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 
 export type ProductReview = {
   id: string;
@@ -14,7 +15,7 @@ export type ProductReview = {
 
 export async function getProductReviews(productId: string): Promise<ProductReview[]> {
   if (!isSupabaseConfigured()) return [];
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("product_reviews")
     .select("*")

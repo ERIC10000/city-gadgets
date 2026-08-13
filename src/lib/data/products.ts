@@ -1,5 +1,5 @@
 import { isSupabaseConfigured } from "@/lib/env";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Product } from "@/lib/types";
 import rawProducts from "@/data/seed/products.generated.json";
 
@@ -77,7 +77,7 @@ function queryFromSeed(query: ProductQuery): ProductPage {
 export async function getProducts(query: ProductQuery = {}): Promise<ProductPage> {
   if (!isSupabaseConfigured()) return queryFromSeed(query);
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   let request = supabase
     .from("products")
     .select("*, product_images(url, alt_text, sort_order), categories!inner(slug)", { count: "exact" })
@@ -135,7 +135,7 @@ export async function getProducts(query: ProductQuery = {}): Promise<ProductPage
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   if (!isSupabaseConfigured()) return SEED_PRODUCTS.find((p) => p.slug === slug) ?? null;
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("products")
     .select("*, product_images(url, alt_text, sort_order), categories!inner(slug)")

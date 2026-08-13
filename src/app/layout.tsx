@@ -39,8 +39,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* display=block hides icon glyphs until the font loads instead of
+            flashing their ligature text (e.g. "arrow_forward") — kills the
+            icon-swap layout shift that drives CLS. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
           rel="stylesheet"
         />
       </head>
