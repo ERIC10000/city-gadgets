@@ -178,6 +178,44 @@ export async function getFeaturedProducts(limit = 4): Promise<Product[]> {
   return items;
 }
 
+/**
+ * Real published-product counts (total + per category slug) for the homepage
+ * browse tabs. Uses head-only count queries, so it transfers no rows — cheap
+ * even though the homepage caps how many cards it actually renders.
+ */
+export async function getCategoryCounts(): Promise<{ total: number; byCategory: Record<string, number> }> {
+  if (!isSupabaseConfigured()) {
+    const byCategory: Record<string, number> = {};
+    let total = 0;
+    for (const p of SEED_PRODUCTS) {
+      if (p.status !== "published") continue;
+      total += 1;
+      byCategory[p.category_slug] = (byCategory[p.category_slug] ?? 0) + 1;
+    }
+    return { total, byCategory };
+  }
+
+  const supabase = createPublicClient();
+  const [{ count: total }, { data: cats }] = await Promise.all([
+    supabase.from("products").select("id", { count: "exact", head: true }).eq("status", "published"),
+    supabase.from("categories").select("id, slug"),
+  ]);
+
+  const byCategory: Record<string, number> = {};
+  await Promise.all(
+    ((cats as { id: string; slug: string }[] | null) ?? []).map(async (c) => {
+      const { count } = await supabase
+        .from("products")
+        .select("id", { count: "exact", head: true })
+        .eq("status", "published")
+        .eq("category_id", c.id);
+      byCategory[c.slug] = count ?? 0;
+    }),
+  );
+
+  return { total: total ?? 0, byCategory };
+}
+
 export function getAllBrands(): string[] {
   return Array.from(new Set(SEED_PRODUCTS.map((p) => p.brand).filter((b): b is string => Boolean(b)))).sort();
 }

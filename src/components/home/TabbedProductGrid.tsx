@@ -7,7 +7,13 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 
-export type GridGroup = { label: string; href: string; products: Product[] };
+export type GridGroup = {
+  label: string;
+  href: string;
+  products: Product[];
+  /** Real total in the catalogue (badge). `products` is a capped preview. */
+  count?: number;
+};
 
 /**
  * Category-tabbed product grid. Replaces the old horizontal rail so the whole
@@ -71,7 +77,7 @@ export function TabbedProductGrid({
                   i === active ? "bg-white/20 text-white" : "bg-surface-container text-on-surface-variant",
                 )}
               >
-                {g.products.length}
+                {g.count ?? g.products.length}
               </span>
             </button>
           ))}

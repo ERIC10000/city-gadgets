@@ -9,7 +9,7 @@ import { SectionRail } from "@/components/home/SectionRail";
 import { CircularEconomy } from "@/components/home/CircularEconomy";
 import { HomeGuides } from "@/components/home/HomeGuides";
 import { getCategories } from "@/lib/data/categories";
-import { getProducts } from "@/lib/data/products";
+import { getProducts, getCategoryCounts } from "@/lib/data/products";
 import { getGuides } from "@/lib/data/guides";
 import { getVideos } from "@/lib/data/videos";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -90,10 +90,11 @@ function pickBrandImages(products: Product[], slug: string, n: number): HeroImag
 }
 
 export default async function HomePage() {
-  const [categories, { items: all }, videos] = await Promise.all([
+  const [categories, { items: all }, videos, counts] = await Promise.all([
     getCategories(),
     getProducts({ limit: 200, sort: "rating" }),
     getVideos(),
+    getCategoryCounts(),
   ]);
 
   const byCategory = (slug: string) => all.filter((p) => p.category_slug === slug);
@@ -138,11 +139,12 @@ export default async function HomePage() {
   // Browse grid — an "All" tab so the whole catalog is visible up front, then
   // one tab per stocked department.
   const browseGroups: GridGroup[] = [
-    { label: "All Products", href: "/shop", products: all.slice(0, HOME_TAB_LIMIT) },
+    { label: "All Products", href: "/shop", products: all.slice(0, HOME_TAB_LIMIT), count: counts.total },
     ...FAVORITE_TABS.map((tab) => ({
       label: tab.label,
       href: `/category/${tab.slug}`,
       products: byCategory(tab.slug).slice(0, HOME_TAB_LIMIT),
+      count: counts.byCategory[tab.slug] ?? byCategory(tab.slug).length,
     })),
   ].filter((g) => g.products.length > 0);
 
