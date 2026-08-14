@@ -16,7 +16,7 @@ function VideoTile({ video }: { video: ShoppableVideo }) {
 
   return (
     <Link
-      href="/inspiration"
+      href={`/inspiration#${video.id}`}
       onMouseEnter={() => ref.current?.play().catch(() => {})}
       onMouseLeave={() => {
         const v = ref.current;

@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   alternates: canonical("/deals"),
 };
 
+// Cached page — refresh so price/stock changes and new deals show through.
+export const revalidate = 600;
+
 function discountOf(p: Product) {
   return p.compare_at_price && p.compare_at_price > p.price ? (p.compare_at_price - p.price) / p.compare_at_price : 0;
 }

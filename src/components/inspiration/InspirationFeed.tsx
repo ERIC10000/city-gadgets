@@ -354,6 +354,18 @@ export function InspirationFeed({ videos }: { videos: ShoppableVideo[] }) {
     sectionRefs.current[i]?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
+  // Deep-link: /inspiration#<videoId> opens straight to that clip (used by the
+  // homepage teaser tiles) so the exact video the user tapped starts playing.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const i = videos.findIndex((v) => v.id === id);
+    if (i > 0) {
+      setActiveIndex(i);
+      requestAnimationFrame(() => sectionRefs.current[i]?.scrollIntoView());
+    }
+  }, [videos]);
+
   // Immersive takeover: lock the page behind so the feed is the whole screen.
   useEffect(() => {
     const prev = document.body.style.overflow;

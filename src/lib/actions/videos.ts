@@ -27,6 +27,8 @@ export async function createVideo(formData: FormData): Promise<VideoFormResult> 
   if (error) return { error: error.message };
 
   revalidatePath("/vendor/videos");
+  revalidatePath("/inspiration"); // public feed
+  revalidatePath("/"); // homepage teaser
   redirect("/vendor/videos");
 }
 
@@ -35,4 +37,6 @@ export async function deleteVideo(formData: FormData) {
   const supabase = await createClient();
   await supabase.from("product_videos").delete().eq("id", id);
   revalidatePath("/vendor/videos");
+  revalidatePath("/inspiration");
+  revalidatePath("/");
 }

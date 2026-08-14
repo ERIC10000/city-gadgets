@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   alternates: canonical("/inspiration"),
 };
 
+// Refresh often so newly-uploaded videos appear in the feed (the page is
+// cached; without this it would freeze at the last deploy).
+export const revalidate = 300;
+
 export default async function InspirationPage() {
   const videos = await getVideos();
   return <InspirationFeed videos={videos} />;
