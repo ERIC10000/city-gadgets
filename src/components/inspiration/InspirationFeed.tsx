@@ -172,8 +172,10 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
         )}
 
         {/* Caption + shoppable card — bottom padding clears the transport bar
-            (and, on mobile, the tab bar beneath it) */}
-        <div className="absolute inset-x-0 bottom-0 space-y-3 p-5 pb-32 md:pb-24">
+            (and, on mobile, the tab bar beneath it). pointer-events-none so
+            empty areas still toggle/seek the video; the actual buttons below
+            opt back in with pointer-events-auto and sit above the seek zones. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 space-y-3 p-5 pb-32 md:pb-24">
           {video.category && (
             <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-badge-text font-bold uppercase tracking-wide text-white backdrop-blur-sm">
               {video.category}
@@ -197,7 +199,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
                     e.stopPropagation();
                     setShowFullDesc((v) => !v);
                   }}
-                  className="mt-1 text-body-sm font-bold text-white underline underline-offset-2"
+                  className="pointer-events-auto mt-1 text-body-sm font-bold text-white underline underline-offset-2"
                 >
                   {showFullDesc ? "Show less" : "Read more"}
                 </button>
@@ -208,7 +210,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           {video.product ? (
             <Link
               href={`/product/${video.product.slug}`}
-              className="group flex items-center gap-3 rounded-2xl bg-white/95 p-3 backdrop-blur transition-transform hover:scale-[1.02]"
+              className="group pointer-events-auto flex items-center gap-3 rounded-2xl bg-white/95 p-3 backdrop-blur transition-transform hover:scale-[1.02]"
             >
               <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-outline-variant bg-white">
                 {video.product.image && (
@@ -227,7 +229,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
           ) : (
             <Link
               href="/shop"
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-body-sm font-bold text-on-surface"
+              className="pointer-events-auto inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-body-sm font-bold text-on-surface"
             >
               Shop the store
               <Icon name="arrow_forward" className="text-[16px]" />
@@ -236,7 +238,7 @@ function Reel({ video, active }: { video: ShoppableVideo; active: boolean }) {
         </div>
 
         {/* Transport controls — scrub track plus playback cluster */}
-        <div className="absolute inset-x-0 bottom-0 px-4 pb-7 md:pb-4">
+        <div className="absolute inset-x-0 bottom-0 z-20 px-4 pb-7 md:pb-4">
           <div className="rounded-2xl bg-black/45 px-3 py-2.5 ring-1 ring-white/10 backdrop-blur-md">
             {/* Scrub track — click or drag anywhere to seek */}
             <div
