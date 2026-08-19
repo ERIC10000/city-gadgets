@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappLink } from "@/lib/contact";
+import { trackWhatsApp } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const DEVICE_TYPES = [
@@ -98,6 +99,7 @@ export function SellDeviceForm() {
     if (next.brand) return brandRef.current?.focus();
     if (next.model) return modelRef.current?.focus();
 
+    trackWhatsApp("sell", { device: deviceType });
     window.open(whatsappLink(buildMessage()), "_blank", "noopener,noreferrer");
   }
 

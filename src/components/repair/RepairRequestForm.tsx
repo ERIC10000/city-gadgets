@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { STORE_ADDRESS, WHATSAPP_NUMBERS, whatsappLink } from "@/lib/contact";
+import { trackWhatsApp } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 // Repairs go to Customer Relations (warranty & support), not the sales line.
@@ -113,6 +114,7 @@ export function RepairRequestForm() {
     if (next.location) return locationRef.current?.focus();
     if (next.phone) return phoneRef.current?.focus();
 
+    trackWhatsApp("repair", { device });
     window.open(whatsappLink(buildMessage(), REPAIR_NUMBER), "_blank", "noopener,noreferrer");
   }
 

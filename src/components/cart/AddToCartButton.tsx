@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Icon } from "@/components/ui/Icon";
 import { Button, type ButtonProps } from "@/components/ui/Button";
 import { useCartStore } from "@/store/cart";
+import { trackAddToCart } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "adding" | "added";
@@ -36,6 +37,7 @@ export function AddToCartButton({
     setStatus("adding");
     window.setTimeout(() => {
       add({ productId, slug, name, price, image });
+      trackAddToCart({ id: productId, name, price });
       setStatus("added");
       window.setTimeout(() => setStatus("idle"), 1600);
     }, 450);

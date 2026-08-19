@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { formatKES } from "@/lib/format";
 import { useCartStore } from "@/store/cart";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 export function CartView() {
   const lines = useCartStore((s) => s.lines);
@@ -97,6 +98,7 @@ export function CartView() {
         </div>
         <Link
           href="/checkout"
+          onClick={() => trackBeginCheckout(subtotal, lines.reduce((n, l) => n + l.quantity, 0))}
           className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary font-bold text-on-primary hover:opacity-90"
         >
           Proceed to Checkout

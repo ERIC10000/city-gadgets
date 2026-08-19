@@ -6,6 +6,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { formatKES } from "@/lib/format";
 import { whatsappLink } from "@/lib/contact";
 import { useCartStore } from "@/store/cart";
+import { trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
 
 export function QuickBuyButtons({
   productId,
@@ -27,6 +28,8 @@ export function QuickBuyButtons({
 
   function buyWithMpesa() {
     add({ productId, slug, name, price, image });
+    trackAddToCart({ id: productId, name, price });
+    trackBeginCheckout(price, 1);
     router.push("/checkout");
   }
 
