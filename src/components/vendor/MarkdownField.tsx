@@ -5,7 +5,7 @@ import { Icon } from "@/components/ui/Icon";
 import { RichText } from "@/components/ui/RichText";
 import { cn } from "@/lib/utils";
 
-const EXAMPLE = `Write a rich description with **Markdown**:
+const DEFAULT_EXAMPLE = `Write a rich description with **Markdown**:
 
 ## Overview
 A short paragraph about the product. Leave a blank line between paragraphs.
@@ -28,14 +28,25 @@ Yes — sealed, with warranty.
 **Do you deliver same-day?**
 Yes, anywhere in Nairobi.`;
 
+// Sensible standalone styling so the field is never a tiny unstyled box, even
+// when a caller passes no className. twMerge lets callers override any of these.
+const BASE_TEXTAREA =
+  "w-full rounded-xl border border-outline-variant bg-white px-4 py-3 font-mono text-body-sm leading-relaxed text-on-surface placeholder:text-on-surface-variant/50 focus:border-on-surface focus:outline-none focus:ring-2 focus:ring-on-surface/10";
+
 export function MarkdownField({
   name,
   defaultValue = "",
   className,
+  example = DEFAULT_EXAMPLE,
+  rows = 14,
 }: {
   name: string;
   defaultValue?: string;
   className?: string;
+  /** Greyed-out placeholder + the text inserted by "Insert a starter template". */
+  example?: string;
+  /** Visible height of the editor, in text rows. */
+  rows?: number;
 }) {
   const [value, setValue] = useState(defaultValue);
   const [mode, setMode] = useState<"write" | "preview">("write");
@@ -66,11 +77,11 @@ export function MarkdownField({
       {/* Textarea stays mounted (just hidden in preview) so the form still submits it */}
       <textarea
         name={name}
-        rows={14}
+        rows={rows}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder={EXAMPLE}
-        className={cn(className, "font-mono text-body-sm leading-relaxed", mode === "preview" && "hidden")}
+        placeholder={example}
+        className={cn(BASE_TEXTAREA, mode === "preview" && "hidden", className)}
       />
 
       {mode === "preview" && (
@@ -86,9 +97,10 @@ export function MarkdownField({
       {mode === "write" && !value.trim() && (
         <button
           type="button"
-          onClick={() => setValue(EXAMPLE)}
-          className="mt-2 text-badge-text font-semibold text-secondary hover:underline"
+          onClick={() => setValue(example)}
+          className="mt-2 inline-flex items-center gap-1 text-badge-text font-semibold text-secondary hover:underline"
         >
+          <Icon name="auto_awesome" className="text-[15px]" />
           Insert a starter template
         </button>
       )}

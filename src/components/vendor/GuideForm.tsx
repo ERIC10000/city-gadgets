@@ -21,6 +21,53 @@ const inputClass =
 const labelClass = "mb-1.5 block text-body-sm font-semibold text-on-surface";
 const cardClass = "rounded-2xl border border-outline-variant bg-white p-6 shadow-card";
 
+// What makes a guide people actually read (and buy from) — shown right above the
+// editor so the admin never faces a blank box wondering how to fill it.
+const WRITING_TIPS = [
+  "Open with a hook — the reader's exact problem in one line (\"Buying a laptop in Kenya shouldn't be a gamble\").",
+  "Break it up with ## headings, short paragraphs, and a comparison table — walls of text lose readers.",
+  "Group your picks by budget (Under 20K / 20–40K / Premium) so shoppers self-select.",
+  "Add a short FAQ — it answers objections and Google loves to feature it.",
+  "Keep the tone honest and local: mention genuine stock, official warranty and same-day Nairobi delivery.",
+];
+
+// A guide-shaped starter skeleton (very different from the product-description
+// example). One click drops this in, so the admin edits instead of inventing.
+const GUIDE_TEMPLATE = `Buying the right one in Kenya shouldn't feel like a gamble. Here's exactly what to look for, what to skip, and the models worth your money right now.
+
+## Who this guide is for
+- First-time buyers who want value, not hype
+- Anyone stuck comparing two or three models
+- Shoppers working to a clear budget
+
+## What actually matters (and what doesn't)
+| What to check | Why it matters |
+| --- | --- |
+| Battery life | All-day use without hunting for a charger |
+| RAM & storage | Smooth multitasking and room for your photos |
+| Warranty | 12-month official brand warranty = real peace of mind |
+
+## Our top picks by budget
+**Under KSh 20,000 —** the best everyday value right now.
+
+**KSh 20,000–40,000 —** the sweet spot for most people.
+
+**Premium —** flagship performance if you want the very best.
+
+## Pro tips before you pay
+- Insist on sealed, genuine stock
+- Confirm it's official brand warranty, not a shop guarantee
+- Ask about same-day delivery within Nairobi
+
+## FAQ
+**Is it brand new and sealed?**
+Yes — every unit is genuine, sealed and warrantied.
+
+**Do you deliver the same day?**
+Yes, anywhere in Nairobi, often within hours.
+
+_The live prices and models below update automatically — always in stock, always current._`;
+
 function slugify(s: string) {
   return s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
@@ -102,8 +149,37 @@ export function GuideForm({
 
         <div className={cardClass}>
           <h2 className="mb-1 font-extrabold text-on-surface">Guide content</h2>
-          <p className="mb-4 text-body-sm text-on-surface-variant">Write in Markdown — use ## headings, bullet lists and tables. The live product grid appears automatically below it.</p>
-          <MarkdownField name="body" defaultValue={initial?.body ?? ""} />
+          <p className="mb-4 text-body-sm text-on-surface-variant">
+            Write in Markdown. The live product grid appears automatically below your article — so focus on the
+            advice, and let the shop do the selling.
+          </p>
+
+          {/* How to write an eye-catching guide — quick, skimmable coaching */}
+          <div className="mb-4 rounded-xl border border-primary/20 bg-primary/5 p-4">
+            <p className="mb-2 flex items-center gap-1.5 text-body-sm font-bold text-on-surface">
+              <Icon name="tips_and_updates" className="text-[18px] text-primary" />
+              How to write a guide people actually read
+            </p>
+            <ul className="space-y-1.5">
+              {WRITING_TIPS.map((tip, i) => (
+                <li key={i} className="flex gap-2 text-badge-text leading-relaxed text-on-surface-variant">
+                  <Icon name="check_circle" className="mt-px text-[14px] text-primary" />
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2.5 text-badge-text text-on-surface-variant">
+              New to this? Hit <b className="text-on-surface">Insert a starter template</b> below for a ready-made structure to edit.
+            </p>
+          </div>
+
+          <MarkdownField
+            name="body"
+            defaultValue={initial?.body ?? ""}
+            example={GUIDE_TEMPLATE}
+            rows={22}
+            className="min-h-[460px]"
+          />
         </div>
       </div>
 

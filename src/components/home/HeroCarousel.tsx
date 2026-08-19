@@ -74,8 +74,8 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
               {slide.images.slice(0, 3).map((img, i) => (
                 <div
                   key={img.src}
-                  className="relative h-40 w-28 overflow-hidden rounded-2xl bg-white/30 shadow-card-lg backdrop-blur-sm md:h-64 md:w-44"
-                  style={{ transform: `translateY(${i === 1 ? -18 : 0}px) rotate(${(i - 1) * 5}deg)`, zIndex: i === 1 ? 2 : 1 }}
+                  className="relative h-40 w-28 overflow-hidden rounded-2xl border border-black/[0.06] bg-white md:h-64 md:w-44"
+                  style={{ transform: `translateY(${i === 1 ? -16 : 0}px)`, zIndex: i === 1 ? 2 : 1 }}
                 >
                   <Image
                     src={img.src}
@@ -86,7 +86,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                     priority={index === 0}
                   />
                   {img.brand && (
-                    <span className="absolute inset-x-2 bottom-2 truncate rounded-full bg-white/75 px-2 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-on-surface backdrop-blur-sm">
+                    <span className="absolute inset-x-2 bottom-2 truncate rounded-full bg-surface-container-high px-2 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-on-surface-variant">
                       {img.brand}
                     </span>
                   )}
