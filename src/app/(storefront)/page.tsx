@@ -1,5 +1,6 @@
 import { HeroCarousel, type HeroImage, type HeroSlide } from "@/components/home/HeroCarousel";
 import { TrustStrip } from "@/components/home/TrustStrip";
+import { BrandMarquee } from "@/components/home/BrandMarquee";
 import { PopularCategories, type CategoryCircle } from "@/components/home/PopularCategories";
 import { TabbedProductGrid, type GridGroup } from "@/components/home/TabbedProductGrid";
 import { PromoBanners } from "@/components/home/PromoBanners";
@@ -175,6 +176,7 @@ export default async function HomePage() {
 
       <HeroCarousel slides={heroSlides} />
       <TrustStrip />
+      <BrandMarquee />
       <PopularCategories items={circles} />
       <TabbedProductGrid
         title="Shop Our Collection"

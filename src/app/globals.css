@@ -188,6 +188,43 @@
   }
 }
 
+/* Brand marquee — seamless infinite logo scroll (two copies, translate -50%).
+   Pauses on hover; freezes and centers under prefers-reduced-motion. */
+.brand-marquee {
+  --brand-h: 1.5rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+@media (min-width: 768px) {
+  .brand-marquee {
+    --brand-h: 1.75rem;
+  }
+}
+.brand-marquee__track {
+  animation: brand-scroll 42s linear infinite;
+}
+.brand-marquee:hover .brand-marquee__track {
+  animation-play-state: paused;
+}
+@keyframes brand-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee__track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+  .brand-marquee__track > [data-marquee-clone="true"] {
+    display: none;
+  }
+}
+
 body {
   background: var(--color-surface);
   color: var(--color-on-surface);
