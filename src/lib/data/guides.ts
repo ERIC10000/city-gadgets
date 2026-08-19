@@ -1,4 +1,7 @@
 import type { ProductQuery } from "@/lib/data/products";
+import { isSupabaseConfigured } from "@/lib/env";
+import { createPublicClient } from "@/lib/supabase/public";
+import { createClient } from "@/lib/supabase/server";
 
 /**
  * Buying guides — evergreen, SEO-targeted editorial content.
@@ -415,11 +418,99 @@ function withHero(g: Omit<Guide, "heroImage">): Guide {
   return { ...g, heroImage: HERO_IMAGE[g.slug] ?? "" };
 }
 
-export function getGuides(): Guide[] {
-  return [...GUIDES].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(withHero);
+function getBuiltInGuides(): Guide[] {
+  return GUIDES.map(withHero);
 }
 
-export function getGuideBySlug(slug: string): Guide | null {
+// ---- Admin-authored guides (Supabase `product_guides`) --------------------
+
+export type GuideRow = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  excerpt: string;
+  category_slug: string;
+  hero_image: string | null;
+  picks_heading: string;
+  body: string;
+  read_minutes: number;
+  pq_sort: string;
+  pq_limit: number;
+  pq_brand: string | null;
+  pq_max_price: number | null;
+  status: string;
+  updated_at: string;
+};
+
+const GUIDE_COLS =
+  "id, slug, title, description, excerpt, category_slug, hero_image, picks_heading, body, read_minutes, pq_sort, pq_limit, pq_brand, pq_max_price, status, updated_at";
+
+function mapGuideRow(r: GuideRow): Guide {
+  return {
+    slug: r.slug,
+    title: r.title,
+    description: r.description,
+    excerpt: r.excerpt,
+    categorySlug: r.category_slug,
+    heroImage: r.hero_image ?? "",
+    picksHeading: r.picks_heading,
+    body: r.body,
+    readMinutes: r.read_minutes,
+    updatedAt: (r.updated_at ?? "").slice(0, 10),
+    productQuery: {
+      categorySlug: r.category_slug,
+      sort: (r.pq_sort as ProductQuery["sort"]) ?? "rating",
+      limit: r.pq_limit ?? 9,
+      brands: r.pq_brand ? [r.pq_brand] : undefined,
+      maxPrice: r.pq_max_price ?? undefined,
+    },
+  };
+}
+
+/** All published guides — built-in (code) plus admin-authored (DB), newest first.
+ *  A DB guide with the same slug as a built-in one overrides it. */
+export async function getGuides(): Promise<Guide[]> {
+  const bySlug = new Map<string, Guide>();
+  for (const g of getBuiltInGuides()) bySlug.set(g.slug, g);
+
+  if (isSupabaseConfigured()) {
+    const { data } = await createPublicClient()
+      .from("product_guides")
+      .select(GUIDE_COLS)
+      .eq("status", "published");
+    for (const r of (data as GuideRow[] | null) ?? []) bySlug.set(r.slug, mapGuideRow(r));
+  }
+
+  return [...bySlug.values()].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+export async function getGuideBySlug(slug: string): Promise<Guide | null> {
+  if (isSupabaseConfigured()) {
+    const { data } = await createPublicClient()
+      .from("product_guides")
+      .select(GUIDE_COLS)
+      .eq("slug", slug)
+      .eq("status", "published")
+      .maybeSingle();
+    if (data) return mapGuideRow(data as GuideRow);
+  }
   const g = GUIDES.find((x) => x.slug === slug);
   return g ? withHero(g) : null;
+}
+
+// ---- Vendor studio reads (auth-scoped; includes drafts) -------------------
+
+export async function getVendorGuides(): Promise<GuideRow[]> {
+  if (!isSupabaseConfigured()) return [];
+  const supabase = await createClient();
+  const { data } = await supabase.from("product_guides").select(GUIDE_COLS).order("updated_at", { ascending: false });
+  return (data as GuideRow[] | null) ?? [];
+}
+
+export async function getVendorGuide(id: string): Promise<GuideRow | null> {
+  if (!isSupabaseConfigured()) return null;
+  const supabase = await createClient();
+  const { data } = await supabase.from("product_guides").select(GUIDE_COLS).eq("id", id).maybeSingle();
+  return (data as GuideRow | null) ?? null;
 }

@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   alternates: canonical("/guides"),
 };
 
+export const revalidate = 600;
+
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" });
 }

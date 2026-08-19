@@ -160,7 +160,7 @@ export default async function HomePage() {
   const streaming = byCategory("streaming").slice(0, 8);
   const gaming = [...byCategory("consoles"), ...byCategory("gaming-accessories")].slice(0, 8);
 
-  const guides = getGuides().slice(0, 3);
+  const guides = (await getGuides()).slice(0, 3);
   const categoryNames = Object.fromEntries(categories.map((c) => [c.slug, c.name]));
 
   // Departments already surfaced by the browse grid's tabs — don't repeat them

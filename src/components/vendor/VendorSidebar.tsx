@@ -23,6 +23,7 @@ const SECTIONS: { label: string; items: NavItem[] }[] = [
       { href: "/vendor/categories", icon: "category", label: "Categories" },
       { href: "/vendor/deals", icon: "local_offer", label: "Deals & Banners" },
       { href: "/vendor/videos", icon: "smart_display", label: "Video Inspiration" },
+      { href: "/vendor/guides", icon: "menu_book", label: "Buying Guides" },
     ],
   },
   {

@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getCategories(),
     getProducts({ limit: 1000 }),
   ]);
-  const guides = getGuides();
+  const guides = await getGuides();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "daily", priority: 1 },

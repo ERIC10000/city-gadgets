@@ -14,13 +14,16 @@ import { absoluteUrl, canonical } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return getGuides().map((g) => ({ slug: g.slug }));
+// Refresh so guides published from the vendor studio appear without a redeploy.
+export const revalidate = 600;
+
+export async function generateStaticParams() {
+  return (await getGuides()).map((g) => ({ slug: g.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  const guide = await getGuideBySlug(slug);
   if (!guide) return {};
   return {
     title: guide.title,
@@ -36,7 +39,7 @@ function formatDate(iso: string) {
 
 export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  const guide = await getGuideBySlug(slug);
   if (!guide) notFound();
 
   const [category, primary] = await Promise.all([
