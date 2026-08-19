@@ -191,13 +191,13 @@
 /* Brand marquee — seamless infinite logo scroll (two copies, translate -50%).
    Pauses on hover; freezes and centers under prefers-reduced-motion. */
 .brand-marquee {
-  --brand-h: 1.5rem;
+  --brand-h: 1.75rem;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 @media (min-width: 768px) {
   .brand-marquee {
-    --brand-h: 1.75rem;
+    --brand-h: 2rem;
   }
 }
 .brand-marquee__track {
