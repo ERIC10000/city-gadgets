@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/product/Breadcrumbs";
 import { ImageGallery } from "@/components/product/ImageGallery";
 import { SpecBento } from "@/components/product/SpecBento";
@@ -12,13 +13,17 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { ProductReviews } from "@/components/product/ProductReviews";
 import { ProductFaq } from "@/components/product/ProductFaq";
 import { RichText } from "@/components/ui/RichText";
-import { getProductBySlug, getRelatedProducts } from "@/lib/data/products";
+import { getProductBySlug, getRelatedProducts, getProducts } from "@/lib/data/products";
 import { getCategoryBySlug } from "@/lib/data/categories";
-import { getProductReviews, getMyReview } from "@/lib/data/reviews";
-import { getCurrentUser } from "@/lib/data/auth";
+import { getProductReviews } from "@/lib/data/reviews";
 import { COMES_WITH } from "@/lib/spec-templates";
 import { breadcrumbJsonLd, productJsonLd, productMetaTitle, productMetaDescription, productFaqs, faqJsonLd } from "@/lib/seo";
 import { canonical } from "@/lib/site";
+
+// Cache product pages (ISR). No cookies()/auth read here — the review form
+// resolves the user on the client — so Google can crawl a fast, edge-cached
+// page. Product edits already revalidatePath("/", "layout") to refresh these.
+export const revalidate = 3600;
 
 function deliveryWindow(): string {
   const fmt = (d: Date) => d.toLocaleDateString("en-KE", { month: "short", day: "numeric" });
@@ -30,6 +35,15 @@ function deliveryWindow(): string {
 }
 
 type Props = { params: Promise<{ slug: string }> };
+
+// Prerender the most important products at build; every other product renders
+// on first request and is then cached (ISR — dynamicParams defaults to true).
+// This is what turns product pages from per-request renders into fast,
+// edge-cached pages Google can crawl cheaply.
+export async function generateStaticParams() {
+  const { items } = await getProducts({ sort: "rating", limit: 30 });
+  return items.map((p) => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -53,12 +67,10 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const [category, related, reviews, currentUser, myReview] = await Promise.all([
+  const [category, related, reviews] = await Promise.all([
     getCategoryBySlug(product.category_slug),
     getRelatedProducts(product, 10),
     getProductReviews(product.id),
-    getCurrentUser(),
-    getMyReview(product.id),
   ]);
   const outOfStock = product.stock_quantity <= 0;
   const image = product.images[0]?.url ?? "";
@@ -102,9 +114,12 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="space-y-6 md:col-span-5 md:sticky md:top-24 md:h-fit">
           {product.brand && (
-            <span className="w-fit rounded bg-primary/10 px-2 py-1 text-badge-text font-semibold uppercase tracking-wide text-primary">
+            <Link
+              href={`/category/${product.category_slug}?brand=${encodeURIComponent(product.brand)}`}
+              className="w-fit rounded bg-primary/10 px-2 py-1 text-badge-text font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-primary/20"
+            >
               {product.brand}
-            </span>
+            </Link>
           )}
           <h1 className="text-3xl font-extrabold text-on-surface md:text-4xl">{product.name}</h1>
           <div className="flex items-center gap-3">
@@ -236,8 +251,6 @@ export default async function ProductPage({ params }: Props) {
         reviews={reviews}
         rating={product.rating}
         reviewCount={product.review_count}
-        isLoggedIn={currentUser !== null}
-        myReview={myReview}
       />
 
       {related.length > 0 && (

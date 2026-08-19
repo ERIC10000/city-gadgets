@@ -21,6 +21,20 @@ const SOCIAL_GLYPH: Record<
   facebook: FacebookIcon,
 };
 
+// Sitewide links into every department — appear on every page so Google always
+// has a crawl path from any URL to the category (and, from there, its products).
+const CATEGORY_LINKS = [
+  { href: "/category/phones", label: "Phones" },
+  { href: "/category/macbooks", label: "Laptops & MacBooks" },
+  { href: "/category/tablets", label: "Tablets & iPads" },
+  { href: "/category/wearables", label: "Smartwatches" },
+  { href: "/category/audio", label: "Audio" },
+  { href: "/category/consoles", label: "Gaming" },
+  { href: "/category/cameras", label: "Cameras" },
+  { href: "/deals", label: "Hot Deals" },
+  { href: "/repair", label: "Repairs" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-inverse-surface pb-24 text-inverse-on-surface md:pb-16">
@@ -28,6 +42,18 @@ export function Footer() {
       <div className="h-1 w-full bg-gradient-to-r from-price-gold/20 via-price-gold to-price-gold/20" />
 
       <div className="mx-auto w-full max-w-container-max px-margin-mobile pt-16 md:px-gutter">
+        {/* Shop by category — sitewide internal links for crawl + navigation */}
+        <div className="mb-12 border-b border-price-gold/15 pb-8">
+          <h5 className="mb-4 text-sm font-bold uppercase tracking-wider text-price-gold">Shop by Category</h5>
+          <div className="flex flex-wrap gap-x-6 gap-y-2.5 text-body-sm text-inverse-on-surface/70">
+            {CATEGORY_LINKS.map((c) => (
+              <Link key={c.href} href={c.href} className="transition-colors hover:text-price-gold">
+                {c.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-6">
             <Image

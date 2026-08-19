@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { GoogleReviewCta } from "@/components/marketing/GoogleReviewCta";
 import { submitReview } from "@/lib/actions/reviews";
+import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/env";
 import { cn } from "@/lib/utils";
 import type { ProductReview } from "@/lib/data/reviews";
 
@@ -114,17 +116,42 @@ export function ProductReviews({
   reviews,
   rating,
   reviewCount,
-  isLoggedIn,
-  myReview,
 }: {
   productId: string;
   slug: string;
   reviews: ProductReview[];
   rating: number;
   reviewCount: number;
-  isLoggedIn: boolean;
-  myReview: ProductReview | null;
 }) {
+  // Auth is resolved on the client so the product page itself stays cacheable
+  // (no server-side cookies() read). The user's own review is already in the
+  // public `reviews` list, so we just match on user id — no extra query.
+  const [userId, setUserId] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured()) {
+      setChecked(true);
+      return;
+    }
+    let active = true;
+    createClient()
+      .auth.getSession()
+      .then(({ data }) => {
+        if (active) {
+          setUserId(data.session?.user?.id ?? null);
+          setChecked(true);
+        }
+      })
+      .catch(() => active && setChecked(true));
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const isLoggedIn = userId !== null;
+  const myReview = userId ? reviews.find((r) => r.user_id === userId) ?? null : null;
+
   const dist = [5, 4, 3, 2, 1].map((s) => ({
     stars: s,
     count: reviews.filter((r) => r.rating === s).length,
@@ -165,7 +192,11 @@ export function ProductReviews({
             </div>
           )}
 
-          {isLoggedIn ? (
+          {!checked ? (
+            <div className="flex items-center justify-center rounded-2xl border border-outline-variant bg-white p-5 text-on-surface-variant">
+              <Icon name="progress_activity" className="animate-spin text-xl" />
+            </div>
+          ) : isLoggedIn ? (
             <ReviewForm productId={productId} slug={slug} existing={myReview} />
           ) : (
             <Link
