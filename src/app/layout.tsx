@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | City Gadgets",
   },
   description:
-    "Buy phones, laptops, gaming consoles, audio and accessories in Kenya at City Gadgets — best prices, genuine stock, 12-month warranty, M-Pesa payments and free same-day Nairobi delivery.",
+    "Buy phones, laptops, gaming consoles, audio and accessories in Kenya at City Gadgets — best prices, genuine stock, 12-month official brand warranty, M-Pesa payments and fast same-day delivery within Nairobi.",
   openGraph: {
     type: "website",
     siteName: "City Gadgets",

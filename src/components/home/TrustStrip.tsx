@@ -2,8 +2,8 @@ import { Icon } from "@/components/ui/Icon";
 import { TrustpilotRating } from "@/components/home/Trustpilot";
 
 const FEATURES = [
-  { icon: "verified_user", label: "12-Month Warranty" },
-  { icon: "local_shipping", label: "Free Delivery" },
+  { icon: "verified_user", label: "12-Month Official Brand Warranty" },
+  { icon: "local_shipping", label: "Same-Day Delivery" },
 ];
 
 export function TrustStrip() {

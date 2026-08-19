@@ -35,7 +35,7 @@ const GUIDES: Omit<Guide, "heroImage">[] = [
     slug: "best-phones-under-20000-in-kenya",
     title: "Best Phones Under KSh 20,000 in Kenya (2026)",
     description:
-      "The best phones under KSh 20,000 in Kenya for 2026 — what to look for in battery, RAM and storage, plus genuine budget phones in stock with warranty and free Nairobi delivery.",
+      "The best phones under KSh 20,000 in Kenya for 2026 — what to look for in battery, RAM and storage, plus genuine budget phones in stock with warranty and fast same-day Nairobi delivery.",
     excerpt: "Big batteries, smooth screens and real storage — how to pick the best budget phone, plus live picks under KSh 20,000.",
     categorySlug: "phones",
     productQuery: { categorySlug: "phones", maxPrice: 20000, sort: "price-asc", limit: 9 },
@@ -56,13 +56,13 @@ const GUIDES: Omit<Guide, "heroImage">[] = [
 
 Spend right at the top of your budget on **battery and storage** rather than chasing megapixels. A 5,000mAh, 128GB phone will serve you far longer than a slim phone with a big camera number on the box.
 
-Every phone below is 100% genuine, comes with a 12-month warranty, and qualifies for free same-day delivery in Nairobi. Prices are live and update automatically.`,
+Every phone below is 100% genuine, comes with a 12-month official brand warranty, and qualifies for fast same-day delivery within Nairobi. Prices are live and update automatically.`,
   },
   {
     slug: "iphone-price-in-kenya",
     title: "iPhone Price in Kenya (2026): Live Price List & Where to Buy",
     description:
-      "How much is an iPhone in Kenya in 2026? A live iPhone price list across models and storage, new vs refurbished advice, and genuine iPhones with 12-month warranty and free Nairobi delivery.",
+      "How much is an iPhone in Kenya in 2026? A live iPhone price list across models and storage, new vs refurbished advice, and genuine iPhones with 12-month official brand warranty and fast same-day Nairobi delivery.",
     excerpt: "A live iPhone price list for Kenya, plus how to choose the right model and whether to go new or refurbished.",
     categorySlug: "phones",
     productQuery: { categorySlug: "phones", brands: ["Apple"], sort: "price-desc", limit: 12 },
@@ -79,15 +79,15 @@ Every phone below is 100% genuine, comes with a 12-month warranty, and qualifies
 
 ## New vs refurbished
 
-A **certified refurbished** iPhone is fully tested, restored and warrantied — you save a lot versus brand-new with no drop in everyday experience. If you want the newest model sealed in the box, go new. Either way, every unit we sell is genuine Apple hardware with a 12-month warranty. See our full [new vs refurbished guide](/guides/new-vs-refurbished-phones-kenya).
+A **certified refurbished** iPhone is fully tested, restored and warrantied — you save a lot versus brand-new with no drop in everyday experience. If you want the newest model sealed in the box, go new. Either way, every unit we sell is genuine Apple hardware with a 12-month official brand warranty. See our full [new vs refurbished guide](/guides/new-vs-refurbished-phones-kenya).
 
-All iPhones below are genuine, warrantied and delivered free same-day in Nairobi — pay with M-Pesa, card or on delivery.`,
+All iPhones below are genuine, warrantied and delivered fast same-day within Nairobi — pay with M-Pesa, card or on delivery.`,
   },
   {
     slug: "best-gaming-laptops-in-kenya",
     title: "Best Gaming Laptops in Kenya (2026): Buyer's Guide",
     description:
-      "Best gaming laptops in Kenya for 2026 — the GPU, CPU, RAM and display specs that matter, how much to spend, and genuine laptops in stock with warranty and free Nairobi delivery.",
+      "Best gaming laptops in Kenya for 2026 — the GPU, CPU, RAM and display specs that matter, how much to spend, and genuine laptops in stock with warranty and fast same-day Nairobi delivery.",
     excerpt: "The specs that actually matter for gaming, how much to spend, and top laptops in stock right now.",
     categorySlug: "macbooks",
     productQuery: { categorySlug: "macbooks", sort: "price-desc", limit: 9 },
@@ -108,13 +108,13 @@ All iPhones below are genuine, warrantied and delivered free same-day in Nairobi
 
 Budget a little for a **cooling pad and a mouse**. And if you mainly play esports titles (FIFA, Valorant, CS2), you don't need the most expensive GPU — a mid-range card hits high frame rates easily and saves you money.
 
-Every laptop below is genuine, backed by a 12-month warranty, and delivered free same-day in Nairobi.`,
+Every laptop below is genuine, backed by a 12-month official brand warranty, and delivered fast same-day within Nairobi.`,
   },
   {
     slug: "ps5-price-in-kenya",
     title: "PS5 Price in Kenya (2026): Is It Worth It?",
     description:
-      "PS5 price in Kenya for 2026 — PS5 Disc vs Digital vs Pro, what to budget for controllers and games, and genuine PlayStation consoles in stock with warranty and free Nairobi delivery.",
+      "PS5 price in Kenya for 2026 — PS5 Disc vs Digital vs Pro, what to budget for controllers and games, and genuine PlayStation consoles in stock with warranty and fast same-day Nairobi delivery.",
     excerpt: "Disc vs Digital vs Pro, what to budget for, and whether the PS5 is worth it in Kenya — with live console prices.",
     categorySlug: "consoles",
     productQuery: { categorySlug: "consoles", sort: "featured", limit: 9 },
@@ -139,13 +139,13 @@ Every laptop below is genuine, backed by a 12-month warranty, and delivered free
 
 If you play AAA games, yes — the exclusives alone justify it, and a genuine, warrantied unit with local support beats a grey-market import you can't return.
 
-Browse genuine PS5 consoles, controllers and games below — free same-day Nairobi delivery.`,
+Browse genuine PS5 consoles, controllers and games below — fast same-day delivery within Nairobi.`,
   },
   {
     slug: "best-wireless-earbuds-in-kenya",
     title: "Best Wireless Earbuds & Headphones in Kenya (2026)",
     description:
-      "Best wireless earbuds and headphones in Kenya for 2026 — battery, noise cancellation, water resistance and fit explained, plus genuine audio in stock with warranty and free Nairobi delivery.",
+      "Best wireless earbuds and headphones in Kenya for 2026 — battery, noise cancellation, water resistance and fit explained, plus genuine audio in stock with warranty and fast same-day Nairobi delivery.",
     excerpt: "Battery, ANC, water resistance and fit — what to look for, plus the best earbuds and headphones in stock.",
     categorySlug: "audio",
     productQuery: { categorySlug: "audio", sort: "rating", limit: 9 },
@@ -168,13 +168,13 @@ Browse genuine PS5 consoles, controllers and games below — free same-day Nairo
 - **Best value:** Anker Soundcore, JBL and Redmi buds punch above their price.
 - **Best for sport:** secure-fit, sweat-proof designs from Beats or JBL.
 
-All audio below is genuine, warrantied for 12 months, and delivered free same-day in Nairobi.`,
+All audio below is genuine, covered by a 12-month official brand warranty, and delivered fast same-day within Nairobi.`,
   },
   {
     slug: "new-vs-refurbished-phones-kenya",
     title: "New vs Refurbished Phones in Kenya: Which Should You Buy?",
     description:
-      "New vs refurbished phones in Kenya — what 'certified refurbished' really means, when to choose each, and how to buy safely with a 12-month warranty and free Nairobi delivery.",
+      "New vs refurbished phones in Kenya — what 'certified refurbished' really means, when to choose each, and how to buy safely with a 12-month official brand warranty and fast same-day Nairobi delivery.",
     excerpt: "What 'certified refurbished' really means, and an honest breakdown of when to buy new vs refurbished.",
     categorySlug: "phones",
     productQuery: { categorySlug: "phones", sort: "featured", limit: 9 },
@@ -201,13 +201,13 @@ A certified refurbished phone is a pre-owned device that's been professionally i
 
 ## The bottom line
 
-For most people, a **certified refurbished flagship** delivers the best value — a premium phone at a mid-range price. Whatever you choose from City Gadgets is genuine and backed by a 12-month warranty, so you're covered either way.`,
+For most people, a **certified refurbished flagship** delivers the best value — a premium phone at a mid-range price. Whatever you choose from City Gadgets is genuine and backed by a 12-month official brand warranty, so you're covered either way.`,
   },
   {
     slug: "best-laptops-for-students-in-kenya",
     title: "Best Laptops for University Students in Kenya (2026)",
     description:
-      "Best laptops for university students in Kenya (2026) — the battery, weight, RAM and storage that matter for campus, matched to your course, with genuine laptops in stock, warranty and free Nairobi delivery.",
+      "Best laptops for university students in Kenya (2026) — the battery, weight, RAM and storage that matter for campus, matched to your course, with genuine laptops in stock, warranty and fast same-day Nairobi delivery.",
     excerpt: "The specs that actually matter on campus, matched to your course — plus affordable student laptops in stock.",
     categorySlug: "macbooks",
     productQuery: { categorySlug: "macbooks", sort: "price-asc", limit: 9 },
@@ -234,13 +234,13 @@ For most people, a **certified refurbished flagship** delivers the best value �
 
 Don't overspend on a gaming laptop you'll mostly use for Word. Put the savings toward a **padded backpack**, a **mouse** and a **surge protector** — Kenyan power can be rough on chargers.
 
-Every laptop below is genuine, backed by a 12-month warranty, and delivered free same-day in Nairobi.`,
+Every laptop below is genuine, backed by a 12-month official brand warranty, and delivered fast same-day within Nairobi.`,
   },
   {
     slug: "best-samsung-phones-in-kenya",
     title: "Best Samsung Phones in Kenya (2026): S, A & M Series Compared",
     description:
-      "Best Samsung phones in Kenya (2026) — how the Galaxy S, A and M series compare and which to buy, with genuine Samsung phones in stock, 12-month warranty and free Nairobi delivery.",
+      "Best Samsung phones in Kenya (2026) — how the Galaxy S, A and M series compare and which to buy, with genuine Samsung phones in stock, 12-month official brand warranty and fast same-day Nairobi delivery.",
     excerpt: "Galaxy S vs A vs M — which Samsung family is right for you, plus genuine Samsung phones in stock.",
     categorySlug: "phones",
     productQuery: { categorySlug: "phones", brands: ["Samsung"], sort: "price-desc", limit: 12 },
@@ -265,13 +265,13 @@ Every laptop below is genuine, backed by a 12-month warranty, and delivered free
 
 A mid-range **Galaxy A series** hits the sweet spot — a flagship-feeling screen and battery without the flagship price. Step up to the S series only if the camera is your top priority.
 
-Every Samsung below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+Every Samsung below is genuine, covered by a 12-month official brand warranty, with fast same-day delivery within Nairobi.`,
   },
   {
     slug: "best-smartwatch-in-kenya",
     title: "Best Smartwatch in Kenya (2026): Fitness, Style & Battery",
     description:
-      "Best smartwatch in Kenya (2026) — how to choose for fitness, notifications and battery, and which watch pairs with your phone, with genuine smartwatches in stock, warranty and free Nairobi delivery.",
+      "Best smartwatch in Kenya (2026) — how to choose for fitness, notifications and battery, and which watch pairs with your phone, with genuine smartwatches in stock, warranty and fast same-day Nairobi delivery.",
     excerpt: "Fitness tracking, notifications, battery and phone pairing — how to choose, plus smartwatches in stock.",
     categorySlug: "wearables",
     productQuery: { categorySlug: "wearables", sort: "rating", limit: 9 },
@@ -296,13 +296,13 @@ Every Samsung below is genuine, warrantied for 12 months, with free same-day Nai
 
 Most people want notifications, steps, heart-rate and a week of battery — a mid-range watch or a premium band nails all of that. Save the flagship money unless you're a serious runner or cyclist.
 
-Every wearable below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+Every wearable below is genuine, covered by a 12-month official brand warranty, with fast same-day delivery within Nairobi.`,
   },
   {
     slug: "best-cameras-for-content-creators-in-kenya",
     title: "Best Cameras & Gear for Content Creators in Kenya (2026)",
     description:
-      "Best cameras and gear for content creators in Kenya (2026) — what to buy first for YouTube, TikTok and podcasts, from mics to lighting to cameras, with genuine gear in stock and free Nairobi delivery.",
+      "Best cameras and gear for content creators in Kenya (2026) — what to buy first for YouTube, TikTok and podcasts, from mics to lighting to cameras, with genuine gear in stock and fast same-day Nairobi delivery.",
     excerpt: "Building a YouTube or TikTok channel? What to buy first — mic, light, gimbal, camera — and where to spend.",
     categorySlug: "cameras",
     productQuery: { categorySlug: "cameras", sort: "rating", limit: 9 },
@@ -326,13 +326,13 @@ A modern flagship phone shoots fantastic 4K — start there and add a mic, light
 
 Mic + light + tripod + a phone or entry mirrorless will take you a very long way. Add a gimbal and a spare battery and you're ready to shoot anywhere in Nairobi.
 
-Every item below is genuine, warrantied for 12 months, with free same-day Nairobi delivery.`,
+Every item below is genuine, covered by a 12-month official brand warranty, with fast same-day delivery within Nairobi.`,
   },
   {
     slug: "ps5-vs-xbox-vs-switch-kenya",
     title: "PS5 vs Xbox vs Nintendo Switch: Which to Buy in Kenya (2026)",
     description:
-      "PS5 vs Xbox vs Nintendo Switch in Kenya (2026) — an honest comparison of game libraries, value and who each console is for, with genuine consoles in stock, warranty and free Nairobi delivery.",
+      "PS5 vs Xbox vs Nintendo Switch in Kenya (2026) — an honest comparison of game libraries, value and who each console is for, with genuine consoles in stock, warranty and fast same-day Nairobi delivery.",
     excerpt: "An honest showdown — game libraries, value and who each console is really for in Kenya.",
     categorySlug: "consoles",
     productQuery: { categorySlug: "consoles", sort: "featured", limit: 9 },
@@ -359,7 +359,7 @@ Nothing else plays like it. Family-friendly exclusives (Mario, Zelda, Mario Kart
 - **Want the most games for your money?** Xbox plus Game Pass.
 - **Family, kids or portability?** Switch.
 
-Whatever you choose below is genuine, warrantied and delivered free same-day in Nairobi — with games and controllers to match.`,
+Whatever you choose below is genuine, warrantied and delivered fast same-day within Nairobi — with games and controllers to match.`,
   },
   {
     slug: "how-to-spot-a-fake-phone-in-kenya",
@@ -391,7 +391,7 @@ Dial \`*#06#\` to show the phone's IMEI number, then check it on the manufacture
 - **Buy from a seller who gives you a receipt and a warranty** — that's your proof and your protection.
 - **Insist on unboxing and testing** before paying.
 
-At City Gadgets every phone is 100% genuine, IMEI-clean and backed by a 12-month warranty — no clones, no surprises. Browse verified phones below.`,
+At City Gadgets every phone is 100% genuine, IMEI-clean and backed by a 12-month official brand warranty — no clones, no surprises. Browse verified phones below.`,
   },
 ];
 

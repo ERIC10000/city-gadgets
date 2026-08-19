@@ -22,13 +22,13 @@ export function HotDealsBanner() {
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-white/15 px-4 py-1.5 text-badge-text font-bold text-white backdrop-blur-sm">
-            12-Month Warranty
+            12-Month Official Brand Warranty
           </span>
           <span className="rounded-full bg-white/15 px-4 py-1.5 text-badge-text font-bold text-white backdrop-blur-sm">
             M-Pesa accepted
           </span>
           <span className="rounded-full bg-price-gold px-4 py-1.5 text-badge-text font-bold text-inverse-surface">
-            Free Nairobi delivery
+            Fast Nairobi delivery
           </span>
         </div>
       </div>

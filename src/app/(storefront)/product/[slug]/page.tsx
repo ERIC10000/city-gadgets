@@ -139,8 +139,8 @@ export default async function ProductPage({ params }: Props) {
           <div className="divide-y divide-outline-variant rounded-2xl border border-outline-variant">
             {[
               { icon: "verified", text: "Genuine stock, sourced & checked in Nairobi 🇰🇪" },
-              { icon: "verified_user", text: "12-Month Warranty incl. battery" },
-              { icon: "local_shipping", text: "Free same-day Nairobi delivery" },
+              { icon: "verified_user", text: "12-Month Official Brand Warranty incl. battery" },
+              { icon: "local_shipping", text: "Fast same-day delivery within Nairobi" },
             ].map((row) => (
               <div key={row.text} className="flex items-center gap-3 px-4 py-3 text-body-sm text-on-surface">
                 <Icon name={row.icon} className="text-secondary" />
@@ -153,7 +153,7 @@ export default async function ProductPage({ params }: Props) {
             <p className="flex items-center gap-2 rounded-xl bg-surface-container-high/60 px-4 py-3 text-body-sm text-on-surface">
               <Icon name="local_shipping" className="text-secondary" />
               <span>
-                <span className="font-bold text-secondary">FREE delivery</span> in Nairobi by{" "}
+                <span className="font-bold text-secondary">Same-day delivery</span> in Nairobi by{" "}
                 <span className="font-bold">{deliveryWindow()}</span>
               </span>
             </p>
@@ -184,7 +184,7 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="flex flex-wrap items-center gap-6 border-t border-outline-variant pt-6 text-body-sm text-on-surface-variant">
             <span className="flex items-center gap-2">
-              <Icon name="verified_user" className="text-primary" />1 Year Warranty
+              <Icon name="verified_user" className="text-primary" />1-Year Official Brand Warranty
             </span>
             <span className="flex items-center gap-2">
               <Icon name="local_shipping" className="text-primary" />

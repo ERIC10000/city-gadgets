@@ -113,7 +113,7 @@ export default async function HomePage() {
     {
       eyebrow: "Pro power, less spend",
       title: "MacBooks & Laptops",
-      subtitle: "M5 performance and all-day battery, with a 12-month warranty.",
+      subtitle: "M5 performance and all-day battery, with a 12-month official brand warranty.",
       href: "/category/macbooks",
       cta: "Shop Laptops",
       images: pickBrandImages(all, "macbooks", 3),

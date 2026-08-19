@@ -9,7 +9,7 @@ import { canonical } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "City Gadgets is a Nairobi CBD electronics retailer selling genuine phones, laptops, gaming and audio — every device checked in-house, backed by a 12-month warranty and same-day delivery.",
+    "City Gadgets is a Nairobi CBD electronics retailer selling genuine phones, laptops, gaming and audio — every device checked in-house, backed by a 12-month official brand warranty and same-day delivery.",
   alternates: canonical("/about"),
 };
 
@@ -32,7 +32,7 @@ const PRINCIPLES = [
   {
     icon: "verified_user",
     title: "12 months of warranty",
-    body: "Every order carries a 12-month warranty, battery included. If something fails inside that window, you talk to a person here, not an overseas support queue.",
+    body: "Every order carries a 12-month official brand warranty, battery included. If something fails inside that window, you talk to a person here, not an overseas support queue.",
   },
   {
     icon: "payments",
@@ -42,7 +42,7 @@ const PRINCIPLES = [
   {
     icon: "local_shipping",
     title: "Same-day in Nairobi",
-    body: "Free same-day delivery across Nairobi, or collect from the shop in the CBD. Countrywide delivery is arranged on request.",
+    body: "Fast same-day delivery within Nairobi, or collect from the shop in the CBD. Countrywide delivery is arranged on request.",
   },
   {
     icon: "swap_horiz",

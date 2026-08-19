@@ -10,7 +10,7 @@ import { canonical } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Buying Guides — Tech Prices & Advice in Kenya",
   description:
-    "Buying guides for phones, laptops, gaming and audio in Kenya — honest advice and live price lists to help you choose, from City Gadgets. Genuine stock, warranty, free Nairobi delivery.",
+    "Buying guides for phones, laptops, gaming and audio in Kenya — honest advice and live price lists to help you choose, from City Gadgets. Genuine stock, warranty, fast same-day Nairobi delivery.",
   alternates: canonical("/guides"),
 };
 

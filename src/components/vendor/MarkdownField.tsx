@@ -19,7 +19,7 @@ A short paragraph about the product. Leave a blank line between paragraphs.
 ## What's in the box
 - Device
 - USB-C cable
-- 12-month warranty
+- 12-month official brand warranty
 
 ## FAQ
 **Is it brand new?**

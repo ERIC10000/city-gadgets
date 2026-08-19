@@ -4,9 +4,9 @@ import { TrustpilotRating } from "@/components/home/Trustpilot";
 
 const FEATURES = [
   { icon: "savings", label: "Savings up to 70% vs. retail" },
-  { icon: "verified_user", label: "12-Month Warranty on every order" },
+  { icon: "verified_user", label: "12-Month Official Brand Warranty on every order" },
   { icon: "fact_check", label: "Quality-checked with full reports" },
-  { icon: "local_shipping", label: "Fast, free same-day Nairobi delivery" },
+  { icon: "local_shipping", label: "Fast same-day delivery within Nairobi" },
 ];
 
 export function RefurbishedBanner() {

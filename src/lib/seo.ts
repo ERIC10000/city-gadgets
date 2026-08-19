@@ -26,7 +26,7 @@ export function productMetaDescription(product: Product): string {
   const price = formatKES(product.price);
   const condition = product.condition === "refurbished" ? "certified refurbished" : "brand-new";
   const brand = product.brand ? `${product.brand} ` : "";
-  return `Buy the ${product.name} in Kenya at ${price} — genuine ${brand}${condition} stock with a 12-month warranty and free same-day Nairobi delivery.`;
+  return `Buy the ${product.name} in Kenya at ${price} — genuine ${brand}${condition} stock with a 12-month official brand warranty and fast same-day delivery within Nairobi.`;
 }
 
 export function categoryMetaTitle(name: string): string {
@@ -34,7 +34,7 @@ export function categoryMetaTitle(name: string): string {
 }
 
 export function categoryMetaDescription(name: string): string {
-  return `Shop ${name} in Kenya at City Gadgets — best prices on genuine stock, 12-month warranty, M-Pesa payments and free same-day Nairobi delivery.`;
+  return `Shop ${name} in Kenya at City Gadgets — best prices on genuine stock, 12-month official brand warranty, M-Pesa payments and fast same-day delivery within Nairobi.`;
 }
 
 /**
@@ -56,7 +56,7 @@ export function categoryIntro(opts: {
       : "";
   const brands = opts.brands.slice(0, 3);
   const brandLine = brands.length ? ` Top brands include ${brands.join(", ")}.` : "";
-  return `Browse ${opts.count} ${opts.name.toLowerCase()} in Kenya at City Gadgets${range}.${brandLine} Every item is 100% genuine and backed by a 12-month warranty — pay with M-Pesa or on delivery and enjoy free same-day delivery across Nairobi.`;
+  return `Browse ${opts.count} ${opts.name.toLowerCase()} in Kenya at City Gadgets${range}.${brandLine} Every item is 100% genuine and backed by a 12-month official brand warranty — pay with M-Pesa or on delivery and enjoy fast same-day delivery within Nairobi.`;
 }
 
 /**
@@ -86,11 +86,11 @@ export function productFaqs(product: Product): { q: string; a: string }[] {
     },
     {
       q: `Is the ${product.name} genuine and does it have a warranty?`,
-      a: `Every ${product.name} we sell is 100% genuine ${condition} stock and comes with a 12-month warranty.`,
+      a: `Every ${product.name} we sell is 100% genuine ${condition} stock and comes with a 12-month official brand warranty.`,
     },
     {
       q: `Do you deliver the ${product.name} in Nairobi?`,
-      a: `Yes. We offer free same-day delivery within Nairobi and fast, affordable delivery to the rest of Kenya — order online or on WhatsApp.`,
+      a: `Yes. We offer fast same-day delivery within Nairobi and fast, affordable delivery to the rest of Kenya — order online or on WhatsApp.`,
     },
   ];
 }
