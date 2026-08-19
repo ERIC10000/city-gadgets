@@ -2,9 +2,8 @@ import { BRAND_LOGOS } from "./brand-logos";
 
 /**
  * A professional, self-scrolling strip of the brands we actually stock — real
- * official logos, tinted to a single muted slate so they read as one coherent
- * trust signal (colour lifts subtly on hover). The track carries the logo list
- * twice and translates by -50%, so the loop is seamless with pure CSS (no JS).
+ * official logos in their primary brand colours. The track carries the logo
+ * list twice and translates by -50%, so the loop is seamless with pure CSS (no JS).
  * See globals.css `.brand-marquee` for the animation and reduced-motion rules.
  */
 export function BrandMarquee() {
@@ -15,7 +14,7 @@ export function BrandMarquee() {
           Genuine stock from the brands you trust
         </p>
 
-        <div className="brand-marquee group relative overflow-hidden">
+        <div className="brand-marquee relative overflow-hidden">
           <div className="brand-marquee__track flex w-max items-center">
             {[0, 1].map((copy) => (
               <ul
@@ -30,9 +29,9 @@ export function BrandMarquee() {
                       viewBox={b.viewBox}
                       role="img"
                       aria-label={b.name}
-                      fill="currentColor"
+                      fill={b.color}
                       style={{ height: `calc(var(--brand-h) * ${b.scale})` }}
-                      className="w-auto text-on-surface/40 transition-colors duration-300 group-hover:text-on-surface/70"
+                      className="w-auto"
                       dangerouslySetInnerHTML={{ __html: b.inner }}
                     />
                   </li>
